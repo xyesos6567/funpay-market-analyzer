@@ -1,0 +1,95 @@
+@echo off
+setlocal enabledelayedexpansion
+
+rem Подготовка локального репозитория к публикации на GitHub.
+rem Ничего не отправляет в интернет: только ставит инструменты и делает коммит.
+rem ВАЖНО: файл в кодировке cp866, не пересохраняйте в UTF-8.
+
+cd /d "%~dp0"
+
+echo === Шаг 1 из 2: проверяю инструменты ===
+echo.
+
+where git >nul 2>nul
+if errorlevel 1 (
+    echo Git не найден, устанавливаю...
+    winget install --id Git.Git --exact --source winget --accept-package-agreements --accept-source-agreements --disable-interactivity
+    if errorlevel 1 (
+        echo Не удалось установить Git. Установите вручную: https://git-scm.com/download/win
+        pause
+        exit /b 1
+    )
+    echo.
+    echo ВАЖНО: Git установлен, но в этом окне ещё не виден.
+    echo Закройте это окно и запустите setup_github.bat заново.
+    pause
+    exit /b 1
+)
+
+where gh >nul 2>nul
+if errorlevel 1 (
+    echo GitHub CLI не найден, устанавливаю...
+    winget install --id GitHub.cli --exact --source winget --accept-package-agreements --accept-source-agreements --disable-interactivity
+    if errorlevel 1 (
+        echo Не удалось установить GitHub CLI. Установите вручную: https://cli.github.com/
+        pause
+        exit /b 1
+    )
+    echo.
+    echo ВАЖНО: GitHub CLI установлен, но в этом окне ещё не виден.
+    echo Закройте это окно и запустите setup_github.bat заново.
+    pause
+    exit /b 1
+)
+
+echo Git и GitHub CLI на месте.
+echo.
+
+echo === Шаг 2 из 2: создаю локальный репозиторий ===
+echo.
+
+if not exist ".git" (
+    git init >nul
+    echo Репозиторий инициализирован.
+) else (
+    echo Репозиторий уже существует, продолжаю.
+)
+
+rem Без настроенной личности git не даст сделать коммит.
+rem Ставим локально для этого репозитория, чтобы не трогать глобальные настройки.
+for /f "delims=" %%a in ('git config user.email 2^>nul') do set "GITEMAIL=%%a"
+if not defined GITEMAIL (
+    git config user.email "%USERNAME%@users.noreply.github.com"
+    git config user.name "%USERNAME%"
+    echo Задал локальные имя и почту для коммитов.
+)
+
+git add -A
+git commit -m "Анализатор рынка FunPay: сбор, аналитика, рекомендации по ценам" >nul 2>nul
+if errorlevel 1 (
+    echo Коммит не создан: возможно, изменений нет.
+) else (
+    echo Коммит создан.
+)
+
+git branch -M main >nul 2>nul
+
+echo.
+echo === Готово, репозиторий подготовлен локально ===
+echo.
+echo Дальше нужно два действия, оба требуют вашего входа в GitHub.
+echo.
+echo 1^) Войдите в GitHub (откроется браузер, пароль вводится только у GitHub):
+echo.
+echo      gh auth login
+echo.
+echo    Выберите: GitHub.com -^> HTTPS -^> Login with a web browser
+echo.
+echo 2^) Опубликуйте проект командой:
+echo.
+echo      publish.bat
+echo.
+echo После этого страница с отчётом будет доступна по ссылке вида
+echo   https://ВАШ_ЛОГИН.github.io/funpay-market-analyzer/
+echo.
+pause

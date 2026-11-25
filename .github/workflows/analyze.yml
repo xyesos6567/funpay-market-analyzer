@@ -1,0 +1,74 @@
+name: Анализ рынка FunPay
+
+# Кнопка "Run workflow" в интерфейсе GitHub — это и есть обновление данных.
+# Дополнительно отчёт пересобирается по расписанию.
+on:
+  workflow_dispatch:
+    inputs:
+      max_categories:
+        description: "Сколько категорий добавлять автопоиском (0 — только основные)"
+        required: false
+        default: "8"
+  schedule:
+    # 06:00 UTC = 09:00 по Москве. GitHub может задержать запуск на несколько минут.
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Не запускать два прогона одновременно: второй пишет поверх первого.
+concurrency:
+  group: funpay-pages
+  cancel-in-progress: false
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - name: Получить код
+        uses: actions/checkout@v4
+
+      - name: Установить Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Установить зависимости
+        run: python -m pip install -r requirements.txt
+
+      # Тесты идут до сбора данных: если FunPay поменяет разметку,
+      # сбор упадёт здесь, а не выдаст тихо неверные рекомендации.
+      - name: Тесты парсера и аналитики
+        run: python -m pytest
+
+      - name: Собрать свежие данные
+        env:
+          FPA_MAX_CATEGORIES: ${{ inputs.max_categories || '8' }}
+          FPA_CACHE_TTL_MINUTES: "0"   # в облаке кэш не нужен, данные должны быть свежими
+          FPA_REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+        run: python -m analyzer run
+
+      - name: Подготовить страницу
+        run: |
+          mkdir -p public
+          cp out/report.html public/index.html
+          cp out/data.json public/data.json
+
+      - name: Настроить Pages
+        uses: actions/configure-pages@v5
+
+      - name: Загрузить страницу
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Опубликовать
+        id: deploy
+        uses: actions/deploy-pages@v4

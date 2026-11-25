@@ -1,0 +1,163 @@
+{
+  "total_games_scanned": 898,
+  "ai_games": [
+    "ChatGPT",
+    "Claude",
+    "Cursor AI",
+    "DeepSeek",
+    "Gemini",
+    "GitHub Copilot",
+    "GLM",
+    "Grok",
+    "Kimi",
+    "Midjourney",
+    "Perplexity",
+    "QwenCloud"
+  ],
+  "categories": [
+    {
+      "id": "4506",
+      "name": "API-ключ DeepSeek",
+      "game": "DeepSeek",
+      "source": "seed"
+    },
+    {
+      "id": "4507",
+      "name": "Услуги DeepSeek",
+      "game": "DeepSeek",
+      "source": "seed"
+    },
+    {
+      "id": "4676",
+      "name": "Токены GLM",
+      "game": "GLM",
+      "source": "seed"
+    },
+    {
+      "id": "3755",
+      "name": "Услуги Hailuo AI",
+      "game": "",
+      "source": "seed"
+    },
+    {
+      "id": "4448",
+      "name": "Токены",
+      "game": "ChatGPT",
+      "source": "auto"
+    },
+    {
+      "id": "4234",
+      "name": "Токены",
+      "game": "Claude",
+      "source": "auto"
+    },
+    {
+      "id": "4615",
+      "name": "Токены",
+      "game": "Gemini",
+      "source": "auto"
+    },
+    {
+      "id": "4629",
+      "name": "Токены",
+      "game": "Grok",
+      "source": "auto"
+    },
+    {
+      "id": "4614",
+      "name": "Токены",
+      "game": "Kimi",
+      "source": "auto"
+    },
+    {
+      "id": "4505",
+      "name": "Пополнение баланса API",
+      "game": "DeepSeek",
+      "source": "auto"
+    },
+    {
+      "id": "3559",
+      "name": "Подписка",
+      "game": "ChatGPT",
+      "source": "auto"
+    },
+    {
+      "id": "3173",
+      "name": "Подписка",
+      "game": "Claude",
+      "source": "auto"
+    },
+    {
+      "id": "3735",
+      "name": "Подписка",
+      "game": "Cursor AI",
+      "source": "auto"
+    },
+    {
+      "id": "4401",
+      "name": "Подписка",
+      "game": "GLM",
+      "source": "auto"
+    },
+    {
+      "id": "3401",
+      "name": "Подписка",
+      "game": "Gemini",
+      "source": "auto"
+    },
+    {
+      "id": "4149",
+      "name": "Подписка",
+      "game": "GitHub Copilot",
+      "source": "auto"
+    },
+    {
+      "id": "3175",
+      "name": "Подписка",
+      "game": "Grok",
+      "source": "auto"
+    },
+    {
+      "id": "4171",
+      "name": "Подписка",
+      "game": "Kimi",
+      "source": "auto"
+    },
+    {
+      "id": "1532",
+      "name": "Подписка",
+      "game": "Midjourney",
+      "source": "auto"
+    },
+    {
+      "id": "3664",
+      "name": "Подписка",
+      "game": "Perplexity",
+      "source": "auto"
+    },
+    {
+      "id": "4625",
+      "name": "Подписка",
+      "game": "QwenCloud",
+      "source": "auto"
+    },
+    {
+      "id": "4566",
+      "name": "Промокоды",
+      "game": "ChatGPT",
+      "source": "auto"
+    },
+    {
+      "id": "4801",
+      "name": "Промо",
+      "game": "Gemini",
+      "source": "auto"
+    },
+    {
+      "id": "4187",
+      "name": "Услуги",
+      "game": "Claude",
+      "source": "auto"
+    }
+  ]
+}

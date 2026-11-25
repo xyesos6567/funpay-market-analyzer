@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Анализ рынка FunPay — {{ brand or seller_name }}</title>
+<style>
+  :root {
+    --bg: #0f1117; --panel: #171a23; --panel2: #1e222d; --line: #2a2f3d;
+    --text: #e6e9f0; --muted: #98a0b3; --accent: #6c8cff;
+    --p0: #ff5c6c; --p1: #ffb020; --p2: #4bc4a0; --ok: #4bc4a0; --warn: #ffb020;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; margin: 34px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 16px; margin: 20px 0 10px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .sub { color: var(--muted); font-size: 14px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 20px 0; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .card .num { font-size: 24px; font-weight: 600; }
+  .card .lbl { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  .num-col { text-align: right; font-variant-numeric: tabular-nums; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .badge.p0 { background: rgba(255,92,108,.16); color: var(--p0); }
+  .badge.p1 { background: rgba(255,176,32,.16); color: var(--p1); }
+  .badge.p2 { background: rgba(75,196,160,.16); color: var(--p2); }
+  .badge.rule { background: var(--panel2); color: var(--muted); }
+  .badge.ok { background: rgba(75,196,160,.16); color: var(--ok); }
+  .badge.no { background: rgba(255,92,108,.16); color: var(--p0); }
+  .rec { border-left: 3px solid var(--line); padding: 10px 0 10px 14px; margin: 12px 0; }
+  .rec.p0 { border-left-color: var(--p0); }
+  .rec.p1 { border-left-color: var(--p1); }
+  .rec.p2 { border-left-color: var(--p2); }
+  .rec .title { font-weight: 600; margin-bottom: 4px; }
+  .rec .action { margin: 4px 0; }
+  .rec .ev { color: var(--muted); font-size: 13px; }
+  .rec .ev::before { content: "Данные: "; color: var(--muted); }
+  .bars { display: flex; align-items: flex-end; gap: 4px; height: 130px; margin: 10px 0 4px; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; min-width: 0; }
+  .bar { width: 100%; background: var(--accent); border-radius: 3px 3px 0 0; min-height: 2px; opacity: .85; }
+  .bar.opp { background: var(--p2); }
+  .bar-lbl { font-size: 10px; color: var(--muted); margin-top: 4px; writing-mode: vertical-rl; transform: rotate(180deg); height: 46px; }
+  .bar-cnt { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  details { margin: 10px 0; }
+  summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+  .muted { color: var(--muted); }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .small { font-size: 13px; }
+  .nowrap { white-space: nowrap; }
+  .btn {
+    display: inline-block; padding: 9px 16px; border-radius: 8px;
+    background: var(--accent); color: #0f1117; font-weight: 600; font-size: 14px;
+    border: none; cursor: pointer;
+  }
+  .btn:hover { filter: brightness(1.1); text-decoration: none; }
+  .up-price { color: var(--ok); font-weight: 600; }
+  .down-price { color: var(--p0); font-weight: 600; }
+  .hero { background: linear-gradient(135deg, rgba(108,140,255,.12), rgba(75,196,160,.07)); }
+  footer { margin-top: 50px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Анализ рынка FunPay: {{ brand or seller_name }}</h1>
+  <div class="sub">
+    Продавец <a href="{{ seller_url }}">{{ seller_name }}</a> (id {{ seller_id }}) ·
+    данные на {{ generated_at }}
+    {% if refresh_url %}
+      · <a href="{{ refresh_url }}" target="_blank" rel="noopener">Обновить данные</a>
+    {% endif %}
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="num">{{ category_count }}</div><div class="lbl">категорий проанализировано</div></div>
+    <div class="card"><div class="num">{{ total_offers }}</div><div class="lbl">лотов конкурентов</div></div>
+    <div class="card"><div class="num">{{ total_sellers }}</div><div class="lbl">продавцов</div></div>
+    <div class="card"><div class="num" style="color:var(--p0)">{{ counts.P0 }}</div><div class="lbl">задач P0 — критично</div></div>
+    <div class="card"><div class="num" style="color:var(--p1)">{{ counts.P1 }}</div><div class="lbl">задач P1</div></div>
+    <div class="card"><div class="num" style="color:var(--p2)">{{ counts.P2 }}</div><div class="lbl">задач P2</div></div>
+  </div>
+
+  {% if discovery.ai_games %}
+  <div class="panel small">
+    <b>Автопоиск:</b> просканировано {{ discovery.total_games_scanned }} игр в каталоге,
+    найдено {{ discovery.ai_games|length }} ИИ-сервисов, категорий в анализе — {{ discovery.categories|length }}.
+    <details>
+      <summary>Показать найденные ИИ-сервисы</summary>
+      <div class="muted" style="margin-top:8px">{{ discovery.ai_games|join(", ") }}</div>
+    </details>
+  </div>
+  {% endif %}
+
+  {% if price_actions.total %}
+  <h2>Цены: что поднять, а что опустить</h2>
+  <div class="panel hero">
+    <div class="small muted" style="margin-bottom:4px">
+      Сравнение идёт только с лотами сопоставимого объёма — иначе это были бы разные продукты.
+      Сортировка по сумме денег на кону: сверху то, что даёт наибольший эффект.
+    </div>
+    <div style="margin-top:10px">
+      <span class="badge ok">поднять: {{ price_actions.up_count }}</span>
+      <span class="muted small">потенциал +{{ price_actions.up_total }}</span>
+      &nbsp;&nbsp;
+      <span class="badge no">опустить: {{ price_actions.down_count }}</span>
+      <span class="muted small">риск −{{ price_actions.down_total }}</span>
+    </div>
+  </div>
+
+  {% if price_actions.ru %}
+  <h3 class="up-price">▲ Поднять цену</h3>
+  <table>
+    <tr>
+      <th>Лот</th><th>Объём</th><th class="num-col">Сейчас</th><th class="num-col">Предлагается</th>
+      <th class="num-col">₽/1M сейчас → цель</th><th class="num-col">Δ</th>
+      <th class="num-col">Аналогов</th><th>Категория</th>
+    </tr>
+    {% for a in price_actions.ru %}
+    <tr>
+      <td>{{ a.offer_title }}</td>
+      <td class="nowrap">{{ a.volume }}</td>
+      <td class="num-col nowrap">{{ a.current_price }}</td>
+      <td class="num-col nowrap up-price">{{ a.new_price }}</td>
+      <td class="num-col nowrap">{{ a.current_unit }} → {{ a.target_unit }}</td>
+      <td class="num-col nowrap up-price">{{ a.delta_pct }}</td>
+      <td class="num-col">{{ a.comparables }}</td>
+      <td class="small">{% if a.game %}{{ a.game }} — {% endif %}{{ a.category }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+
+  {% if price_actions.down %}
+  <h3 class="down-price">▼ Опустить цену</h3>
+  <table>
+    <tr>
+      <th>Лот</th><th>Объём</th><th class="num-col">Сейчас</th><th class="num-col">Предлагается</th>
+      <th class="num-col">₽/1M сейчас → цель</th><th class="num-col">Δ</th>
+      <th class="num-col">Аналогов</th><th>Категория</th>
+    </tr>
+    {% for a in price_actions.down %}
+    <tr>
+      <td>{{ a.offer_title }}</td>
+      <td class="nowrap">{{ a.volume }}</td>
+      <td class="num-col nowrap">{{ a.current_price }}</td>
+      <td class="num-col nowrap down-price">{{ a.new_price }}</td>
+      <td class="num-col nowrap">{{ a.current_unit }} → {{ a.target_unit }}</td>
+      <td class="num-col nowrap down-price">{{ a.delta_pct }}</td>
+      <td class="num-col">{{ a.comparables }}</td>
+      <td class="small">{% if a.game %}{{ a.game }} — {% endif %}{{ a.category }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  {% endif %}
+
+  <h2>Что делать в первую очередь</h2>
+  {% if top_recommendations %}
+    {% for rec in top_recommendations %}
+    <div class="rec {{ rec.priority|lower }}">
+      <div class="title">
+        <span class="badge {{ rec.priority|lower }}">{{ rec.priority }}</span>
+        <span class="badge rule">{{ rec.rule }}</span>
+        {{ rec.title }}
+        <span class="muted small">·
+          {%- if rec.category_game %} {{ rec.category_game }} —{% endif %} {{ rec.category }}</span>
+      </div>
+      <div class="action">{{ rec.action }}</div>
+      <div class="ev">{{ rec.evidence }}</div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="panel">Рекомендаций не найдено. Проверьте, что категории и продавец заданы верно.</div>
+  {% endif %}
+
+  <h2>Разбор по категориям</h2>
+  {% for cat in categories %}
+  <details {% if cat.recommendations or cat.has_target %}open{% endif %}>
+    <summary>
+      <b>{{ cat.name }}</b>{% if cat.game %} <span class="muted">· {{ cat.game }}</span>{% endif %}
+      — {{ cat.offers }} лотов, {{ cat.sellers }} продавцов
+      {% if cat.recommendations %}· задач: {{ cat.recommendations|length }}{% endif %}
+      {% if not cat.has_target %}<span class="badge no">вас нет</span>{% else %}<span class="badge ok">вы есть</span>{% endif %}
+    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">{{ cat.offers }} / {{ cat.sellers }}</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">{{ cat.price_stats.median|money }}</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">{{ cat.price_stats.p25|money }} – {{ cat.price_stats.p75|money }}</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">{{ cat.unit_price_stats.median|unit }}</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">{{ cat.offers_with_volume }} из {{ cat.offers }}</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">{{ "%.0f"|format(cat.auto_share) }}%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">{{ "%.0f"|format(cat.online_share) }}%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">{{ "%.1f"|format(cat.promo_share) }}%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        {% if cat.unit_histogram %}
+        <div class="bars">
+          {% for b in cat.unit_histogram %}
+          <div class="bar-col">
+            <div class="bar-cnt">{{ b.count }}</div>
+            <div class="bar {% if b.is_opportunity %}opp{% endif %}" style="height: {{ b.height }}%"></div>
+            <div class="bar-lbl">{{ b.label }}</div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+        {% else %}
+        <div class="muted">Объём токенов не распознан ни в одном лоте категории.</div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if cat.positions %}
+    <h3>Ваши лоты против рынка</h3>
+    <table>
+      <tr>
+        <th>Лот</th><th>Объём</th><th class="num-col">Цена</th><th class="num-col">₽/1M</th>
+        <th class="num-col">Медиана аналогов ₽/1M</th><th class="num-col">Отклонение</th>
+        <th class="num-col">Аналогов</th><th>Авто</th>
+      </tr>
+      {% for p in cat.positions %}
+      <tr>
+        <td>{{ p.title }}</td>
+        <td class="nowrap">{{ p.volume }}</td>
+        <td class="num-col nowrap">{{ p.price }}</td>
+        <td class="num-col nowrap">{{ p.unit_price }}</td>
+        <td class="num-col nowrap">{{ p.comparable_median_unit }}</td>
+        <td class="num-col nowrap">
+          {% if p.deviation is not none %}
+            {% if p.deviation > 0 %}<span class="badge no">+{{ "%.0f"|format(p.deviation) }}%</span>
+            {% elif p.deviation < 0 %}<span class="badge ok">{{ "%.0f"|format(p.deviation) }}%</span>
+            {% else %}<span class="muted">0%</span>{% endif %}
+          {% else %}<span class="muted">—</span>{% endif %}
+        </td>
+        <td class="num-col">{{ p.comparables }}</td>
+        <td>{% if p.auto %}<span class="badge ok">да</span>{% else %}<span class="badge no">нет</span>{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+
+    {% if cat.opportunities %}
+    <h3>Свободные зоны</h3>
+    <table>
+      <tr><th>Диапазон ₽/1M</th><th class="num-col">Лотов</th><th class="num-col">Отзывов на лот</th></tr>
+      {% for o in cat.opportunities %}
+      <tr><td>{{ o.label }}</td><td class="num-col">{{ o.count }}</td><td class="num-col">{{ o.reviews_per_offer }}</td></tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+
+    {% if cat.competitors %}
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      {% for c in cat.competitors %}
+      <tr>
+        <td><a href="https://funpay.com/users/{{ c.seller_id }}/">{{ c.name }}</a></td>
+        <td class="num-col">{{ c.score }}</td>
+        <td class="num-col">{{ c.reviews }}</td>
+        <td class="num-col">{{ c.rating if c.rating is not none else "—" }}</td>
+        <td>{% if c.online %}<span class="badge ok">да</span>{% else %}<span class="muted">нет</span>{% endif %}</td>
+        <td class="num-col">{{ "%.0f"|format(c.auto_share) }}%</td>
+        <td class="num-col">{{ c.offers }}</td>
+        <td class="nowrap small">{{ c.price_min }} – {{ c.price_max }}</td>
+        <td class="small">{{ c.families }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+
+    {% if cat.model_counts %}
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+        {% for model, n in cat.model_counts %}<span class="badge rule">{{ model }} · {{ n }}</span> {% endfor %}
+      </div>
+    </details>
+    {% endif %}
+
+    {% if cat.recommendations %}
+    <h3>Рекомендации по категории</h3>
+    {% for rec in cat.recommendations %}
+    <div class="rec {{ rec.priority|lower }}">
+      <div class="title">
+        <span class="badge {{ rec.priority|lower }}">{{ rec.priority }}</span>
+        <span class="badge rule">{{ rec.rule }}</span>
+        {{ rec.title }}
+      </div>
+      <div class="action">{{ rec.action }}</div>
+      <div class="ev">{{ rec.evidence }}</div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+  </details>
+  {% endfor %}
+
+  <footer>
+    Отчёт построен по публичным страницам FunPay. Разметка сайта может измениться —
+    если числа выглядят странно, сначала проверьте парсер тестами (<code>python -m pytest</code>).
+    Спрос оценивается косвенно, по числу отзывов продавцов: точных данных о продажах FunPay не публикует.
+  </footer>
+</div>
+</body>
+</html>
