@@ -18,13 +18,23 @@ if errorlevel 1 (
 
 gh auth status >nul 2>nul
 if errorlevel 1 (
-    echo Вы ещё не вошли в GitHub.
+    echo === Вход в GitHub ===
     echo.
-    echo Выполните:  gh auth login
-    echo Затем запустите publish.bat снова.
+    echo Сейчас откроется браузер. Что делать:
+    echo   1. Нажмите Continue with GitHub
+    echo   2. Скопируйте код, который появится ниже, и вставьте его в браузер
+    echo   3. Разрешите доступ
     echo.
-    pause
-    exit /b 1
+    gh auth login --hostname github.com --git-protocol https --web
+    if errorlevel 1 (
+        echo.
+        echo Вход не выполнен. Запустите publish.bat заново и завершите вход.
+        pause
+        exit /b 1
+    )
+    echo.
+    echo Вход выполнен.
+    echo.
 )
 
 echo === Публикую репозиторий ===

@@ -90,4 +90,4 @@ output:
   # кнопка «Обновить данные» со ссылкой на запуск workflow.
   # Пример: https://github.com/username/funpay-market-analyzer
   # Можно не задавать здесь, а передать переменной окружения FPA_REPO_URL.
-  repo_url: ""
+  repo_url: "https://github.com/xyesos6567/funpay-market-analyzer"
