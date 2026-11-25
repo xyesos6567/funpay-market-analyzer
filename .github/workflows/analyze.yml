@@ -1,7 +1,7 @@
 name: Анализ рынка FunPay
 
-# Кнопка "Run workflow" в интерфейсе GitHub — это и есть обновление данных.
-# Дополнительно отчёт пересобирается по расписанию.
+# Кнопка "Run workflow" в интерфейсе GitHub и кнопка на самой странице отчёта —
+# это один и тот же запуск. Дополнительно отчёт пересобирается по расписанию.
 on:
   workflow_dispatch:
     inputs:
@@ -13,22 +13,18 @@ on:
     # 06:00 UTC = 09:00 по Москве. GitHub может задержать запуск на несколько минут.
     - cron: "0 6 * * *"
 
+# Нужно право записи, чтобы обновить ветку gh-pages с готовой страницей.
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 # Не запускать два прогона одновременно: второй пишет поверх первого.
 concurrency:
-  group: funpay-pages
+  group: funpay-report
   cancel-in-progress: false
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
 
     steps:
       - name: Получить код
@@ -43,7 +39,7 @@ jobs:
       - name: Установить зависимости
         run: python -m pip install -r requirements.txt
 
-      # Тесты идут до сбора данных: если FunPay поменяет разметку,
+      # Тесты идут до сбора данных: если FunPay поменяет разметку или валюту,
       # сбор упадёт здесь, а не выдаст тихо неверные рекомендации.
       - name: Тесты парсера и аналитики
         run: python -m pytest
@@ -60,15 +56,22 @@ jobs:
           mkdir -p public
           cp out/report.html public/index.html
           cp out/data.json public/data.json
+          # Без этого файла GitHub попытается обработать страницу через Jekyll.
+          touch public/.nojekyll
 
-      - name: Настроить Pages
-        uses: actions/configure-pages@v6
-
-      - name: Загрузить страницу
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: public
-
-      - name: Опубликовать
-        id: deploy
-        uses: actions/deploy-pages@v5
+      # Публикация через ветку, а не через артефакты Pages: артефактный способ
+      # в этом репозитории стабильно падал на шаге deploy-pages с ошибкой
+      # "No artifacts named github-pages were found", хотя артефакт создавался.
+      - name: Опубликовать на gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd public
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Отчёт от $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push -q --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            HEAD:gh-pages
