@@ -32,10 +32,10 @@ jobs:
 
     steps:
       - name: Получить код
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Установить Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
@@ -62,13 +62,13 @@ jobs:
           cp out/data.json public/data.json
 
       - name: Настроить Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Загрузить страницу
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: public
 
       - name: Опубликовать
         id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
