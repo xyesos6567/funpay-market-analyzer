@@ -49,6 +49,7 @@ class Config:
     output_dir: Path
     report_filename: str
     repo_url: str = ""
+    currency: str = "RUB"
     root: Path = field(default_factory=Path)
 
     @property
@@ -170,5 +171,6 @@ def load_config(path: str | Path = "config.yaml") -> Config:
         output_dir=output_dir if output_dir.is_absolute() else root / output_dir,
         report_filename=str(out.get("report_filename", "report.html")),
         repo_url=str(out.get("repo_url", "") or ""),
+        currency=str(http_cfg.get("currency", "RUB")).upper(),
         root=root,
     )

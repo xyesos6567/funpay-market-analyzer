@@ -74,6 +74,7 @@ def _make_fetcher(config: Config) -> Fetcher:
         retries=config.retries,
         cache_dir=config.cache_dir,
         cache_ttl_minutes=config.cache_ttl_minutes,
+        currency=config.currency.lower(),
     )
 
 
@@ -92,7 +93,7 @@ def collect_pages(config: Config, fetcher: Fetcher, categories) -> tuple[list[Ca
         url = fetcher.category_url(cat.id)
         try:
             html = fetcher.get(url).text
-            page = parse_category_page(html, cat.id, cat.name)
+            page = parse_category_page(html, cat.id, cat.name, expected_currency=config.currency)
         except (FetchError, ParseError) as exc:
             log.error("Категория %s (%s) пропущена: %s", cat.id, cat.name, exc)
             stats.failed.append(f"{cat.id} {cat.name}: {exc}")
@@ -118,7 +119,7 @@ def fetch_seller_overview(config: Config, fetcher: Fetcher) -> dict:
     """Сводка по профилю продавца: сколько у него всего лотов и по каким категориям."""
     try:
         html = fetcher.get(config.seller_url).text
-        offers = parse_seller_offers(html, config.seller_id)
+        offers = parse_seller_offers(html, config.seller_id, expected_currency=config.currency)
     except (FetchError, ParseError) as exc:
         log.warning("Не удалось получить профиль продавца: %s", exc)
         return {}

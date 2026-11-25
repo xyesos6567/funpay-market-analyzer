@@ -40,6 +40,7 @@ class Fetcher:
         retries: int = 3,
         cache_dir: Path | None = None,
         cache_ttl_minutes: int = 60,
+        currency: str = "rub",
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.delay_seconds = max(0.0, delay_seconds)
@@ -56,6 +57,11 @@ class Fetcher:
                 "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
             }
         )
+        # FunPay выбирает валюту цен по cookie "cy" и по умолчанию ориентируется
+        # на страну посетителя. С зарубежного IP (например, с сервера GitHub)
+        # цены приходят в долларах, и все расчёты уезжают в 82 раза.
+        # Фиксируем рубли явно, чтобы результат не зависел от географии запроса.
+        self._session.cookies.set("cy", currency.lower())
         if self.cache_dir:
             self.cache_dir.mkdir(parents=True, exist_ok=True)
 

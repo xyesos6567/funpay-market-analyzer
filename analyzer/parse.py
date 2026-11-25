@@ -25,6 +25,26 @@ _OFFER_ID = re.compile(r"id=(\d+)")
 _USERS_ID = re.compile(r"/users/(\d+)/")
 _PRICE_NUM = re.compile(r"(\d[\d\u00a0\u202f ]*(?:[.,]\d+)?)")
 
+# Значки валют, которые встречаются в ценах FunPay.
+_CURRENCY_CODES = {
+    "₽": "RUB",
+    "руб": "RUB",
+    "руб.": "RUB",
+    "$": "USD",
+    "usd": "USD",
+    "€": "EUR",
+    "eur": "EUR",
+    "₴": "UAH",
+    "₸": "KZT",
+    "£": "GBP",
+}
+
+
+def currency_code(symbol: str) -> str:
+    """Переводит значок валюты в код. Неизвестное значение возвращает как есть."""
+    cleaned = (symbol or "").strip().lower()
+    return _CURRENCY_CODES.get(cleaned, cleaned.upper() if cleaned else "")
+
 
 def parse_price(text: str) -> float | None:
     """Достаёт число из строки цены вида '1 500 ₽', '5.09', 'от 100 ₽ за 1 шт'."""
@@ -112,6 +132,11 @@ def _offer_from_tag(tag, category_id: str, category_name: str, default_seller: s
         inner = price_div.find("div")
         visible = _text(inner) if inner is not None else _text(price_div)
         offer.price = parse_price(visible)
+
+        unit = price_div.select_one(".unit")
+        if unit is not None:
+            offer.currency = currency_code(_text(unit))
+
         if offer.price is None and price_div.get("data-s"):
             try:
                 offer.price = round(float(price_div["data-s"]), 2)
@@ -159,7 +184,12 @@ def _offer_from_tag(tag, category_id: str, category_name: str, default_seller: s
     return offer
 
 
-def parse_category_page(html: str, category_id: str, category_name: str = "") -> CategoryPage:
+def parse_category_page(
+    html: str,
+    category_id: str,
+    category_name: str = "",
+    expected_currency: str = "RUB",
+) -> CategoryPage:
     """Разбирает страницу категории: заголовок, игру и все лоты."""
     soup = BeautifulSoup(html, "lxml")
     page = CategoryPage(category_id=str(category_id))
@@ -208,11 +238,43 @@ def parse_category_page(html: str, category_id: str, category_name: str = "") ->
         unique.setdefault(offer.offer_id, offer)
     page.offers = list(unique.values())
 
+    _assert_currency(page, expected_currency)
+
     log.info("Категория %s (%s): разобрано %d лотов", category_id, page.category_name, len(page.offers))
     return page
 
 
-def parse_seller_offers(html: str, seller_id: str) -> list[Offer]:
+def _foreign_currencies(offers: list[Offer], expected: str) -> list[str]:
+    if not expected:
+        return []
+    return sorted({o.currency for o in offers if o.currency and o.currency != expected})
+
+
+def _currency_error(where: str, foreign: list[str], expected: str) -> ParseError:
+    symbols = ", ".join(foreign)
+    return ParseError(
+        f"{where}: цены пришли не в {expected}, а в {symbols}. "
+        "FunPay отдаёт валюту по cookie 'cy' и по стране посетителя, поэтому "
+        "с зарубежного IP цены приходят в долларах. "
+        "Проверьте, что в http.py выставляется cookie cy=rub, и что сайт не сменил её название. "
+        "Считать такие цены рублями нельзя: сравнение с конкурентами будет неверным в десятки раз."
+    )
+
+
+def _assert_currency(page: CategoryPage, expected: str) -> None:
+    """Не даёт незаметно посчитать чужие деньги за рубли.
+
+    FunPay выбирает валюту по cookie "cy" и по стране посетителя. Если cookie
+    не применилась (например, сайт сменил её имя), с зарубежного IP цены придут
+    в долларах, и все сравнения с конкурентами окажутся неверными в десятки раз.
+    Такая ошибка не должна доходить до отчёта: лучше упасть с понятным текстом.
+    """
+    foreign = _foreign_currencies(page.offers, expected)
+    if foreign:
+        raise _currency_error(f"Категория {page.category_id}", foreign, expected)
+
+
+def parse_seller_offers(html: str, seller_id: str, expected_currency: str = "RUB") -> list[Offer]:
     """Разбирает лоты со страницы профиля продавца.
 
     Лоты сгруппированы по категориям внутри блоков div.offer,
@@ -240,6 +302,10 @@ def parse_seller_offers(html: str, seller_id: str) -> list[Offer]:
             offer = _offer_from_tag(tag, cat_id, cat_name, default_seller=seller_id)
             if offer is not None:
                 offers.append(offer)
+
+    foreign = _foreign_currencies(offers, expected_currency)
+    if foreign:
+        raise _currency_error(f"Профиль {seller_id}", foreign, expected_currency)
 
     log.info("Профиль %s: разобрано %d лотов", seller_id, len(offers))
     return offers
