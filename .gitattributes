@@ -1,0 +1,7 @@
+# Единые переводы строк в репозитории: исходники — LF, пакетные файлы — CRLF.
+# Без этого git предупреждает о замене LF на CRLF почти на каждом файле.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.bat.utf8 text eol=lf
+*.png binary
+*.html text eol=lf

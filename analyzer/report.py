@@ -215,6 +215,12 @@ def _fmt_volume(millions: float | None) -> str:
 
 
 def render_report(context: dict, config: Config) -> str:
+    # Ссылку на обновление считаем в момент рендера, а не берём из data.json:
+    # при пересборке отчёта (команда report) в сохранённом контексте она устарела.
+    context = dict(context)
+    context["repo_url"] = config.repo_url
+    context["refresh_url"] = _refresh_url(config)
+
     templates_dir = config.root / "templates"
     env = Environment(
         loader=FileSystemLoader(str(templates_dir)),
