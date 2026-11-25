@@ -7,3 +7,4 @@ data/cache/
 out/
 _probe_out.txt
 .pytest_cache/
+data/discovered_categories.json

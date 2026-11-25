@@ -155,8 +155,22 @@ def build_context(
         "discovery": discovery_summary or {},
         "price_actions": _build_price_actions_context(price_actions or []),
         "repo_url": config.repo_url,
+        "repo_slug": _repo_slug(config.repo_url),
         "refresh_url": _refresh_url(config),
     }
+
+
+def _repo_slug(repo_url: str) -> str:
+    """'https://github.com/user/repo' -> 'user/repo'.
+
+    Нужен кнопке «Обновить сейчас»: она обращается к API GitHub напрямую.
+    """
+    if not repo_url:
+        return ""
+    parts = [p for p in repo_url.rstrip("/").split("/") if p]
+    if len(parts) >= 2:
+        return f"{parts[-2]}/{parts[-1]}"
+    return ""
 
 
 def _build_price_actions_context(actions: list) -> dict:
@@ -219,6 +233,7 @@ def render_report(context: dict, config: Config) -> str:
     # при пересборке отчёта (команда report) в сохранённом контексте она устарела.
     context = dict(context)
     context["repo_url"] = config.repo_url
+    context["repo_slug"] = _repo_slug(config.repo_url)
     context["refresh_url"] = _refresh_url(config)
 
     templates_dir = config.root / "templates"
