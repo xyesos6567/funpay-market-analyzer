@@ -1,0 +1,4209 @@
+{
+  "generated_at": "27.11.2026 16:09",
+  "brand": "VibeTokens",
+  "seller_name": "POLICEA",
+  "seller_id": "4233111",
+  "seller_url": "https://funpay.com/users/4233111/",
+  "total_offers": "16 475",
+  "total_sellers": "805",
+  "category_count": 12,
+  "counts": {
+    "P0": 5,
+    "P1": 25,
+    "P2": 20
+  },
+  "total_recommendations": 50,
+  "top_recommendations": [
+    {
+      "rule": "R11",
+      "priority": "P0",
+      "category": "API-ключ DeepSeek",
+      "category_id": "4506",
+      "category_game": "DeepSeek",
+      "title": "«Авто» написано в описании, но автовыдача не включена: 8 лотов",
+      "action": "Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.",
+      "evidence": "в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …; ⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …; ⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…"
+    },
+    {
+      "rule": "R5",
+      "priority": "P0",
+      "category": "API-ключ DeepSeek",
+      "category_id": "4506",
+      "category_game": "DeepSeek",
+      "title": "Нет автовыдачи у 8 из 8 лотов",
+      "action": "Включить автовыдачу на всех лотах категории: покупатель уходит к тому, кто выдаёт сразу, без ожидания ответа продавца.",
+      "evidence": "у конкурентов сверху автовыдача у 100% лотов, у вас — у 0%"
+    },
+    {
+      "rule": "R11",
+      "priority": "P0",
+      "category": "Токены GLM",
+      "category_id": "4676",
+      "category_game": "GLM",
+      "title": "«Авто» написано в описании, но автовыдача не включена: 4 лотов",
+      "action": "Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.",
+      "evidence": "в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без…; ⚡ VibeTokens • GLM 5.3 API 1B токенов • для агентов • авто, …; ⚡ VibeTokens • GLM 5.3 API 3B токенов • опт • авто, Другое к…"
+    },
+    {
+      "rule": "R5",
+      "priority": "P0",
+      "category": "Токены GLM",
+      "category_id": "4676",
+      "category_game": "GLM",
+      "title": "Нет автовыдачи у 4 из 4 лотов",
+      "action": "Включить автовыдачу на всех лотах категории: покупатель уходит к тому, кто выдаёт сразу, без ожидания ответа продавца.",
+      "evidence": "у конкурентов сверху автовыдача у 98% лотов, у вас — у 0%"
+    },
+    {
+      "rule": "R11",
+      "priority": "P0",
+      "category": "Услуги Hailuo AI",
+      "category_id": "3755",
+      "category_game": "Hailuo AI",
+      "title": "«Авто» написано в описании, но автовыдача не включена: 3 лотов",
+      "action": "Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.",
+      "evidence": "в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • MiniMax M2.7 API 10B токенов • макс. выгода •…; ⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекс…; ⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авт…"
+    },
+    {
+      "rule": "R2",
+      "priority": "P1",
+      "category": "API-ключ DeepSeek",
+      "category_id": "4506",
+      "category_game": "DeepSeek",
+      "title": "Дешевле аналогов на 82%: ⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …",
+      "action": "Есть запас поднять цену до 0.3411 ₽/1M за 1M токенов (≈8 528 ₽ за объём) без потери позиции.",
+      "evidence": "лот 0.0600 ₽/1M против медианы 0.3411 ₽/1M у 28 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+    },
+    {
+      "rule": "R2",
+      "priority": "P1",
+      "category": "API-ключ DeepSeek",
+      "category_id": "4506",
+      "category_game": "DeepSeek",
+      "title": "Дешевле аналогов на 87%: ⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …",
+      "action": "Есть запас поднять цену до 0.6044 ₽/1M за 1M токенов (≈6 044 ₽ за объём) без потери позиции.",
+      "evidence": "лот 0.0800 ₽/1M против медианы 0.6044 ₽/1M у 47 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+    },
+    {
+      "rule": "R2",
+      "priority": "P1",
+      "category": "API-ключ DeepSeek",
+      "category_id": "4506",
+      "category_game": "DeepSeek",
+      "title": "Дешевле аналогов на 87%: ⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…",
+      "action": "Есть запас поднять цену до 0.9263 ₽/1M за 1M токенов (≈2 779 ₽ за объём) без потери позиции.",
+      "evidence": "лот 0.1167 ₽/1M против медианы 0.9263 ₽/1M у 107 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+    }
+  ],
+  "categories": [
+    {
+      "id": "4506",
+      "name": "API-ключ DeepSeek",
+      "game": "DeepSeek",
+      "offers": 2000,
+      "sellers": 185,
+      "offers_with_volume": 1674,
+      "auto_share": 44.55,
+      "promo_share": 0.05,
+      "online_share": 89.64999999999999,
+      "price_stats": {
+        "count": 2000,
+        "min": 0.57,
+        "p10": 5.7,
+        "p25": 31.93,
+        "median": 209.86,
+        "p75": 1067.0,
+        "p90": 4381.4,
+        "max": 342159.0,
+        "mean": 2814.8567
+      },
+      "unit_price_stats": {
+        "count": 1674,
+        "min": 0.0058,
+        "p10": 0.3427,
+        "p25": 0.7779,
+        "median": 1.733,
+        "p75": 3.577,
+        "p90": 7.8078,
+        "max": 341.02,
+        "mean": 4.3637
+      },
+      "unit_histogram": [
+        {
+          "label": "0.003–0.01",
+          "count": 3,
+          "height": 0.5,
+          "is_opportunity": true
+        },
+        {
+          "label": "0.03–0.1",
+          "count": 2,
+          "height": 0.3,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.1–0.3",
+          "count": 94,
+          "height": 15.8,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.3–1",
+          "count": 455,
+          "height": 76.3,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 596,
+          "height": 100.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "3–10",
+          "count": 426,
+          "height": 71.5,
+          "is_opportunity": false
+        },
+        {
+          "label": "10–30",
+          "count": 85,
+          "height": 14.3,
+          "is_opportunity": false
+        },
+        {
+          "label": "30–100",
+          "count": 3,
+          "height": 0.5,
+          "is_opportunity": true
+        },
+        {
+          "label": "100–300",
+          "count": 5,
+          "height": 0.8,
+          "is_opportunity": false
+        },
+        {
+          "label": "300–1 000",
+          "count": 5,
+          "height": 0.8,
+          "is_opportunity": false
+        }
+      ],
+      "model_counts": [
+        [
+          "DeepSeek V4 Pro",
+          1266
+        ],
+        [
+          "DeepSeek V4 Flash",
+          842
+        ],
+        [
+          "DeepSeek V4.1",
+          482
+        ],
+        [
+          "Claude",
+          287
+        ],
+        [
+          "Claude Opus",
+          286
+        ],
+        [
+          "GPT-6",
+          272
+        ],
+        [
+          "Codex",
+          238
+        ],
+        [
+          "GLM",
+          139
+        ],
+        [
+          "Cursor",
+          113
+        ],
+        [
+          "Gemini",
+          94
+        ],
+        [
+          "DeepSeek",
+          78
+        ],
+        [
+          "ChatGPT",
+          74
+        ]
+      ],
+      "positions": [
+        {
+          "title": "⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода • авто, De…",
+          "price": "1 500 ₽",
+          "unit_price": "0.0600",
+          "family": "DeepSeek",
+          "price_percentile": 79.2,
+          "unit_percentile": 0.2,
+          "comparables": 28,
+          "comparable_median_unit": "0.3411",
+          "deviation": -82.4,
+          "volume": "25B",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода • авто, De…",
+          "price": "800 ₽",
+          "unit_price": "0.0800",
+          "family": "DeepSeek",
+          "price_percentile": 71.2,
+          "unit_percentile": 0.3,
+          "comparables": 47,
+          "comparable_median_unit": "0.6044",
+          "deviation": -86.8,
+          "volume": "10B",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели • авто, D…",
+          "price": "350 ₽",
+          "unit_price": "0.1167",
+          "family": "DeepSeek",
+          "price_percentile": 58.5,
+          "unit_percentile": 0.3,
+          "comparables": 107,
+          "comparable_median_unit": "0.9263",
+          "deviation": -87.4,
+          "volume": "3B",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • DeepSeek V4 Flash 1B токенов • Cursor/Cline/Codex • авт…",
+          "price": "150 ₽",
+          "unit_price": "0.1500",
+          "family": "DeepSeek",
+          "price_percentile": 44.5,
+          "unit_percentile": 0.6,
+          "comparables": 175,
+          "comparable_median_unit": "1.32",
+          "deviation": -88.7,
+          "volume": "1B",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • DeepSeek V4 Flash 500M токенов • для агентов • авто, De…",
+          "price": "75.00 ₽",
+          "unit_price": "0.1500",
+          "family": "DeepSeek",
+          "price_percentile": 34.8,
+          "unit_percentile": 0.6,
+          "comparables": 220,
+          "comparable_median_unit": "1.86",
+          "deviation": -91.9,
+          "volume": "500M",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • DeepSeek V4 Flash 300M токенов • хит • без VPN • авто, …",
+          "price": "45.01 ₽",
+          "unit_price": "0.1500",
+          "family": "DeepSeek",
+          "price_percentile": 28.5,
+          "unit_percentile": 0.7,
+          "comparables": 224,
+          "comparable_median_unit": "1.96",
+          "deviation": -92.3,
+          "volume": "300M",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • DeepSeek V4 Flash 100M токенов • без VPN • Cursor/Cline…",
+          "price": "15.00 ₽",
+          "unit_price": "0.1500",
+          "family": "DeepSeek",
+          "price_percentile": 18.2,
+          "unit_percentile": 0.6,
+          "comparables": 183,
+          "comparable_median_unit": "2.32",
+          "deviation": -93.5,
+          "volume": "100M",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • DeepSeek V4 Flash 10M токенов • пробник • Cursor/Cline …",
+          "price": "5.09 ₽",
+          "unit_price": "0.5090",
+          "family": "DeepSeek",
+          "price_percentile": 9.5,
+          "unit_percentile": 17.8,
+          "comparables": 177,
+          "comparable_median_unit": "2.14",
+          "deviation": -76.2,
+          "volume": "10M",
+          "auto": false,
+          "reviews": 119
+        }
+      ],
+      "competitors": [
+        {
+          "name": "StasikD",
+          "seller_id": "6083771",
+          "score": 88.4,
+          "reviews": 9231,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "2.28 ₽",
+          "price_max": "11 398 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "HamuraXGod",
+          "seller_id": "2622063",
+          "score": 86.2,
+          "reviews": 5422,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 10,
+          "price_min": "4.56 ₽",
+          "price_max": "45.62 ₽",
+          "families": "DeepSeek, Claude, Cursor"
+        },
+        {
+          "name": "dreamFN",
+          "seller_id": "15632176",
+          "score": 84.6,
+          "reviews": 3757,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "3.15 ₽",
+          "price_max": "6 296 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "MelodiaShop",
+          "seller_id": "13658661",
+          "score": 84.0,
+          "reviews": 8375,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 2,
+          "price_min": "2.28 ₽",
+          "price_max": "22.81 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "Semeeg",
+          "seller_id": "5212996",
+          "score": 83.6,
+          "reviews": 2912,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 19,
+          "price_min": "1.43 ₽",
+          "price_max": "22 811 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "GameBosss",
+          "seller_id": "6515745",
+          "score": 83.1,
+          "reviews": 2578,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "11.43 ₽",
+          "price_max": "6 877 ₽",
+          "families": "Claude, Codex"
+        },
+        {
+          "name": "JongoFTK",
+          "seller_id": "7696082",
+          "score": 82.6,
+          "reviews": 2304,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 5,
+          "price_min": "228 ₽",
+          "price_max": "1 141 ₽",
+          "families": "DeepSeek, Claude"
+        },
+        {
+          "name": "theblesswield",
+          "seller_id": "15857327",
+          "score": 80.7,
+          "reviews": 4030,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 95.0,
+          "offers": 20,
+          "price_min": "1.14 ₽",
+          "price_max": "1 660 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "Deadyyyy",
+          "seller_id": "3427434",
+          "score": 80.1,
+          "reviews": 3314,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "30.55 ₽",
+          "price_max": "79 927 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "AdamFox",
+          "seller_id": "2317701",
+          "score": 79.6,
+          "reviews": 1133,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 4,
+          "price_min": "194 ₽",
+          "price_max": "3 878 ₽",
+          "families": "DeepSeek"
+        }
+      ],
+      "opportunities": [
+        {
+          "label": "0.003–0.01",
+          "count": 3,
+          "reviews_per_offer": 1845.7
+        },
+        {
+          "label": "30–100",
+          "count": 3,
+          "reviews_per_offer": 1433.0
+        }
+      ],
+      "recommendations": [
+        {
+          "rule": "R11",
+          "priority": "P0",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "«Авто» написано в описании, но автовыдача не включена: 8 лотов",
+          "action": "Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.",
+          "evidence": "в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …; ⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …; ⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…"
+        },
+        {
+          "rule": "R5",
+          "priority": "P0",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Нет автовыдачи у 8 из 8 лотов",
+          "action": "Включить автовыдачу на всех лотах категории: покупатель уходит к тому, кто выдаёт сразу, без ожидания ответа продавца.",
+          "evidence": "у конкурентов сверху автовыдача у 100% лотов, у вас — у 0%"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Дешевле аналогов на 82%: ⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …",
+          "action": "Есть запас поднять цену до 0.3411 ₽/1M за 1M токенов (≈8 528 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.0600 ₽/1M против медианы 0.3411 ₽/1M у 28 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Дешевле аналогов на 87%: ⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …",
+          "action": "Есть запас поднять цену до 0.6044 ₽/1M за 1M токенов (≈6 044 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.0800 ₽/1M против медианы 0.6044 ₽/1M у 47 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Дешевле аналогов на 87%: ⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…",
+          "action": "Есть запас поднять цену до 0.9263 ₽/1M за 1M токенов (≈2 779 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.1167 ₽/1M против медианы 0.9263 ₽/1M у 107 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Дешевле аналогов на 89%: ⚡ VibeTokens • DeepSeek V4 Flash 1B токенов • Cursor/Cline/C…",
+          "action": "Есть запас поднять цену до 1.32 ₽/1M за 1M токенов (≈1 322 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.1500 ₽/1M против медианы 1.32 ₽/1M у 175 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Дешевле аналогов на 92%: ⚡ VibeTokens • DeepSeek V4 Flash 500M токенов • для агентов …",
+          "action": "Есть запас поднять цену до 1.86 ₽/1M за 1M токенов (≈931 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.1500 ₽/1M против медианы 1.86 ₽/1M у 220 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Дешевле аналогов на 92%: ⚡ VibeTokens • DeepSeek V4 Flash 300M токенов • хит • без VP…",
+          "action": "Есть запас поднять цену до 1.96 ₽/1M за 1M токенов (≈588 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.1500 ₽/1M против медианы 1.96 ₽/1M у 224 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Дешевле аналогов на 94%: ⚡ VibeTokens • DeepSeek V4 Flash 100M токенов • без VPN • Cu…",
+          "action": "Есть запас поднять цену до 2.32 ₽/1M за 1M токенов (≈232 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.1500 ₽/1M против медианы 2.32 ₽/1M у 183 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Дешевле аналогов на 76%: ⚡ VibeTokens • DeepSeek V4 Flash 10M токенов • пробник • Cur…",
+          "action": "Есть запас поднять цену до 2.14 ₽/1M за 1M токенов (≈21.43 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.5090 ₽/1M против медианы 2.14 ₽/1M у 177 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R4",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "В описаниях нет аргументов, которые используют лидеры",
+          "action": "Добавить в описания лотов: 24/7, мгновенн, 24/7. Формулировать как факт, например «автовыдача 24/7», «гарантия и замена ключа».",
+          "evidence": "эти слова встречаются у 71 лотов конкурентов сверху, но отсутствуют во всех ваших описаниях в категории"
+        },
+        {
+          "rule": "R7",
+          "priority": "P1",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Не покрыты модели, которые продают лидеры",
+          "action": "Добавить лоты по этим моделям: DeepSeek V4 Pro (71 лотов), DeepSeek V4.1 (8 лотов), Claude (7 лотов)",
+          "evidence": "модели встречаются у конкурентов сверху, у вас их нет ни в одном лоте"
+        },
+        {
+          "rule": "R3",
+          "priority": "P2",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Большие разрывы между паками",
+          "action": "Добавить промежуточный пак, чтобы покупатель не прыгал сразу через порядок объёма.",
+          "evidence": "10M → 100M (в 10 раз)"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Свободная зона 0.003–0.01 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 0.003–0.01 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 3 лотов при среднем 1845.7 отзывов на лот у их продавцов против 824.7 в среднем по категории"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Свободная зона 30–100 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 30–100 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 3 лотов при среднем 1433.0 отзывов на лот у их продавцов против 824.7 в среднем по категории"
+        },
+        {
+          "rule": "R9",
+          "priority": "P2",
+          "category": "API-ключ DeepSeek",
+          "category_id": "4506",
+          "category_game": "DeepSeek",
+          "title": "Сверхдешёвые лоты-якоря: 2 шт.",
+          "action": "Оставить один пробник для входа, а остальные дешёвые лоты объединить или поднять: обилие цен в 5–15 ₽ снижает средний чек.",
+          "evidence": "цены: 15.00 ₽, 5.09 ₽"
+        }
+      ],
+      "has_target": true
+    },
+    {
+      "id": "3559",
+      "name": "Подписка",
+      "game": "ChatGPT",
+      "offers": 1453,
+      "sellers": 184,
+      "offers_with_volume": 0,
+      "auto_share": 0.0,
+      "promo_share": 0.0,
+      "online_share": 94.08121128699243,
+      "price_stats": {
+        "count": 1453,
+        "min": 119.77,
+        "p10": 600.81,
+        "p25": 1725.0,
+        "median": 2581.0,
+        "p75": 12999.0,
+        "p90": 23011.0,
+        "max": 170000.0,
+        "mean": 9906.8681
+      },
+      "unit_price_stats": {
+        "count": 0,
+        "min": null,
+        "p10": null,
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "p90": null,
+        "max": null,
+        "mean": null
+      },
+      "unit_histogram": [],
+      "model_counts": [
+        [
+          "ChatGPT",
+          1214
+        ],
+        [
+          "GPT-6",
+          361
+        ],
+        [
+          "GPT-5",
+          204
+        ],
+        [
+          "Codex",
+          152
+        ],
+        [
+          "GPT-4",
+          16
+        ],
+        [
+          "Sora",
+          13
+        ]
+      ],
+      "positions": [],
+      "competitors": [
+        {
+          "name": "Killerok1",
+          "seller_id": "2091316",
+          "score": 75.0,
+          "reviews": 210440,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 20,
+          "price_min": "782 ₽",
+          "price_max": "55 025 ₽",
+          "families": "ChatGPT"
+        },
+        {
+          "name": "Mondaymorning7",
+          "seller_id": "5657573",
+          "score": 73.5,
+          "reviews": 134169,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 14,
+          "price_min": "410 ₽",
+          "price_max": "53 531 ₽",
+          "families": "ChatGPT"
+        },
+        {
+          "name": "Fludy",
+          "seller_id": "241092",
+          "score": 73.1,
+          "reviews": 117212,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 5,
+          "price_min": "663 ₽",
+          "price_max": "18 624 ₽",
+          "families": "ChatGPT, GPT-6"
+        },
+        {
+          "name": "Roymi",
+          "seller_id": "1804150",
+          "score": 72.5,
+          "reviews": 98045,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 8,
+          "price_min": "981 ₽",
+          "price_max": "59 872 ₽",
+          "families": "ChatGPT, GPT-5"
+        },
+        {
+          "name": "pokupatel21",
+          "seller_id": "924503",
+          "score": 72.0,
+          "reviews": 83946,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 8,
+          "price_min": "410 ₽",
+          "price_max": "1 743 ₽",
+          "families": "ChatGPT, GPT-6"
+        },
+        {
+          "name": "dadaenq",
+          "seller_id": "6027038",
+          "score": 71.4,
+          "reviews": 69758,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 4,
+          "price_min": "454 ₽",
+          "price_max": "1 852 ₽",
+          "families": "ChatGPT"
+        },
+        {
+          "name": "OtetsVitaliySvyatoy",
+          "seller_id": "2591951",
+          "score": 70.3,
+          "reviews": 49445,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 12,
+          "price_min": "723 ₽",
+          "price_max": "14 452 ₽",
+          "families": "ChatGPT, GPT-6, GPT-5"
+        },
+        {
+          "name": "Kebabich",
+          "seller_id": "713412",
+          "score": 70.2,
+          "reviews": 48424,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 4,
+          "price_min": "2 477 ₽",
+          "price_max": "24 775 ₽",
+          "families": "ChatGPT"
+        },
+        {
+          "name": "HelloKitty00",
+          "seller_id": "2123742",
+          "score": 70.1,
+          "reviews": 46597,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 10,
+          "price_min": "567 ₽",
+          "price_max": "13 749 ₽",
+          "families": "ChatGPT"
+        },
+        {
+          "name": "RusyaSmile",
+          "seller_id": "3194633",
+          "score": 69.8,
+          "reviews": 42367,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 7,
+          "price_min": "750 ₽",
+          "price_max": "54 073 ₽",
+          "families": "ChatGPT, GPT-5"
+        }
+      ],
+      "opportunities": [],
+      "recommendations": [
+        {
+          "rule": "R12",
+          "priority": "P1",
+          "category": "Подписка",
+          "category_id": "3559",
+          "category_game": "ChatGPT",
+          "title": "Вас нет в категории, где идёт торговля",
+          "action": "Проверить запуск лотов здесь: медиана цены 2 581 ₽, цена за 1M токенов около —.",
+          "evidence": "1453 лотов от 184 продавцов, суммарно 24360062 отзывов"
+        }
+      ],
+      "has_target": false
+    },
+    {
+      "id": "3173",
+      "name": "Подписка",
+      "game": "Claude",
+      "offers": 252,
+      "sellers": 64,
+      "offers_with_volume": 0,
+      "auto_share": 1.984126984126984,
+      "promo_share": 0.3968253968253968,
+      "online_share": 92.85714285714286,
+      "price_stats": {
+        "count": 252,
+        "min": 2699.0,
+        "p10": 3513.0,
+        "p25": 9156.75,
+        "median": 17566.0,
+        "p75": 29134.5,
+        "p90": 35061.8,
+        "max": 301808.0,
+        "mean": 24837.3056
+      },
+      "unit_price_stats": {
+        "count": 0,
+        "min": null,
+        "p10": null,
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "p90": null,
+        "max": null,
+        "mean": null
+      },
+      "unit_histogram": [],
+      "model_counts": [
+        [
+          "Claude",
+          219
+        ],
+        [
+          "Claude Opus",
+          2
+        ]
+      ],
+      "positions": [],
+      "competitors": [
+        {
+          "name": "Qbk666",
+          "seller_id": "11962916",
+          "score": 74.6,
+          "reviews": 6334,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 1,
+          "price_min": "15 264 ₽",
+          "price_max": "15 264 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "vadhf",
+          "seller_id": "1679347",
+          "score": 74.2,
+          "reviews": 5694,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 1,
+          "price_min": "3 898 ₽",
+          "price_max": "3 898 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "Roymi",
+          "seller_id": "1804150",
+          "score": 72.5,
+          "reviews": 98045,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 4,
+          "price_min": "14 084 ₽",
+          "price_max": "301 808 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "Killerok1",
+          "seller_id": "2091316",
+          "score": 71.0,
+          "reviews": 210440,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 4,
+          "price_min": "3 230 ₽",
+          "price_max": "24 371 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "DIma28102",
+          "seller_id": "487106",
+          "score": 70.4,
+          "reviews": 51967,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 3,
+          "price_min": "2 970 ₽",
+          "price_max": "286 473 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "Valerian96",
+          "seller_id": "6215714",
+          "score": 68.7,
+          "reviews": 30225,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 2,
+          "price_min": "15 090 ₽",
+          "price_max": "29 175 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "Mordekaiser",
+          "seller_id": "908028",
+          "score": 68.3,
+          "reviews": 26679,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 2,
+          "price_min": "15 090 ₽",
+          "price_max": "29 175 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "bleKlok",
+          "seller_id": "5351742",
+          "score": 67.9,
+          "reviews": 23892,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 2,
+          "price_min": "13 581 ₽",
+          "price_max": "26 660 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "Vadim223444",
+          "seller_id": "1175505",
+          "score": 67.2,
+          "reviews": 19408,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 3,
+          "price_min": "4 099 ₽",
+          "price_max": "40 988 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "DarkSideStore",
+          "seller_id": "4890938",
+          "score": 66.8,
+          "reviews": 16914,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 3,
+          "price_min": "12 676 ₽",
+          "price_max": "24 346 ₽",
+          "families": "Claude"
+        }
+      ],
+      "opportunities": [],
+      "recommendations": [
+        {
+          "rule": "R12",
+          "priority": "P1",
+          "category": "Подписка",
+          "category_id": "3173",
+          "category_game": "Claude",
+          "title": "Вас нет в категории, где идёт торговля",
+          "action": "Проверить запуск лотов здесь: медиана цены 17 566 ₽, цена за 1M токенов около —.",
+          "evidence": "252 лотов от 64 продавцов, суммарно 4139560 отзывов"
+        }
+      ],
+      "has_target": false
+    },
+    {
+      "id": "4505",
+      "name": "Пополнение баланса API",
+      "game": "DeepSeek",
+      "offers": 793,
+      "sellers": 128,
+      "offers_with_volume": 224,
+      "auto_share": 0.0,
+      "promo_share": 0.0,
+      "online_share": 93.94703656998739,
+      "price_stats": {
+        "count": 793,
+        "min": 1.14,
+        "p10": 47.158,
+        "p25": 284.15,
+        "median": 1556.0,
+        "p75": 4000.0,
+        "p90": 10309.8,
+        "max": 97978.0,
+        "mean": 4142.0303
+      },
+      "unit_price_stats": {
+        "count": 224,
+        "min": 0.2047,
+        "p10": 0.6021,
+        "p25": 1.1947,
+        "median": 4.134,
+        "p75": 20.6405,
+        "p90": 32.7195,
+        "max": 40.825,
+        "mean": 11.3307
+      },
+      "unit_histogram": [
+        {
+          "label": "0.1–0.3",
+          "count": 9,
+          "height": 16.4,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.3–1",
+          "count": 43,
+          "height": 78.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 54,
+          "height": 98.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "3–10",
+          "count": 30,
+          "height": 54.5,
+          "is_opportunity": false
+        },
+        {
+          "label": "10–30",
+          "count": 55,
+          "height": 100.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "30–100",
+          "count": 33,
+          "height": 60.0,
+          "is_opportunity": true
+        }
+      ],
+      "model_counts": [
+        [
+          "DeepSeek",
+          614
+        ],
+        [
+          "DeepSeek V4 Pro",
+          99
+        ],
+        [
+          "DeepSeek V4.1",
+          96
+        ],
+        [
+          "DeepSeek V4 Flash",
+          96
+        ],
+        [
+          "Gemini",
+          37
+        ],
+        [
+          "GPT-6",
+          27
+        ],
+        [
+          "Claude",
+          21
+        ],
+        [
+          "Kimi",
+          17
+        ],
+        [
+          "Qwen",
+          13
+        ],
+        [
+          "Claude Opus",
+          10
+        ],
+        [
+          "GLM",
+          10
+        ],
+        [
+          "Grok",
+          9
+        ]
+      ],
+      "positions": [],
+      "competitors": [
+        {
+          "name": "Roymi",
+          "seller_id": "1804150",
+          "score": 75.0,
+          "reviews": 98045,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "136 ₽",
+          "price_max": "136 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "pokupatel21",
+          "seller_id": "924503",
+          "score": 74.5,
+          "reviews": 83946,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "116 ₽",
+          "price_max": "116 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "OtetsVitaliySvyatoy",
+          "seller_id": "2591951",
+          "score": 72.6,
+          "reviews": 49445,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 6,
+          "price_min": "171 ₽",
+          "price_max": "3 207 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "Acclair",
+          "seller_id": "7270081",
+          "score": 72.5,
+          "reviews": 47890,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 19,
+          "price_min": "161 ₽",
+          "price_max": "59 008 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "dirtywest",
+          "seller_id": "8503986",
+          "score": 71.5,
+          "reviews": 35450,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "376 ₽",
+          "price_max": "376 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "StarGrace",
+          "seller_id": "2130085",
+          "score": 71.0,
+          "reviews": 31048,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "135 ₽",
+          "price_max": "135 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "GoldBroPro",
+          "seller_id": "1662603",
+          "score": 70.1,
+          "reviews": 23756,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "1 372 ₽",
+          "price_max": "1 372 ₽",
+          "families": ""
+        },
+        {
+          "name": "annstasia",
+          "seller_id": "7291344",
+          "score": 69.9,
+          "reviews": 22761,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "136 ₽",
+          "price_max": "136 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "Karakasartas",
+          "seller_id": "2378310",
+          "score": 68.7,
+          "reviews": 16237,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "125 ₽",
+          "price_max": "125 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "K0piIka",
+          "seller_id": "8580313",
+          "score": 68.7,
+          "reviews": 15902,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 6,
+          "price_min": "171 ₽",
+          "price_max": "3 207 ₽",
+          "families": "DeepSeek"
+        }
+      ],
+      "opportunities": [
+        {
+          "label": "30–100",
+          "count": 33,
+          "reviews_per_offer": 1603.0
+        }
+      ],
+      "recommendations": [
+        {
+          "rule": "R12",
+          "priority": "P1",
+          "category": "Пополнение баланса API",
+          "category_id": "4505",
+          "category_game": "DeepSeek",
+          "title": "Вас нет в категории, где идёт торговля",
+          "action": "Проверить запуск лотов здесь: медиана цены 1 556 ₽, цена за 1M токенов около 4.13 ₽/1M.",
+          "evidence": "793 лотов от 128 продавцов, суммарно 2896950 отзывов"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "Пополнение баланса API",
+          "category_id": "4505",
+          "category_game": "DeepSeek",
+          "title": "Свободная зона 30–100 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 30–100 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 33 лотов при среднем 1603.0 отзывов на лот у их продавцов против 835.6 в среднем по категории"
+        }
+      ],
+      "has_target": false
+    },
+    {
+      "id": "4448",
+      "name": "Токены",
+      "game": "ChatGPT",
+      "offers": 2000,
+      "sellers": 176,
+      "offers_with_volume": 1501,
+      "auto_share": 49.75,
+      "promo_share": 0.05,
+      "online_share": 97.25,
+      "price_stats": {
+        "count": 2000,
+        "min": 0.35,
+        "p10": 6.135,
+        "p25": 40.965,
+        "median": 292.77,
+        "p75": 1522.5,
+        "p90": 5341.4,
+        "max": 351324.0,
+        "mean": 3807.6569
+      },
+      "unit_price_stats": {
+        "count": 1501,
+        "min": 0.1448,
+        "p10": 0.4294,
+        "p25": 0.9493,
+        "median": 2.693,
+        "p75": 4.7916,
+        "p90": 7.8067,
+        "max": 69.09,
+        "mean": 4.1342
+      },
+      "unit_histogram": [
+        {
+          "label": "0.1–0.3",
+          "count": 48,
+          "height": 8.7,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.3–1",
+          "count": 345,
+          "height": 62.6,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 446,
+          "height": 80.9,
+          "is_opportunity": false
+        },
+        {
+          "label": "3–10",
+          "count": 551,
+          "height": 100.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "10–30",
+          "count": 96,
+          "height": 17.4,
+          "is_opportunity": true
+        },
+        {
+          "label": "30–100",
+          "count": 15,
+          "height": 2.7,
+          "is_opportunity": true
+        }
+      ],
+      "model_counts": [
+        [
+          "GPT-6",
+          1104
+        ],
+        [
+          "Codex",
+          631
+        ],
+        [
+          "ChatGPT",
+          392
+        ],
+        [
+          "Claude Opus",
+          345
+        ],
+        [
+          "Claude",
+          307
+        ],
+        [
+          "Gemini",
+          134
+        ],
+        [
+          "GPT-5",
+          102
+        ],
+        [
+          "DeepSeek",
+          83
+        ],
+        [
+          "Grok",
+          49
+        ],
+        [
+          "Cursor",
+          42
+        ],
+        [
+          "DeepSeek V4",
+          37
+        ],
+        [
+          "GLM",
+          35
+        ]
+      ],
+      "positions": [],
+      "competitors": [
+        {
+          "name": "HamuraXGod",
+          "seller_id": "2622063",
+          "score": 81.7,
+          "reviews": 5422,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 10,
+          "price_min": "4.68 ₽",
+          "price_max": "46.84 ₽",
+          "families": "GPT-6, ChatGPT, Cursor, Codex"
+        },
+        {
+          "name": "brawlbuy312",
+          "seller_id": "9732482",
+          "score": 81.0,
+          "reviews": 4461,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 5,
+          "price_min": "316 ₽",
+          "price_max": "4 995 ₽",
+          "families": "GPT-6, Codex"
+        },
+        {
+          "name": "dreamFN",
+          "seller_id": "15632176",
+          "score": 80.3,
+          "reviews": 3757,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 29,
+          "price_min": "3.23 ₽",
+          "price_max": "6 464 ₽",
+          "families": "GPT-6, GPT-5, Claude"
+        },
+        {
+          "name": "Semeeg",
+          "seller_id": "5212996",
+          "score": 79.4,
+          "reviews": 2912,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 30,
+          "price_min": "1.51 ₽",
+          "price_max": "25 178 ₽",
+          "families": "GPT-6, Claude"
+        },
+        {
+          "name": "Jopsik",
+          "seller_id": "730238",
+          "score": 78.8,
+          "reviews": 2509,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 9,
+          "price_min": "105 ₽",
+          "price_max": "1 757 ₽",
+          "families": "Codex"
+        },
+        {
+          "name": "Lakioil",
+          "seller_id": "4430731",
+          "score": 78.6,
+          "reviews": 2364,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 21,
+          "price_min": "100 ₽",
+          "price_max": "292 800 ₽",
+          "families": "ChatGPT"
+        },
+        {
+          "name": "JongoFTK",
+          "seller_id": "7696082",
+          "score": 78.5,
+          "reviews": 2304,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 6,
+          "price_min": "117 ₽",
+          "price_max": "1 171 ₽",
+          "families": "DeepSeek, Claude"
+        },
+        {
+          "name": "TRIKLZ27",
+          "seller_id": "3584934",
+          "score": 76.8,
+          "reviews": 4229,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 14,
+          "price_min": "4.11 ₽",
+          "price_max": "19 598 ₽",
+          "families": "GPT-6"
+        },
+        {
+          "name": "theblesswield",
+          "seller_id": "15857327",
+          "score": 76.6,
+          "reviews": 4030,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 30,
+          "price_min": "1.17 ₽",
+          "price_max": "25 500 ₽",
+          "families": "GPT-6, Codex"
+        },
+        {
+          "name": "RabotyagaPirata",
+          "seller_id": "3735475",
+          "score": 76.6,
+          "reviews": 1372,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 30,
+          "price_min": "200 ₽",
+          "price_max": "83 000 ₽",
+          "families": "ChatGPT, Codex"
+        }
+      ],
+      "opportunities": [
+        {
+          "label": "10–30",
+          "count": 96,
+          "reviews_per_offer": 1714.2
+        },
+        {
+          "label": "30–100",
+          "count": 15,
+          "reviews_per_offer": 1160.9
+        }
+      ],
+      "recommendations": [
+        {
+          "rule": "R12",
+          "priority": "P1",
+          "category": "Токены",
+          "category_id": "4448",
+          "category_game": "ChatGPT",
+          "title": "Вас нет в категории, где идёт торговля",
+          "action": "Проверить запуск лотов здесь: медиана цены 293 ₽, цена за 1M токенов около 2.69 ₽/1M.",
+          "evidence": "2000 лотов от 176 продавцов, суммарно 2585321 отзывов"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "Токены",
+          "category_id": "4448",
+          "category_game": "ChatGPT",
+          "title": "Свободная зона 10–30 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 10–30 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 96 лотов при среднем 1714.2 отзывов на лот у их продавцов против 1111.6 в среднем по категории"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "Токены",
+          "category_id": "4448",
+          "category_game": "ChatGPT",
+          "title": "Свободная зона 30–100 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 30–100 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 15 лотов при среднем 1160.9 отзывов на лот у их продавцов против 1111.6 в среднем по категории"
+        }
+      ],
+      "has_target": false
+    },
+    {
+      "id": "4234",
+      "name": "Токены",
+      "game": "Claude",
+      "offers": 2000,
+      "sellers": 193,
+      "offers_with_volume": 2000,
+      "auto_share": 51.05,
+      "promo_share": 0.05,
+      "online_share": 96.75,
+      "price_stats": {
+        "count": 2000,
+        "min": 0.7,
+        "p10": 6.439,
+        "p25": 33.725,
+        "median": 232.205,
+        "p75": 1305.0,
+        "p90": 5303.1,
+        "max": 292800.0,
+        "mean": 3794.9537
+      },
+      "unit_price_stats": {
+        "count": 2000,
+        "min": 0.0,
+        "p10": 0.0,
+        "p25": 0.3429,
+        "median": 2.1815,
+        "p75": 5.5377,
+        "p90": 11.5499,
+        "max": 80570.0,
+        "mean": 132.9269
+      },
+      "unit_histogram": [
+        {
+          "label": "<0.001",
+          "count": 397,
+          "height": 58.8,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.003–0.01",
+          "count": 1,
+          "height": 0.1,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.01–0.03",
+          "count": 1,
+          "height": 0.1,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.03–0.1",
+          "count": 3,
+          "height": 0.4,
+          "is_opportunity": true
+        },
+        {
+          "label": "0.1–0.3",
+          "count": 62,
+          "height": 9.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.3–1",
+          "count": 262,
+          "height": 38.8,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 374,
+          "height": 55.4,
+          "is_opportunity": false
+        },
+        {
+          "label": "3–10",
+          "count": 675,
+          "height": 100.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "10–30",
+          "count": 152,
+          "height": 22.5,
+          "is_opportunity": true
+        },
+        {
+          "label": "30–100",
+          "count": 28,
+          "height": 4.1,
+          "is_opportunity": false
+        },
+        {
+          "label": "100–300",
+          "count": 9,
+          "height": 1.3,
+          "is_opportunity": false
+        },
+        {
+          "label": "300–1 000",
+          "count": 14,
+          "height": 2.1,
+          "is_opportunity": false
+        },
+        {
+          "label": ">1 000",
+          "count": 22,
+          "height": 3.3,
+          "is_opportunity": false
+        }
+      ],
+      "model_counts": [
+        [
+          "Claude Opus",
+          1278
+        ],
+        [
+          "Claude Sonnet",
+          619
+        ],
+        [
+          "Claude",
+          550
+        ],
+        [
+          "GPT-6",
+          452
+        ],
+        [
+          "Gemini",
+          163
+        ],
+        [
+          "Codex",
+          131
+        ],
+        [
+          "Grok",
+          84
+        ],
+        [
+          "ChatGPT",
+          75
+        ],
+        [
+          "DeepSeek",
+          64
+        ],
+        [
+          "GLM",
+          55
+        ],
+        [
+          "Kimi",
+          52
+        ],
+        [
+          "GPT-5",
+          51
+        ]
+      ],
+      "positions": [],
+      "competitors": [
+        {
+          "name": "StasikD",
+          "seller_id": "6083771",
+          "score": 90.0,
+          "reviews": 9231,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 22,
+          "price_min": "1.17 ₽",
+          "price_max": "14 204 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "HamuraXGod",
+          "seller_id": "2622063",
+          "score": 87.7,
+          "reviews": 5422,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 10,
+          "price_min": "4.68 ₽",
+          "price_max": "46.84 ₽",
+          "families": "Claude, Cursor"
+        },
+        {
+          "name": "brawlbuy312",
+          "seller_id": "9732482",
+          "score": 86.8,
+          "reviews": 4461,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 9,
+          "price_min": "316 ₽",
+          "price_max": "4 995 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "Kubansss",
+          "seller_id": "3937075",
+          "score": 86.5,
+          "reviews": 4183,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 4,
+          "price_min": "176 ₽",
+          "price_max": "697 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "dreamFN",
+          "seller_id": "15632176",
+          "score": 86.1,
+          "reviews": 3757,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 30,
+          "price_min": "3.23 ₽",
+          "price_max": "6 464 ₽",
+          "families": "GPT-6, GPT-5, Claude"
+        },
+        {
+          "name": "MelodiaShop",
+          "seller_id": "13658661",
+          "score": 85.6,
+          "reviews": 8375,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 1,
+          "price_min": "2.34 ₽",
+          "price_max": "2.34 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "Semeeg",
+          "seller_id": "5212996",
+          "score": 84.9,
+          "reviews": 2912,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 30,
+          "price_min": "3.13 ₽",
+          "price_max": "26 115 ₽",
+          "families": "GPT-6, Claude"
+        },
+        {
+          "name": "WertyNew",
+          "seller_id": "17797007",
+          "score": 83.3,
+          "reviews": 1999,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 5,
+          "price_min": "12.88 ₽",
+          "price_max": "299 ₽",
+          "families": "Claude"
+        },
+        {
+          "name": "Rekfin21a",
+          "seller_id": "351918",
+          "score": 82.8,
+          "reviews": 1797,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 2,
+          "price_min": "164 ₽",
+          "price_max": "316 ₽",
+          "families": "GPT-6, GPT-5, Claude"
+        },
+        {
+          "name": "TRIKLZ27",
+          "seller_id": "3584934",
+          "score": 82.6,
+          "reviews": 4229,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 16,
+          "price_min": "4.11 ₽",
+          "price_max": "19 657 ₽",
+          "families": "Claude"
+        }
+      ],
+      "opportunities": [
+        {
+          "label": "0.03–0.1",
+          "count": 3,
+          "reviews_per_offer": 1902.3
+        },
+        {
+          "label": "10–30",
+          "count": 152,
+          "reviews_per_offer": 1104.2
+        }
+      ],
+      "recommendations": [
+        {
+          "rule": "R12",
+          "priority": "P1",
+          "category": "Токены",
+          "category_id": "4234",
+          "category_game": "Claude",
+          "title": "Вас нет в категории, где идёт торговля",
+          "action": "Проверить запуск лотов здесь: медиана цены 232 ₽, цена за 1M токенов около 2.18 ₽/1M.",
+          "evidence": "2000 лотов от 193 продавцов, суммарно 1852099 отзывов"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "Токены",
+          "category_id": "4234",
+          "category_game": "Claude",
+          "title": "Свободная зона 0.03–0.1 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 0.03–0.1 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 3 лотов при среднем 1902.3 отзывов на лот у их продавцов против 685.1 в среднем по категории"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "Токены",
+          "category_id": "4234",
+          "category_game": "Claude",
+          "title": "Свободная зона 10–30 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 10–30 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 152 лотов при среднем 1104.2 отзывов на лот у их продавцов против 685.1 в среднем по категории"
+        }
+      ],
+      "has_target": false
+    },
+    {
+      "id": "4615",
+      "name": "Токены",
+      "game": "Gemini",
+      "offers": 1970,
+      "sellers": 175,
+      "offers_with_volume": 1628,
+      "auto_share": 42.182741116751274,
+      "promo_share": 0.050761421319796954,
+      "online_share": 90.65989847715737,
+      "price_stats": {
+        "count": 1970,
+        "min": 0.86,
+        "p10": 9.886,
+        "p25": 51.32,
+        "median": 283.99,
+        "p75": 1525.5,
+        "p90": 5700.2,
+        "max": 285200.0,
+        "mean": 3632.621
+      },
+      "unit_price_stats": {
+        "count": 1628,
+        "min": 0.0065,
+        "p10": 0.3858,
+        "p25": 1.07,
+        "median": 2.7803,
+        "p75": 5.4662,
+        "p90": 9.3506,
+        "max": 1128.0,
+        "mean": 8.0304
+      },
+      "unit_histogram": [
+        {
+          "label": "0.003–0.01",
+          "count": 2,
+          "height": 0.3,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.1–0.3",
+          "count": 75,
+          "height": 12.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.3–1",
+          "count": 312,
+          "height": 50.8,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 467,
+          "height": 76.1,
+          "is_opportunity": false
+        },
+        {
+          "label": "3–10",
+          "count": 614,
+          "height": 100.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "10–30",
+          "count": 118,
+          "height": 19.2,
+          "is_opportunity": true
+        },
+        {
+          "label": "30–100",
+          "count": 34,
+          "height": 5.5,
+          "is_opportunity": false
+        },
+        {
+          "label": "100–300",
+          "count": 1,
+          "height": 0.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "300–1 000",
+          "count": 1,
+          "height": 0.2,
+          "is_opportunity": false
+        },
+        {
+          "label": ">1 000",
+          "count": 4,
+          "height": 0.7,
+          "is_opportunity": false
+        }
+      ],
+      "model_counts": [
+        [
+          "Gemini",
+          1548
+        ],
+        [
+          "Claude Opus",
+          275
+        ],
+        [
+          "GPT-6",
+          235
+        ],
+        [
+          "Claude",
+          217
+        ],
+        [
+          "Grok",
+          151
+        ],
+        [
+          "Codex",
+          93
+        ],
+        [
+          "Cursor",
+          93
+        ],
+        [
+          "GLM",
+          80
+        ],
+        [
+          "Kimi",
+          79
+        ],
+        [
+          "DeepSeek",
+          78
+        ],
+        [
+          "Cline",
+          48
+        ],
+        [
+          "ChatGPT",
+          21
+        ]
+      ],
+      "positions": [],
+      "competitors": [
+        {
+          "name": "StasikD",
+          "seller_id": "6083771",
+          "score": 88.4,
+          "reviews": 9231,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "2.83 ₽",
+          "price_max": "3 420 ₽",
+          "families": "Gemini"
+        },
+        {
+          "name": "dreamFN",
+          "seller_id": "15632176",
+          "score": 84.6,
+          "reviews": 3757,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "1.14 ₽",
+          "price_max": "3 650 ₽",
+          "families": "Gemini"
+        },
+        {
+          "name": "MelodiaShop",
+          "seller_id": "13658661",
+          "score": 84.0,
+          "reviews": 8375,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 5,
+          "price_min": "2.28 ₽",
+          "price_max": "91.24 ₽",
+          "families": "Gemini"
+        },
+        {
+          "name": "Semeeg",
+          "seller_id": "5212996",
+          "score": 83.5,
+          "reviews": 2912,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "1.43 ₽",
+          "price_max": "19 047 ₽",
+          "families": "Gemini"
+        },
+        {
+          "name": "Lakioil",
+          "seller_id": "4430731",
+          "score": 82.6,
+          "reviews": 2364,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "100 ₽",
+          "price_max": "285 200 ₽",
+          "families": "Gemini"
+        },
+        {
+          "name": "theblesswield",
+          "seller_id": "15857327",
+          "score": 80.9,
+          "reviews": 4030,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "3.00 ₽",
+          "price_max": "1 760 ₽",
+          "families": "Gemini"
+        },
+        {
+          "name": "Deadyyyy",
+          "seller_id": "3427434",
+          "score": 80.1,
+          "reviews": 3314,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "31.11 ₽",
+          "price_max": "81 407 ₽",
+          "families": "Gemini"
+        },
+        {
+          "name": "Morj666",
+          "seller_id": "10076343",
+          "score": 79.6,
+          "reviews": 2629,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "11.43 ₽",
+          "price_max": "6 877 ₽",
+          "families": "Claude, Codex"
+        },
+        {
+          "name": "AdamFox",
+          "seller_id": "2317701",
+          "score": 79.6,
+          "reviews": 1133,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 4,
+          "price_min": "194 ₽",
+          "price_max": "3 878 ₽",
+          "families": "Gemini"
+        },
+        {
+          "name": "jimnord1922",
+          "seller_id": "18304367",
+          "score": 78.9,
+          "reviews": 964,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 9,
+          "price_min": "31.11 ₽",
+          "price_max": "705 ₽",
+          "families": "Gemini"
+        }
+      ],
+      "opportunities": [
+        {
+          "label": "10–30",
+          "count": 118,
+          "reviews_per_offer": 596.6
+        }
+      ],
+      "recommendations": [
+        {
+          "rule": "R12",
+          "priority": "P1",
+          "category": "Токены",
+          "category_id": "4615",
+          "category_game": "Gemini",
+          "title": "Вас нет в категории, где идёт торговля",
+          "action": "Проверить запуск лотов здесь: медиана цены 284 ₽, цена за 1M токенов около 2.78 ₽/1M.",
+          "evidence": "1970 лотов от 175 продавцов, суммарно 1951595 отзывов"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "Токены",
+          "category_id": "4615",
+          "category_game": "Gemini",
+          "title": "Свободная зона 10–30 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 10–30 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 118 лотов при среднем 596.6 отзывов на лот у их продавцов против 440.8 в среднем по категории"
+        }
+      ],
+      "has_target": false
+    },
+    {
+      "id": "4629",
+      "name": "Токены",
+      "game": "Grok",
+      "offers": 2000,
+      "sellers": 152,
+      "offers_with_volume": 1668,
+      "auto_share": 41.55,
+      "promo_share": 0.05,
+      "online_share": 94.5,
+      "price_stats": {
+        "count": 2000,
+        "min": 0.84,
+        "p10": 10.08,
+        "p25": 48.93,
+        "median": 312.95,
+        "p75": 1904.0,
+        "p90": 7281.0,
+        "max": 336049.0,
+        "mean": 4400.6481
+      },
+      "unit_price_stats": {
+        "count": 1668,
+        "min": 0.1344,
+        "p10": 0.3859,
+        "p25": 0.9,
+        "median": 2.2797,
+        "p75": 5.3769,
+        "p90": 10.9423,
+        "max": 201.64,
+        "mean": 6.7554
+      },
+      "unit_histogram": [
+        {
+          "label": "0.1–0.3",
+          "count": 86,
+          "height": 14.8,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.3–1",
+          "count": 379,
+          "height": 65.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 447,
+          "height": 76.9,
+          "is_opportunity": false
+        },
+        {
+          "label": "3–10",
+          "count": 581,
+          "height": 100.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "10–30",
+          "count": 92,
+          "height": 15.8,
+          "is_opportunity": false
+        },
+        {
+          "label": "30–100",
+          "count": 62,
+          "height": 10.7,
+          "is_opportunity": false
+        },
+        {
+          "label": "100–300",
+          "count": 21,
+          "height": 3.6,
+          "is_opportunity": false
+        }
+      ],
+      "model_counts": [
+        [
+          "Grok",
+          1702
+        ],
+        [
+          "Claude Opus",
+          259
+        ],
+        [
+          "GPT-6",
+          243
+        ],
+        [
+          "Codex",
+          206
+        ],
+        [
+          "Claude",
+          198
+        ],
+        [
+          "Gemini",
+          131
+        ],
+        [
+          "DeepSeek",
+          71
+        ],
+        [
+          "Cursor",
+          70
+        ],
+        [
+          "ChatGPT",
+          55
+        ],
+        [
+          "Kimi",
+          40
+        ],
+        [
+          "GLM",
+          21
+        ],
+        [
+          "Cline",
+          17
+        ]
+      ],
+      "positions": [],
+      "competitors": [
+        {
+          "name": "StasikD",
+          "seller_id": "6083771",
+          "score": 88.5,
+          "reviews": 9231,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "4.00 ₽",
+          "price_max": "3 300 ₽",
+          "families": "Grok"
+        },
+        {
+          "name": "HamuraXGod",
+          "seller_id": "2622063",
+          "score": 86.2,
+          "reviews": 5422,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 10,
+          "price_min": "4.48 ₽",
+          "price_max": "44.81 ₽",
+          "families": "Claude, Gemini, Grok, Cursor"
+        },
+        {
+          "name": "Semeeg",
+          "seller_id": "5212996",
+          "score": 83.6,
+          "reviews": 2912,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "1.40 ₽",
+          "price_max": "18 707 ₽",
+          "families": "Grok"
+        },
+        {
+          "name": "GameBosss",
+          "seller_id": "6515745",
+          "score": 83.1,
+          "reviews": 2578,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "11.22 ₽",
+          "price_max": "6 754 ₽",
+          "families": "Claude, Codex"
+        },
+        {
+          "name": "Lakioil",
+          "seller_id": "4430731",
+          "score": 82.7,
+          "reviews": 2364,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "100 ₽",
+          "price_max": "280 100 ₽",
+          "families": "Grok"
+        },
+        {
+          "name": "quasebuyer",
+          "seller_id": "11186395",
+          "score": 81.3,
+          "reviews": 1676,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 3,
+          "price_min": "300 ₽",
+          "price_max": "1 100 ₽",
+          "families": "Grok"
+        },
+        {
+          "name": "theblesswield",
+          "seller_id": "15857327",
+          "score": 81.0,
+          "reviews": 4030,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 30,
+          "price_min": "1.12 ₽",
+          "price_max": "17 000 ₽",
+          "families": "Grok"
+        },
+        {
+          "name": "Deadyyyy",
+          "seller_id": "3427434",
+          "score": 80.2,
+          "reviews": 3314,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "30.00 ₽",
+          "price_max": "78 500 ₽",
+          "families": "Grok"
+        },
+        {
+          "name": "AdamFox",
+          "seller_id": "2317701",
+          "score": 79.6,
+          "reviews": 1133,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 4,
+          "price_min": "190 ₽",
+          "price_max": "3 809 ₽",
+          "families": "Grok"
+        },
+        {
+          "name": "Morj666",
+          "seller_id": "10076343",
+          "score": 79.2,
+          "reviews": 2629,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "11.22 ₽",
+          "price_max": "6 754 ₽",
+          "families": "Claude, Codex"
+        }
+      ],
+      "opportunities": [],
+      "recommendations": [
+        {
+          "rule": "R12",
+          "priority": "P1",
+          "category": "Токены",
+          "category_id": "4629",
+          "category_game": "Grok",
+          "title": "Вас нет в категории, где идёт торговля",
+          "action": "Проверить запуск лотов здесь: медиана цены 313 ₽, цена за 1M токенов около 2.28 ₽/1M.",
+          "evidence": "2000 лотов от 152 продавцов, суммарно 1959264 отзывов"
+        }
+      ],
+      "has_target": false
+    },
+    {
+      "id": "4614",
+      "name": "Токены",
+      "game": "Kimi",
+      "offers": 1395,
+      "sellers": 120,
+      "offers_with_volume": 1080,
+      "auto_share": 38.494623655913976,
+      "promo_share": 0.07168458781362007,
+      "online_share": 95.98566308243728,
+      "price_stats": {
+        "count": 1395,
+        "min": 0.33,
+        "p10": 11.978,
+        "p25": 82.485,
+        "median": 417.92,
+        "p75": 1994.5,
+        "p90": 6583.8,
+        "max": 329939.0,
+        "mean": 3847.9994
+      },
+      "unit_price_stats": {
+        "count": 1080,
+        "min": 0.14,
+        "p10": 0.5493,
+        "p25": 1.2715,
+        "median": 2.722,
+        "p75": 6.122,
+        "p90": 8.7987,
+        "max": 91.6667,
+        "mean": 6.4367
+      },
+      "unit_histogram": [
+        {
+          "label": "0.1–0.3",
+          "count": 39,
+          "height": 9.3,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.3–1",
+          "count": 170,
+          "height": 40.5,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 356,
+          "height": 84.8,
+          "is_opportunity": false
+        },
+        {
+          "label": "3–10",
+          "count": 420,
+          "height": 100.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "10–30",
+          "count": 55,
+          "height": 13.1,
+          "is_opportunity": false
+        },
+        {
+          "label": "30–100",
+          "count": 40,
+          "height": 9.5,
+          "is_opportunity": true
+        }
+      ],
+      "model_counts": [
+        [
+          "Kimi",
+          1255
+        ],
+        [
+          "Claude",
+          167
+        ],
+        [
+          "GPT-6",
+          123
+        ],
+        [
+          "GLM",
+          122
+        ],
+        [
+          "Claude Opus",
+          114
+        ],
+        [
+          "Codex",
+          111
+        ],
+        [
+          "Gemini",
+          97
+        ],
+        [
+          "Cursor",
+          76
+        ],
+        [
+          "DeepSeek",
+          57
+        ],
+        [
+          "Grok",
+          28
+        ],
+        [
+          "Qwen",
+          24
+        ],
+        [
+          "Cline",
+          19
+        ]
+      ],
+      "positions": [],
+      "competitors": [
+        {
+          "name": "StasikD",
+          "seller_id": "6083771",
+          "score": 88.9,
+          "reviews": 9231,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "2.72 ₽",
+          "price_max": "18 600 ₽",
+          "families": "Kimi"
+        },
+        {
+          "name": "Semeeg",
+          "seller_id": "5212996",
+          "score": 83.5,
+          "reviews": 2912,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "1.37 ₽",
+          "price_max": "16 387 ₽",
+          "families": "Kimi"
+        },
+        {
+          "name": "zxcklaverz",
+          "seller_id": "8970005",
+          "score": 82.1,
+          "reviews": 2061,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 9,
+          "price_min": "300 ₽",
+          "price_max": "3 050 ₽",
+          "families": "Kimi, GLM"
+        },
+        {
+          "name": "quasebuyer",
+          "seller_id": "11186395",
+          "score": 81.2,
+          "reviews": 1676,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 3,
+          "price_min": "300 ₽",
+          "price_max": "1 100 ₽",
+          "families": "Kimi"
+        },
+        {
+          "name": "theblesswield",
+          "seller_id": "15857327",
+          "score": 80.9,
+          "reviews": 4030,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "3.00 ₽",
+          "price_max": "2 200 ₽",
+          "families": "Kimi"
+        },
+        {
+          "name": "Deadyyyy",
+          "seller_id": "3427434",
+          "score": 80.1,
+          "reviews": 3314,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "30.00 ₽",
+          "price_max": "78 500 ₽",
+          "families": "Kimi"
+        },
+        {
+          "name": "AdamFox",
+          "seller_id": "2317701",
+          "score": 79.6,
+          "reviews": 1133,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 4,
+          "price_min": "187 ₽",
+          "price_max": "3 739 ₽",
+          "families": "Kimi"
+        },
+        {
+          "name": "jimnord1922",
+          "seller_id": "18304367",
+          "score": 78.9,
+          "reviews": 964,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 9,
+          "price_min": "30.00 ₽",
+          "price_max": "680 ₽",
+          "families": "Kimi"
+        },
+        {
+          "name": "WSkup",
+          "seller_id": "15107057",
+          "score": 78.4,
+          "reviews": 862,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 18,
+          "price_min": "54.99 ₽",
+          "price_max": "5 488 ₽",
+          "families": "Kimi"
+        },
+        {
+          "name": "Foruj",
+          "seller_id": "14965085",
+          "score": 77.5,
+          "reviews": 694,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 10,
+          "price_min": "79.99 ₽",
+          "price_max": "2 800 ₽",
+          "families": "GPT-6, Claude, Gemini, Kimi"
+        }
+      ],
+      "opportunities": [
+        {
+          "label": "30–100",
+          "count": 40,
+          "reviews_per_offer": 1554.7
+        }
+      ],
+      "recommendations": [
+        {
+          "rule": "R12",
+          "priority": "P1",
+          "category": "Токены",
+          "category_id": "4614",
+          "category_game": "Kimi",
+          "title": "Вас нет в категории, где идёт торговля",
+          "action": "Проверить запуск лотов здесь: медиана цены 418 ₽, цена за 1M токенов около 2.72 ₽/1M.",
+          "evidence": "1395 лотов от 120 продавцов, суммарно 1373520 отзывов"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "Токены",
+          "category_id": "4614",
+          "category_game": "Kimi",
+          "title": "Свободная зона 30–100 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 30–100 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 40 лотов при среднем 1554.7 отзывов на лот у их продавцов против 1038.2 в среднем по категории"
+        }
+      ],
+      "has_target": false
+    },
+    {
+      "id": "4676",
+      "name": "Токены GLM",
+      "game": "GLM",
+      "offers": 1594,
+      "sellers": 120,
+      "offers_with_volume": 1594,
+      "auto_share": 41.8444165621079,
+      "promo_share": 0.06273525721455457,
+      "online_share": 94.4792973651192,
+      "price_stats": {
+        "count": 1594,
+        "min": 0.89,
+        "p10": 8.13,
+        "p25": 46.245,
+        "median": 284.305,
+        "p75": 1509.0,
+        "p90": 6017.5,
+        "max": 334184.0,
+        "mean": 3480.3112
+      },
+      "unit_price_stats": {
+        "count": 1594,
+        "min": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "median": 1.427,
+        "p75": 3.6901,
+        "p90": 7.835,
+        "max": 764.42,
+        "mean": 4.4092
+      },
+      "unit_histogram": [
+        {
+          "label": "<0.001",
+          "count": 439,
+          "height": 99.1,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.001–0.003",
+          "count": 1,
+          "height": 0.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.003–0.01",
+          "count": 1,
+          "height": 0.2,
+          "is_opportunity": true
+        },
+        {
+          "label": "0.01–0.03",
+          "count": 1,
+          "height": 0.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.03–0.1",
+          "count": 4,
+          "height": 0.9,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.1–0.3",
+          "count": 61,
+          "height": 13.8,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.3–1",
+          "count": 196,
+          "height": 44.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 346,
+          "height": 78.1,
+          "is_opportunity": false
+        },
+        {
+          "label": "3–10",
+          "count": 443,
+          "height": 100.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "10–30",
+          "count": 85,
+          "height": 19.2,
+          "is_opportunity": false
+        },
+        {
+          "label": "30–100",
+          "count": 13,
+          "height": 2.9,
+          "is_opportunity": false
+        },
+        {
+          "label": "100–300",
+          "count": 2,
+          "height": 0.5,
+          "is_opportunity": false
+        },
+        {
+          "label": "300–1 000",
+          "count": 2,
+          "height": 0.5,
+          "is_opportunity": true
+        }
+      ],
+      "model_counts": [
+        [
+          "GLM",
+          1430
+        ],
+        [
+          "Claude",
+          173
+        ],
+        [
+          "GPT-6",
+          145
+        ],
+        [
+          "Claude Opus",
+          109
+        ],
+        [
+          "Kimi",
+          94
+        ],
+        [
+          "Codex",
+          76
+        ],
+        [
+          "Gemini",
+          73
+        ],
+        [
+          "Cursor",
+          55
+        ],
+        [
+          "Grok",
+          51
+        ],
+        [
+          "Cline",
+          49
+        ],
+        [
+          "DeepSeek",
+          37
+        ],
+        [
+          "DeepSeek V4.1",
+          28
+        ]
+      ],
+      "positions": [
+        {
+          "title": "⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без VPN • авт…",
+          "price": "15.00 ₽",
+          "unit_price": "0.1500",
+          "family": "GLM",
+          "price_percentile": 14.0,
+          "unit_percentile": 28.3,
+          "comparables": 110,
+          "comparable_median_unit": "3.10",
+          "deviation": -95.2,
+          "volume": "100M",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • GLM 5.3 API 1B токенов • для агентов • авто, Другое кол…",
+          "price": "150 ₽",
+          "unit_price": "0.00000",
+          "family": "GLM",
+          "price_percentile": 40.1,
+          "unit_percentile": 1.4,
+          "comparables": 28,
+          "comparable_median_unit": "0.00000",
+          "deviation": null,
+          "volume": "1e+06B",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • GLM 5.3 API 3B токенов • опт • авто, Другое количество,…",
+          "price": "350 ₽",
+          "unit_price": "0.00000",
+          "family": "GLM",
+          "price_percentile": 54.0,
+          "unit_percentile": 1.4,
+          "comparables": 26,
+          "comparable_median_unit": "0.00000",
+          "deviation": null,
+          "volume": "3e+06B",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • GLM 5.3 API 10B токенов • макс. выгода • авто, Другое к…",
+          "price": "800 ₽",
+          "unit_price": "0.00000",
+          "family": "GLM",
+          "price_percentile": 66.5,
+          "unit_percentile": 1.4,
+          "comparables": 8,
+          "comparable_median_unit": "0.00000",
+          "deviation": null,
+          "volume": "1e+07B",
+          "auto": false,
+          "reviews": 119
+        }
+      ],
+      "competitors": [
+        {
+          "name": "StasikD",
+          "seller_id": "6083771",
+          "score": 83.9,
+          "reviews": 9231,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 21,
+          "price_min": "3.67 ₽",
+          "price_max": "3 283 ₽",
+          "families": "GLM"
+        },
+        {
+          "name": "HamuraXGod",
+          "seller_id": "2622063",
+          "score": 81.9,
+          "reviews": 5422,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 10,
+          "price_min": "4.64 ₽",
+          "price_max": "46.44 ₽",
+          "families": "Claude, GLM, Cursor"
+        },
+        {
+          "name": "Semeeg",
+          "seller_id": "5212996",
+          "score": 79.6,
+          "reviews": 2912,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "1.45 ₽",
+          "price_max": "19 387 ₽",
+          "families": "GLM"
+        },
+        {
+          "name": "dreamFN",
+          "seller_id": "15632176",
+          "score": 79.4,
+          "reviews": 3757,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 92.3076923076923,
+          "offers": 26,
+          "price_min": "3.20 ₽",
+          "price_max": "6 408 ₽",
+          "families": "GLM"
+        },
+        {
+          "name": "zxcklaverz",
+          "seller_id": "8970005",
+          "score": 78.3,
+          "reviews": 2061,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 11,
+          "price_min": "4.99 ₽",
+          "price_max": "2 700 ₽",
+          "families": "GLM"
+        },
+        {
+          "name": "theblesswield",
+          "seller_id": "15857327",
+          "score": 76.8,
+          "reviews": 4030,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 30,
+          "price_min": "1.16 ₽",
+          "price_max": "17 000 ₽",
+          "families": "GLM"
+        },
+        {
+          "name": "Deadyyyy",
+          "seller_id": "3427434",
+          "score": 76.1,
+          "reviews": 3314,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 20,
+          "price_min": "30.00 ₽",
+          "price_max": "78 500 ₽",
+          "families": "GLM"
+        },
+        {
+          "name": "AdamFox",
+          "seller_id": "2317701",
+          "score": 76.1,
+          "reviews": 1133,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 4,
+          "price_min": "197 ₽",
+          "price_max": "3 947 ₽",
+          "families": "GLM"
+        },
+        {
+          "name": "WSkup",
+          "seller_id": "15107057",
+          "score": 75.1,
+          "reviews": 862,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 100.0,
+          "offers": 18,
+          "price_min": "58.04 ₽",
+          "price_max": "5 793 ₽",
+          "families": "GLM"
+        },
+        {
+          "name": "Acclair",
+          "seller_id": "7270081",
+          "score": 75.0,
+          "reviews": 47890,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "764 ₽",
+          "price_max": "764 ₽",
+          "families": ""
+        }
+      ],
+      "opportunities": [
+        {
+          "label": "0.003–0.01",
+          "count": 1,
+          "reviews_per_offer": 5537.0
+        },
+        {
+          "label": "300–1 000",
+          "count": 2,
+          "reviews_per_offer": 24174.5
+        }
+      ],
+      "recommendations": [
+        {
+          "rule": "R11",
+          "priority": "P0",
+          "category": "Токены GLM",
+          "category_id": "4676",
+          "category_game": "GLM",
+          "title": "«Авто» написано в описании, но автовыдача не включена: 4 лотов",
+          "action": "Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.",
+          "evidence": "в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без…; ⚡ VibeTokens • GLM 5.3 API 1B токенов • для агентов • авто, …; ⚡ VibeTokens • GLM 5.3 API 3B токенов • опт • авто, Другое к…"
+        },
+        {
+          "rule": "R5",
+          "priority": "P0",
+          "category": "Токены GLM",
+          "category_id": "4676",
+          "category_game": "GLM",
+          "title": "Нет автовыдачи у 4 из 4 лотов",
+          "action": "Включить автовыдачу на всех лотах категории: покупатель уходит к тому, кто выдаёт сразу, без ожидания ответа продавца.",
+          "evidence": "у конкурентов сверху автовыдача у 98% лотов, у вас — у 0%"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "Токены GLM",
+          "category_id": "4676",
+          "category_game": "GLM",
+          "title": "Дешевле аналогов на 95%: ⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без…",
+          "action": "Есть запас поднять цену до 3.10 ₽/1M за 1M токенов (≈310 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.1500 ₽/1M против медианы 3.10 ₽/1M у 110 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R4",
+          "priority": "P1",
+          "category": "Токены GLM",
+          "category_id": "4676",
+          "category_game": "GLM",
+          "title": "В описаниях нет аргументов, которые используют лидеры",
+          "action": "Добавить в описания лотов: 24/7, мгновенн, 24/7. Формулировать как факт, например «автовыдача 24/7», «гарантия и замена ключа».",
+          "evidence": "эти слова встречаются у 88 лотов конкурентов сверху, но отсутствуют во всех ваших описаниях в категории"
+        },
+        {
+          "rule": "R7",
+          "priority": "P1",
+          "category": "Токены GLM",
+          "category_id": "4676",
+          "category_game": "GLM",
+          "title": "Не покрыты модели, которые продают лидеры",
+          "action": "Добавить лоты по этим моделям: Claude (7 лотов)",
+          "evidence": "модели встречаются у конкурентов сверху, у вас их нет ни в одном лоте"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "Токены GLM",
+          "category_id": "4676",
+          "category_game": "GLM",
+          "title": "Свободная зона 0.003–0.01 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 0.003–0.01 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 1 лотов при среднем 5537.0 отзывов на лот у их продавцов против 3081.0 в среднем по категории"
+        },
+        {
+          "rule": "R8",
+          "priority": "P2",
+          "category": "Токены GLM",
+          "category_id": "4676",
+          "category_game": "GLM",
+          "title": "Свободная зона 300–1 000 за 1M токенов",
+          "action": "Проверить лот с ценой в диапазоне 300–1 000 за 1M токенов: предложения мало, а спрос выше среднего.",
+          "evidence": "в зоне 2 лотов при среднем 24174.5 отзывов на лот у их продавцов против 3081.0 в среднем по категории"
+        },
+        {
+          "rule": "R9",
+          "priority": "P2",
+          "category": "Токены GLM",
+          "category_id": "4676",
+          "category_game": "GLM",
+          "title": "Сверхдешёвые лоты-якоря: 1 шт.",
+          "action": "Оставить один пробник для входа, а остальные дешёвые лоты объединить или поднять: обилие цен в 5–15 ₽ снижает средний чек.",
+          "evidence": "цены: 15.00 ₽"
+        }
+      ],
+      "has_target": true
+    },
+    {
+      "id": "4507",
+      "name": "Услуги DeepSeek",
+      "game": "DeepSeek",
+      "offers": 599,
+      "sellers": 168,
+      "offers_with_volume": 46,
+      "auto_share": 0.0,
+      "promo_share": 0.1669449081803005,
+      "online_share": 80.80133555926544,
+      "price_stats": {
+        "count": 599,
+        "min": 1.01,
+        "p10": 1.17,
+        "p25": 10.03,
+        "median": 80.48,
+        "p75": 351.16,
+        "p90": 1171.0,
+        "max": 292770.0,
+        "mean": 2144.1561
+      },
+      "unit_price_stats": {
+        "count": 46,
+        "min": 0.2,
+        "p10": 0.2125,
+        "p25": 1.1711,
+        "median": 1.1711,
+        "p75": 19.7618,
+        "p90": 19.7625,
+        "max": 19.764,
+        "mean": 9.084
+      },
+      "unit_histogram": [
+        {
+          "label": "0.1–0.3",
+          "count": 9,
+          "height": 45.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 17,
+          "height": 85.0,
+          "is_opportunity": false
+        },
+        {
+          "label": "10–30",
+          "count": 20,
+          "height": 100.0,
+          "is_opportunity": false
+        }
+      ],
+      "model_counts": [
+        [
+          "DeepSeek",
+          271
+        ],
+        [
+          "Claude",
+          36
+        ],
+        [
+          "DeepSeek V4.1",
+          32
+        ],
+        [
+          "GLM",
+          26
+        ],
+        [
+          "ChatGPT",
+          19
+        ],
+        [
+          "DeepSeek R1",
+          12
+        ],
+        [
+          "Gemini",
+          11
+        ],
+        [
+          "Kimi",
+          9
+        ],
+        [
+          "Codex",
+          7
+        ],
+        [
+          "Claude Opus",
+          6
+        ],
+        [
+          "Grok",
+          6
+        ],
+        [
+          "Cursor",
+          4
+        ]
+      ],
+      "positions": [
+        {
+          "title": "⚡ VibeTokens • Безлимит 30 дней • DeepSeek/GLM/MiniMax • 600 зап/день",
+          "price": "2 999 ₽",
+          "unit_price": "—",
+          "family": "DeepSeek",
+          "price_percentile": 94.9,
+          "unit_percentile": null,
+          "comparables": 46,
+          "comparable_median_unit": "1.17",
+          "deviation": null,
+          "volume": "—",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • Безлимит 7 дней • DeepSeek/GLM/MiniMax • 300 зап/день",
+          "price": "1 499 ₽",
+          "unit_price": "—",
+          "family": "DeepSeek",
+          "price_percentile": 91.1,
+          "unit_percentile": null,
+          "comparables": 46,
+          "comparable_median_unit": "1.17",
+          "deviation": null,
+          "volume": "—",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "🛠 VibeTokens • Настрою DeepSeek API под Cursor/Cline/Codex + 100M токе…",
+          "price": "199 ₽",
+          "unit_price": "1.99",
+          "family": "DeepSeek",
+          "price_percentile": 66.0,
+          "unit_percentile": 55.4,
+          "comparables": 5,
+          "comparable_median_unit": "19.76",
+          "deviation": -89.9,
+          "volume": "100M",
+          "auto": false,
+          "reviews": 119
+        }
+      ],
+      "competitors": [
+        {
+          "name": "nutellals",
+          "seller_id": "2448145",
+          "score": 75.0,
+          "reviews": 12631,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "151 ₽",
+          "price_max": "151 ₽",
+          "families": ""
+        },
+        {
+          "name": "sloniksky",
+          "seller_id": "1106292",
+          "score": 73.5,
+          "reviews": 8857,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "151 ₽",
+          "price_max": "151 ₽",
+          "families": ""
+        },
+        {
+          "name": "shtormkiss",
+          "seller_id": "4974776",
+          "score": 72.3,
+          "reviews": 6751,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "151 ₽",
+          "price_max": "151 ₽",
+          "families": ""
+        },
+        {
+          "name": "Greevel",
+          "seller_id": "15771856",
+          "score": 71.6,
+          "reviews": 535,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "50.01 ₽",
+          "price_max": "50.01 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "BasilisksTeam",
+          "seller_id": "7620265",
+          "score": 71.1,
+          "reviews": 5036,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "151 ₽",
+          "price_max": "151 ₽",
+          "families": ""
+        },
+        {
+          "name": "Unbessix",
+          "seller_id": "16754675",
+          "score": 69.0,
+          "reviews": 3095,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 20,
+          "price_min": "659 ₽",
+          "price_max": "13 175 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "Pozitv",
+          "seller_id": "2964255",
+          "score": 68.1,
+          "reviews": 2474,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 14,
+          "price_min": "351 ₽",
+          "price_max": "351 ₽",
+          "families": "DeepSeek"
+        },
+        {
+          "name": "Hilal",
+          "seller_id": "1024574",
+          "score": 66.9,
+          "reviews": 1850,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 2,
+          "price_min": "5.86 ₽",
+          "price_max": "130 ₽",
+          "families": ""
+        },
+        {
+          "name": "vangs",
+          "seller_id": "4148868",
+          "score": 65.5,
+          "reviews": 3449,
+          "rating": 4.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 3,
+          "price_min": "58.55 ₽",
+          "price_max": "58.55 ₽",
+          "families": ""
+        },
+        {
+          "name": "Exc789",
+          "seller_id": "7507360",
+          "score": 64.5,
+          "reviews": 1066,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 15,
+          "price_min": "1.17 ₽",
+          "price_max": "17.57 ₽",
+          "families": "DeepSeek"
+        }
+      ],
+      "opportunities": [],
+      "recommendations": [
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "Услуги DeepSeek",
+          "category_id": "4507",
+          "category_game": "DeepSeek",
+          "title": "Дешевле аналогов на 90%: 🛠 VibeTokens • Настрою DeepSeek API под Cursor/Cline/Codex +…",
+          "action": "Есть запас поднять цену до 19.76 ₽/1M за 1M токенов (≈1 976 ₽ за объём) без потери позиции.",
+          "evidence": "лот 1.99 ₽/1M против медианы 19.76 ₽/1M у 5 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма"
+        },
+        {
+          "rule": "R2",
+          "priority": "P2",
+          "category": "Услуги DeepSeek",
+          "category_id": "4507",
+          "category_game": "DeepSeek",
+          "title": "Нет прямых аналогов по объёму: ⚡ VibeTokens • Безлимит 30 дней • DeepSeek/GLM/MiniMax • 600…",
+          "action": "Сравнивать цену не с чем. Это либо ваше преимущество (никто не предлагает такой объём), либо спрос на такой объём не сформирован — проверить по заказам.",
+          "evidence": "объём не определён; сравнение по модели DeepSeek даёт 46 лотов и 1.17 ₽/1M, но объёмы у них другие"
+        },
+        {
+          "rule": "R2",
+          "priority": "P2",
+          "category": "Услуги DeepSeek",
+          "category_id": "4507",
+          "category_game": "DeepSeek",
+          "title": "Нет прямых аналогов по объёму: ⚡ VibeTokens • Безлимит 7 дней • DeepSeek/GLM/MiniMax • 300 …",
+          "action": "Сравнивать цену не с чем. Это либо ваше преимущество (никто не предлагает такой объём), либо спрос на такой объём не сформирован — проверить по заказам.",
+          "evidence": "объём не определён; сравнение по модели DeepSeek даёт 46 лотов и 1.17 ₽/1M, но объёмы у них другие"
+        },
+        {
+          "rule": "R6",
+          "priority": "P2",
+          "category": "Услуги DeepSeek",
+          "category_id": "4507",
+          "category_game": "DeepSeek",
+          "title": "Конкуренты сверху используют промо, вы — нет",
+          "action": "Протестировать промо на 1–2 самых маржинальных лотах и сравнить поток заказов.",
+          "evidence": "промо у 0.2% лотов категории, в том числе 1 у конкурентов сверху"
+        }
+      ],
+      "has_target": true
+    },
+    {
+      "id": "3755",
+      "name": "Услуги Hailuo AI",
+      "game": "Hailuo AI",
+      "offers": 419,
+      "sellers": 71,
+      "offers_with_volume": 50,
+      "auto_share": 0.0,
+      "promo_share": 0.0,
+      "online_share": 94.5107398568019,
+      "price_stats": {
+        "count": 419,
+        "min": 1.04,
+        "p10": 1.18,
+        "p25": 50.895,
+        "median": 749.01,
+        "p75": 5499.5,
+        "p90": 11782.8,
+        "max": 60940.0,
+        "mean": 4090.8116
+      },
+      "unit_price_stats": {
+        "count": 50,
+        "min": 0.08,
+        "p10": 0.1998,
+        "p25": 0.2799,
+        "median": 0.3717,
+        "p75": 1.0983,
+        "p90": 2.23,
+        "max": 2.8,
+        "mean": 0.7597
+      },
+      "unit_histogram": [
+        {
+          "label": "0.03–0.1",
+          "count": 1,
+          "height": 5.6,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.1–0.3",
+          "count": 16,
+          "height": 88.9,
+          "is_opportunity": false
+        },
+        {
+          "label": "0.3–1",
+          "count": 15,
+          "height": 83.3,
+          "is_opportunity": false
+        },
+        {
+          "label": "1–3",
+          "count": 18,
+          "height": 100.0,
+          "is_opportunity": false
+        }
+      ],
+      "model_counts": [
+        [
+          "MiniMax",
+          43
+        ],
+        [
+          "Claude",
+          33
+        ],
+        [
+          "GPT-6",
+          21
+        ],
+        [
+          "Gemini",
+          20
+        ],
+        [
+          "Claude Opus",
+          13
+        ],
+        [
+          "ChatGPT",
+          3
+        ],
+        [
+          "Grok",
+          3
+        ],
+        [
+          "Kimi",
+          3
+        ],
+        [
+          "Codex",
+          2
+        ],
+        [
+          "Sora",
+          1
+        ]
+      ],
+      "positions": [
+        {
+          "title": "⚡ VibeTokens • MiniMax M2.7 API 10B токенов • макс. выгода • авто",
+          "price": "800 ₽",
+          "unit_price": "0.0800",
+          "family": "MiniMax",
+          "price_percentile": 51.1,
+          "unit_percentile": 1.0,
+          "comparables": 8,
+          "comparable_median_unit": "2.55",
+          "deviation": -96.9,
+          "volume": "10B",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекст • авто",
+          "price": "150 ₽",
+          "unit_price": "0.1500",
+          "family": "MiniMax",
+          "price_percentile": 33.8,
+          "unit_percentile": 4.0,
+          "comparables": 3,
+          "comparable_median_unit": "2.50",
+          "deviation": -94.0,
+          "volume": "1B",
+          "auto": false,
+          "reviews": 119
+        },
+        {
+          "title": "⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авто",
+          "price": "15.00 ₽",
+          "unit_price": "0.1500",
+          "family": "MiniMax",
+          "price_percentile": 19.2,
+          "unit_percentile": 4.0,
+          "comparables": 3,
+          "comparable_median_unit": "2.60",
+          "deviation": -94.2,
+          "volume": "100M",
+          "auto": false,
+          "reviews": 119
+        }
+      ],
+      "competitors": [
+        {
+          "name": "Acclair",
+          "seller_id": "7270081",
+          "score": 75.0,
+          "reviews": 47890,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 1,
+          "price_min": "517 ₽",
+          "price_max": "517 ₽",
+          "families": ""
+        },
+        {
+          "name": "Isengardwow",
+          "seller_id": "445652",
+          "score": 71.7,
+          "reviews": 19474,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 6,
+          "price_min": "583 ₽",
+          "price_max": "31 344 ₽",
+          "families": ""
+        },
+        {
+          "name": "NeSWeaK",
+          "seller_id": "1858601",
+          "score": 71.1,
+          "reviews": 16639,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 6,
+          "price_min": "648 ₽",
+          "price_max": "11 240 ₽",
+          "families": ""
+        },
+        {
+          "name": "ranger007",
+          "seller_id": "15237335",
+          "score": 70.2,
+          "reviews": 13227,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 4,
+          "price_min": "660 ₽",
+          "price_max": "10 998 ₽",
+          "families": ""
+        },
+        {
+          "name": "Nigach",
+          "seller_id": "7373873",
+          "score": 68.0,
+          "reviews": 7173,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 2,
+          "price_min": "1.10 ₽",
+          "price_max": "1.10 ₽",
+          "families": ""
+        },
+        {
+          "name": "NestinYT",
+          "seller_id": "5779752",
+          "score": 67.5,
+          "reviews": 6312,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 3,
+          "price_min": "3 354 ₽",
+          "price_max": "10 448 ₽",
+          "families": ""
+        },
+        {
+          "name": "OLEHOI",
+          "seller_id": "2712226",
+          "score": 65.9,
+          "reviews": 4106,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 3,
+          "price_min": "1.10 ₽",
+          "price_max": "1.10 ₽",
+          "families": ""
+        },
+        {
+          "name": "lattn2005",
+          "seller_id": "9161299",
+          "score": 65.7,
+          "reviews": 3883,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 6,
+          "price_min": "623 ₽",
+          "price_max": "10 804 ₽",
+          "families": ""
+        },
+        {
+          "name": "r1nvv",
+          "seller_id": "1453649",
+          "score": 65.4,
+          "reviews": 3622,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 6,
+          "price_min": "789 ₽",
+          "price_max": "13 684 ₽",
+          "families": ""
+        },
+        {
+          "name": "xxannrqqly",
+          "seller_id": "3682740",
+          "score": 64.9,
+          "reviews": 3125,
+          "rating": 5.0,
+          "online": true,
+          "auto_share": 0.0,
+          "offers": 6,
+          "price_min": "649 ₽",
+          "price_max": "11 898 ₽",
+          "families": ""
+        }
+      ],
+      "opportunities": [],
+      "recommendations": [
+        {
+          "rule": "R11",
+          "priority": "P0",
+          "category": "Услуги Hailuo AI",
+          "category_id": "3755",
+          "category_game": "Hailuo AI",
+          "title": "«Авто» написано в описании, но автовыдача не включена: 3 лотов",
+          "action": "Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.",
+          "evidence": "в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • MiniMax M2.7 API 10B токенов • макс. выгода •…; ⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекс…; ⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авт…"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "Услуги Hailuo AI",
+          "category_id": "3755",
+          "category_game": "Hailuo AI",
+          "title": "Дешевле аналогов на 94%: ⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекс…",
+          "action": "Есть запас поднять цену до 2.50 ₽/1M за 1M токенов (≈2 500 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.1500 ₽/1M против медианы 2.50 ₽/1M у 3 похожих лотов; аналоги по объёму: 0.2×–5× от вашего объёма; выборка маленькая, стоит перепроверить"
+        },
+        {
+          "rule": "R2",
+          "priority": "P1",
+          "category": "Услуги Hailuo AI",
+          "category_id": "3755",
+          "category_game": "Hailuo AI",
+          "title": "Дешевле аналогов на 94%: ⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авт…",
+          "action": "Есть запас поднять цену до 2.60 ₽/1M за 1M токенов (≈260 ₽ за объём) без потери позиции.",
+          "evidence": "лот 0.1500 ₽/1M против медианы 2.60 ₽/1M у 3 похожих лотов; аналоги по объёму: 0.4×–2.5× от вашего объёма; выборка маленькая, стоит перепроверить"
+        },
+        {
+          "rule": "R4",
+          "priority": "P1",
+          "category": "Услуги Hailuo AI",
+          "category_id": "3755",
+          "category_game": "Hailuo AI",
+          "title": "В описаниях нет аргументов, которые используют лидеры",
+          "action": "Добавить в описания лотов: гарант, пополнен, гарантия. Формулировать как факт, например «автовыдача 24/7», «гарантия и замена ключа».",
+          "evidence": "эти слова встречаются у 19 лотов конкурентов сверху, но отсутствуют во всех ваших описаниях в категории"
+        },
+        {
+          "rule": "R2",
+          "priority": "P2",
+          "category": "Услуги Hailuo AI",
+          "category_id": "3755",
+          "category_game": "Hailuo AI",
+          "title": "Нет прямых аналогов по объёму: ⚡ VibeTokens • MiniMax M2.7 API 10B токенов • макс. выгода •…",
+          "action": "Сравнивать цену не с чем. Это либо ваше преимущество (никто не предлагает такой объём), либо спрос на такой объём не сформирован — проверить по заказам.",
+          "evidence": "аналогов вашего объёма на рынке нет; сравнение по модели MiniMax даёт 8 лотов и 2.55 ₽/1M, но объёмы у них другие"
+        },
+        {
+          "rule": "R3",
+          "priority": "P2",
+          "category": "Услуги Hailuo AI",
+          "category_id": "3755",
+          "category_game": "Hailuo AI",
+          "title": "Большие разрывы между паками",
+          "action": "Добавить промежуточный пак, чтобы покупатель не прыгал сразу через порядок объёма.",
+          "evidence": "100M → 1B (в 10 раз); 1B → 10B (в 10 раз)"
+        },
+        {
+          "rule": "R9",
+          "priority": "P2",
+          "category": "Услуги Hailuo AI",
+          "category_id": "3755",
+          "category_game": "Hailuo AI",
+          "title": "Сверхдешёвые лоты-якоря: 1 шт.",
+          "action": "Оставить один пробник для входа, а остальные дешёвые лоты объединить или поднять: обилие цен в 5–15 ₽ снижает средний чек.",
+          "evidence": "цены: 15.00 ₽"
+        }
+      ],
+      "has_target": true
+    }
+  ],
+  "discovery": {
+    "total_games_scanned": 898,
+    "ai_games": [
+      "ChatGPT",
+      "Claude",
+      "Cursor AI",
+      "DeepSeek",
+      "Gemini",
+      "GitHub Copilot",
+      "GLM",
+      "Grok",
+      "Kimi",
+      "Midjourney",
+      "Perplexity",
+      "QwenCloud"
+    ],
+    "categories": [
+      "4506",
+      "4507",
+      "4676",
+      "3755",
+      "4448",
+      "4234",
+      "4615",
+      "4629",
+      "4614",
+      "4505",
+      "3559",
+      "3173"
+    ]
+  },
+  "price_actions": {
+    "ru": [
+      {
+        "category": "API-ключ DeepSeek",
+        "game": "DeepSeek",
+        "offer_title": "⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …",
+        "volume": "25B",
+        "current_price": "1 500 ₽",
+        "new_price": "8 528 ₽",
+        "current_unit": "0.0600 ₽/1M",
+        "target_unit": "0.3411 ₽/1M",
+        "delta_pct": "-82%",
+        "impact_rub": "7 028 ₽",
+        "comparables": 28,
+        "reason": "вы дешевле аналогов на 82% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "API-ключ DeepSeek",
+        "game": "DeepSeek",
+        "offer_title": "⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …",
+        "volume": "10B",
+        "current_price": "800 ₽",
+        "new_price": "6 044 ₽",
+        "current_unit": "0.0800 ₽/1M",
+        "target_unit": "0.6044 ₽/1M",
+        "delta_pct": "-87%",
+        "impact_rub": "5 244 ₽",
+        "comparables": 47,
+        "reason": "вы дешевле аналогов на 87% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "API-ключ DeepSeek",
+        "game": "DeepSeek",
+        "offer_title": "⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…",
+        "volume": "3B",
+        "current_price": "350 ₽",
+        "new_price": "2 779 ₽",
+        "current_unit": "0.1167 ₽/1M",
+        "target_unit": "0.9263 ₽/1M",
+        "delta_pct": "-87%",
+        "impact_rub": "2 429 ₽",
+        "comparables": 107,
+        "reason": "вы дешевле аналогов на 87% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "Услуги Hailuo AI",
+        "game": "Hailuo AI",
+        "offer_title": "⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекс…",
+        "volume": "1B",
+        "current_price": "150 ₽",
+        "new_price": "2 500 ₽",
+        "current_unit": "0.1500 ₽/1M",
+        "target_unit": "2.50 ₽/1M",
+        "delta_pct": "-94%",
+        "impact_rub": "2 350 ₽",
+        "comparables": 3,
+        "reason": "вы дешевле аналогов на 94% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "Услуги DeepSeek",
+        "game": "DeepSeek",
+        "offer_title": "🛠 VibeTokens • Настрою DeepSeek API под Cursor/Cline/Codex +…",
+        "volume": "100M",
+        "current_price": "199 ₽",
+        "new_price": "1 976 ₽",
+        "current_unit": "1.99 ₽/1M",
+        "target_unit": "19.76 ₽/1M",
+        "delta_pct": "-90%",
+        "impact_rub": "1 777 ₽",
+        "comparables": 5,
+        "reason": "вы дешевле аналогов на 90% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "API-ключ DeepSeek",
+        "game": "DeepSeek",
+        "offer_title": "⚡ VibeTokens • DeepSeek V4 Flash 1B токенов • Cursor/Cline/C…",
+        "volume": "1B",
+        "current_price": "150 ₽",
+        "new_price": "1 322 ₽",
+        "current_unit": "0.1500 ₽/1M",
+        "target_unit": "1.32 ₽/1M",
+        "delta_pct": "-89%",
+        "impact_rub": "1 172 ₽",
+        "comparables": 175,
+        "reason": "вы дешевле аналогов на 89% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "API-ключ DeepSeek",
+        "game": "DeepSeek",
+        "offer_title": "⚡ VibeTokens • DeepSeek V4 Flash 500M токенов • для агентов …",
+        "volume": "500M",
+        "current_price": "75.00 ₽",
+        "new_price": "931 ₽",
+        "current_unit": "0.1500 ₽/1M",
+        "target_unit": "1.86 ₽/1M",
+        "delta_pct": "-92%",
+        "impact_rub": "856 ₽",
+        "comparables": 220,
+        "reason": "вы дешевле аналогов на 92% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "API-ключ DeepSeek",
+        "game": "DeepSeek",
+        "offer_title": "⚡ VibeTokens • DeepSeek V4 Flash 300M токенов • хит • без VP…",
+        "volume": "300M",
+        "current_price": "45.01 ₽",
+        "new_price": "588 ₽",
+        "current_unit": "0.1500 ₽/1M",
+        "target_unit": "1.96 ₽/1M",
+        "delta_pct": "-92%",
+        "impact_rub": "543 ₽",
+        "comparables": 224,
+        "reason": "вы дешевле аналогов на 92% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "Токены GLM",
+        "game": "GLM",
+        "offer_title": "⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без…",
+        "volume": "100M",
+        "current_price": "15.00 ₽",
+        "new_price": "310 ₽",
+        "current_unit": "0.1500 ₽/1M",
+        "target_unit": "3.10 ₽/1M",
+        "delta_pct": "-95%",
+        "impact_rub": "295 ₽",
+        "comparables": 110,
+        "reason": "вы дешевле аналогов на 95% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "Услуги Hailuo AI",
+        "game": "Hailuo AI",
+        "offer_title": "⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авт…",
+        "volume": "100M",
+        "current_price": "15.00 ₽",
+        "new_price": "260 ₽",
+        "current_unit": "0.1500 ₽/1M",
+        "target_unit": "2.60 ₽/1M",
+        "delta_pct": "-94%",
+        "impact_rub": "245 ₽",
+        "comparables": 3,
+        "reason": "вы дешевле аналогов на 94% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "API-ключ DeepSeek",
+        "game": "DeepSeek",
+        "offer_title": "⚡ VibeTokens • DeepSeek V4 Flash 100M токенов • без VPN • Cu…",
+        "volume": "100M",
+        "current_price": "15.00 ₽",
+        "new_price": "232 ₽",
+        "current_unit": "0.1500 ₽/1M",
+        "target_unit": "2.32 ₽/1M",
+        "delta_pct": "-94%",
+        "impact_rub": "217 ₽",
+        "comparables": 183,
+        "reason": "вы дешевле аналогов на 94% — есть запас поднять цену без потери позиции"
+      },
+      {
+        "category": "API-ключ DeepSeek",
+        "game": "DeepSeek",
+        "offer_title": "⚡ VibeTokens • DeepSeek V4 Flash 10M токенов • пробник • Cur…",
+        "volume": "10M",
+        "current_price": "5.09 ₽",
+        "new_price": "21.43 ₽",
+        "current_unit": "0.5090 ₽/1M",
+        "target_unit": "2.14 ₽/1M",
+        "delta_pct": "-76%",
+        "impact_rub": "16.34 ₽",
+        "comparables": 177,
+        "reason": "вы дешевле аналогов на 76% — есть запас поднять цену без потери позиции"
+      }
+    ],
+    "down": [],
+    "up_count": 12,
+    "down_count": 0,
+    "up_total": "22 172 ₽",
+    "down_total": "0.0000 ₽",
+    "total": 12
+  },
+  "repo_url": "https://github.com/xyesos6567/funpay-market-analyzer",
+  "repo_slug": "xyesos6567/funpay-market-analyzer",
+  "refresh_url": "https://github.com/xyesos6567/funpay-market-analyzer/actions/workflows/analyze.yml",
+  "seller_overview": {
+    "total_offers": 24,
+    "by_category": {
+      "API-ключ DeepSeek": 8,
+      "Услуги DeepSeek": 3,
+      "Токены GLM": 4,
+      "Услуги Hailuo AI": 3,
+      "Услуги Telegram": 6
+    },
+    "categories": [
+      "3755",
+      "4506",
+      "4507",
+      "4676",
+      "703"
+    ]
+  },
+  "collection": {
+    "collected": 12,
+    "failed": []
+  }
+}

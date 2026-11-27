@@ -1,0 +1,3565 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Анализ рынка FunPay — VibeTokens</title>
+<style>
+  :root {
+    --bg: #0f1117; --panel: #171a23; --panel2: #1e222d; --line: #2a2f3d;
+    --text: #e6e9f0; --muted: #98a0b3; --accent: #6c8cff;
+    --p0: #ff5c6c; --p1: #ffb020; --p2: #4bc4a0; --ok: #4bc4a0; --warn: #ffb020;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; margin: 34px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 16px; margin: 20px 0 10px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .sub { color: var(--muted); font-size: 14px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 20px 0; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .card .num { font-size: 24px; font-weight: 600; }
+  .card .lbl { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  .num-col { text-align: right; font-variant-numeric: tabular-nums; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .badge.p0 { background: rgba(255,92,108,.16); color: var(--p0); }
+  .badge.p1 { background: rgba(255,176,32,.16); color: var(--p1); }
+  .badge.p2 { background: rgba(75,196,160,.16); color: var(--p2); }
+  .badge.rule { background: var(--panel2); color: var(--muted); }
+  .badge.ok { background: rgba(75,196,160,.16); color: var(--ok); }
+  .badge.no { background: rgba(255,92,108,.16); color: var(--p0); }
+  .rec { border-left: 3px solid var(--line); padding: 10px 0 10px 14px; margin: 12px 0; }
+  .rec.p0 { border-left-color: var(--p0); }
+  .rec.p1 { border-left-color: var(--p1); }
+  .rec.p2 { border-left-color: var(--p2); }
+  .rec .title { font-weight: 600; margin-bottom: 4px; }
+  .rec .action { margin: 4px 0; }
+  .rec .ev { color: var(--muted); font-size: 13px; }
+  .rec .ev::before { content: "Данные: "; color: var(--muted); }
+  .bars { display: flex; align-items: flex-end; gap: 4px; height: 130px; margin: 10px 0 4px; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; min-width: 0; }
+  .bar { width: 100%; background: var(--accent); border-radius: 3px 3px 0 0; min-height: 2px; opacity: .85; }
+  .bar.opp { background: var(--p2); }
+  .bar-lbl { font-size: 10px; color: var(--muted); margin-top: 4px; writing-mode: vertical-rl; transform: rotate(180deg); height: 46px; }
+  .bar-cnt { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  details { margin: 10px 0; }
+  summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+  .muted { color: var(--muted); }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .small { font-size: 13px; }
+  .nowrap { white-space: nowrap; }
+  .btn {
+    display: inline-block; padding: 9px 16px; border-radius: 8px;
+    background: var(--accent); color: #0f1117; font-weight: 600; font-size: 14px;
+    border: none; cursor: pointer;
+  }
+  .btn:hover { filter: brightness(1.1); text-decoration: none; }
+  .up-price { color: var(--ok); font-weight: 600; }
+  .down-price { color: var(--p0); font-weight: 600; }
+  .hero { background: linear-gradient(135deg, rgba(108,140,255,.12), rgba(75,196,160,.07)); }
+  footer { margin-top: 50px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Анализ рынка FunPay: VibeTokens</h1>
+  <div class="sub">
+    Продавец <a href="https://funpay.com/users/4233111/">POLICEA</a> (id 4233111) ·
+    данные на <span id="data-date">27.11.2026 16:09</span>
+      · <a href="https://github.com/xyesos6567/funpay-market-analyzer/actions/workflows/analyze.yml" target="_blank" rel="noopener">Открыть запуск на GitHub</a>
+  </div>
+
+  <div class="panel" id="refresh-box" style="margin-top:14px">
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap">
+      <button class="btn" id="refresh-btn" type="button">↻ Обновить сейчас</button>
+      <span id="refresh-status" class="small muted"></span>
+    </div>
+
+    <div id="token-block" hidden style="margin-top:12px">
+      <div class="small" style="margin-bottom:8px">
+        Для запуска сбора нужен токен GitHub. Он хранится <b>только в вашем браузере</b>
+        и даёт доступ лишь к запуску этой автоматизации.
+      </div>
+      <ol class="small muted" style="margin:8px 0 10px 18px; padding:0">
+        <li>Откройте <a id="token-create-link" href="#" target="_blank" rel="noopener">страницу создания токена</a></li>
+        <li>Repository access → <b>Only select repositories</b> → выберите этот репозиторий</li>
+        <li>Permissions → Repository permissions → <b>Actions: Read and write</b> (больше ничего не нужно)</li>
+        <li>Generate token, скопируйте значение и вставьте сюда</li>
+      </ol>
+      <div style="display:flex; gap:8px; flex-wrap:wrap">
+        <input id="token-input" type="password" placeholder="github_pat_..."
+               style="flex:1; min-width:260px; padding:8px 10px; border-radius:8px;
+                      border:1px solid var(--line); background:var(--panel2); color:var(--text)">
+        <button class="btn" id="token-save" type="button">Сохранить</button>
+        <button class="btn" id="token-clear" type="button"
+                style="background:transparent; color:var(--muted); border:1px solid var(--line)">Забыть</button>
+      </div>
+      <div class="small muted" id="token-hint" style="margin-top:8px">
+        Токен можно отозвать в любой момент на той же странице GitHub.
+      </div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="num">12</div><div class="lbl">категорий проанализировано</div></div>
+    <div class="card"><div class="num">16 475</div><div class="lbl">лотов конкурентов</div></div>
+    <div class="card"><div class="num">805</div><div class="lbl">продавцов</div></div>
+    <div class="card"><div class="num" style="color:var(--p0)">5</div><div class="lbl">задач P0 — критично</div></div>
+    <div class="card"><div class="num" style="color:var(--p1)">25</div><div class="lbl">задач P1</div></div>
+    <div class="card"><div class="num" style="color:var(--p2)">20</div><div class="lbl">задач P2</div></div>
+  </div>
+
+  <div class="panel small">
+    <b>Автопоиск:</b> просканировано 898 игр в каталоге,
+    найдено 12 ИИ-сервисов, категорий в анализе — 12.
+    <details>
+      <summary>Показать найденные ИИ-сервисы</summary>
+      <div class="muted" style="margin-top:8px">ChatGPT, Claude, Cursor AI, DeepSeek, Gemini, GitHub Copilot, GLM, Grok, Kimi, Midjourney, Perplexity, QwenCloud</div>
+    </details>
+  </div>
+
+  <h2>Цены: что поднять, а что опустить</h2>
+  <div class="panel hero">
+    <div class="small muted" style="margin-bottom:4px">
+      Сравнение идёт только с лотами сопоставимого объёма — иначе это были бы разные продукты.
+      Сортировка по сумме денег на кону: сверху то, что даёт наибольший эффект.
+    </div>
+    <div style="margin-top:10px">
+      <span class="badge ok">поднять: 12</span>
+      <span class="muted small">потенциал +22 172 ₽</span>
+      &nbsp;&nbsp;
+      <span class="badge no">опустить: 0</span>
+      <span class="muted small">риск −0.0000 ₽</span>
+    </div>
+  </div>
+
+  <h3 class="up-price">▲ Поднять цену</h3>
+  <table>
+    <tr>
+      <th>Лот</th><th>Объём</th><th class="num-col">Сейчас</th><th class="num-col">Предлагается</th>
+      <th class="num-col">₽/1M сейчас → цель</th><th class="num-col">Δ</th>
+      <th class="num-col">Аналогов</th><th>Категория</th>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …</td>
+      <td class="nowrap">25B</td>
+      <td class="num-col nowrap">1 500 ₽</td>
+      <td class="num-col nowrap up-price">8 528 ₽</td>
+      <td class="num-col nowrap">0.0600 ₽/1M → 0.3411 ₽/1M</td>
+      <td class="num-col nowrap up-price">-82%</td>
+      <td class="num-col">28</td>
+      <td class="small">DeepSeek — API-ключ DeepSeek</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …</td>
+      <td class="nowrap">10B</td>
+      <td class="num-col nowrap">800 ₽</td>
+      <td class="num-col nowrap up-price">6 044 ₽</td>
+      <td class="num-col nowrap">0.0800 ₽/1M → 0.6044 ₽/1M</td>
+      <td class="num-col nowrap up-price">-87%</td>
+      <td class="num-col">47</td>
+      <td class="small">DeepSeek — API-ключ DeepSeek</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…</td>
+      <td class="nowrap">3B</td>
+      <td class="num-col nowrap">350 ₽</td>
+      <td class="num-col nowrap up-price">2 779 ₽</td>
+      <td class="num-col nowrap">0.1167 ₽/1M → 0.9263 ₽/1M</td>
+      <td class="num-col nowrap up-price">-87%</td>
+      <td class="num-col">107</td>
+      <td class="small">DeepSeek — API-ключ DeepSeek</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекс…</td>
+      <td class="nowrap">1B</td>
+      <td class="num-col nowrap">150 ₽</td>
+      <td class="num-col nowrap up-price">2 500 ₽</td>
+      <td class="num-col nowrap">0.1500 ₽/1M → 2.50 ₽/1M</td>
+      <td class="num-col nowrap up-price">-94%</td>
+      <td class="num-col">3</td>
+      <td class="small">Hailuo AI — Услуги Hailuo AI</td>
+    </tr>
+    <tr>
+      <td>🛠 VibeTokens • Настрою DeepSeek API под Cursor/Cline/Codex +…</td>
+      <td class="nowrap">100M</td>
+      <td class="num-col nowrap">199 ₽</td>
+      <td class="num-col nowrap up-price">1 976 ₽</td>
+      <td class="num-col nowrap">1.99 ₽/1M → 19.76 ₽/1M</td>
+      <td class="num-col nowrap up-price">-90%</td>
+      <td class="num-col">5</td>
+      <td class="small">DeepSeek — Услуги DeepSeek</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • DeepSeek V4 Flash 1B токенов • Cursor/Cline/C…</td>
+      <td class="nowrap">1B</td>
+      <td class="num-col nowrap">150 ₽</td>
+      <td class="num-col nowrap up-price">1 322 ₽</td>
+      <td class="num-col nowrap">0.1500 ₽/1M → 1.32 ₽/1M</td>
+      <td class="num-col nowrap up-price">-89%</td>
+      <td class="num-col">175</td>
+      <td class="small">DeepSeek — API-ключ DeepSeek</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • DeepSeek V4 Flash 500M токенов • для агентов …</td>
+      <td class="nowrap">500M</td>
+      <td class="num-col nowrap">75.00 ₽</td>
+      <td class="num-col nowrap up-price">931 ₽</td>
+      <td class="num-col nowrap">0.1500 ₽/1M → 1.86 ₽/1M</td>
+      <td class="num-col nowrap up-price">-92%</td>
+      <td class="num-col">220</td>
+      <td class="small">DeepSeek — API-ключ DeepSeek</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • DeepSeek V4 Flash 300M токенов • хит • без VP…</td>
+      <td class="nowrap">300M</td>
+      <td class="num-col nowrap">45.01 ₽</td>
+      <td class="num-col nowrap up-price">588 ₽</td>
+      <td class="num-col nowrap">0.1500 ₽/1M → 1.96 ₽/1M</td>
+      <td class="num-col nowrap up-price">-92%</td>
+      <td class="num-col">224</td>
+      <td class="small">DeepSeek — API-ключ DeepSeek</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без…</td>
+      <td class="nowrap">100M</td>
+      <td class="num-col nowrap">15.00 ₽</td>
+      <td class="num-col nowrap up-price">310 ₽</td>
+      <td class="num-col nowrap">0.1500 ₽/1M → 3.10 ₽/1M</td>
+      <td class="num-col nowrap up-price">-95%</td>
+      <td class="num-col">110</td>
+      <td class="small">GLM — Токены GLM</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авт…</td>
+      <td class="nowrap">100M</td>
+      <td class="num-col nowrap">15.00 ₽</td>
+      <td class="num-col nowrap up-price">260 ₽</td>
+      <td class="num-col nowrap">0.1500 ₽/1M → 2.60 ₽/1M</td>
+      <td class="num-col nowrap up-price">-94%</td>
+      <td class="num-col">3</td>
+      <td class="small">Hailuo AI — Услуги Hailuo AI</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • DeepSeek V4 Flash 100M токенов • без VPN • Cu…</td>
+      <td class="nowrap">100M</td>
+      <td class="num-col nowrap">15.00 ₽</td>
+      <td class="num-col nowrap up-price">232 ₽</td>
+      <td class="num-col nowrap">0.1500 ₽/1M → 2.32 ₽/1M</td>
+      <td class="num-col nowrap up-price">-94%</td>
+      <td class="num-col">183</td>
+      <td class="small">DeepSeek — API-ключ DeepSeek</td>
+    </tr>
+    <tr>
+      <td>⚡ VibeTokens • DeepSeek V4 Flash 10M токенов • пробник • Cur…</td>
+      <td class="nowrap">10M</td>
+      <td class="num-col nowrap">5.09 ₽</td>
+      <td class="num-col nowrap up-price">21.43 ₽</td>
+      <td class="num-col nowrap">0.5090 ₽/1M → 2.14 ₽/1M</td>
+      <td class="num-col nowrap up-price">-76%</td>
+      <td class="num-col">177</td>
+      <td class="small">DeepSeek — API-ключ DeepSeek</td>
+    </tr>
+  </table>
+
+
+  <h2>Что делать в первую очередь</h2>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R11</span>
+        «Авто» написано в описании, но автовыдача не включена: 8 лотов
+        <span class="muted small">· DeepSeek — API-ключ DeepSeek</span>
+      </div>
+      <div class="action">Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.</div>
+      <div class="ev">в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …; ⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …; ⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…</div>
+    </div>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R5</span>
+        Нет автовыдачи у 8 из 8 лотов
+        <span class="muted small">· DeepSeek — API-ключ DeepSeek</span>
+      </div>
+      <div class="action">Включить автовыдачу на всех лотах категории: покупатель уходит к тому, кто выдаёт сразу, без ожидания ответа продавца.</div>
+      <div class="ev">у конкурентов сверху автовыдача у 100% лотов, у вас — у 0%</div>
+    </div>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R11</span>
+        «Авто» написано в описании, но автовыдача не включена: 4 лотов
+        <span class="muted small">· GLM — Токены GLM</span>
+      </div>
+      <div class="action">Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.</div>
+      <div class="ev">в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без…; ⚡ VibeTokens • GLM 5.3 API 1B токенов • для агентов • авто, …; ⚡ VibeTokens • GLM 5.3 API 3B токенов • опт • авто, Другое к…</div>
+    </div>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R5</span>
+        Нет автовыдачи у 4 из 4 лотов
+        <span class="muted small">· GLM — Токены GLM</span>
+      </div>
+      <div class="action">Включить автовыдачу на всех лотах категории: покупатель уходит к тому, кто выдаёт сразу, без ожидания ответа продавца.</div>
+      <div class="ev">у конкурентов сверху автовыдача у 98% лотов, у вас — у 0%</div>
+    </div>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R11</span>
+        «Авто» написано в описании, но автовыдача не включена: 3 лотов
+        <span class="muted small">· Hailuo AI — Услуги Hailuo AI</span>
+      </div>
+      <div class="action">Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.</div>
+      <div class="ev">в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • MiniMax M2.7 API 10B токенов • макс. выгода •…; ⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекс…; ⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авт…</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 82%: ⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …
+        <span class="muted small">· DeepSeek — API-ключ DeepSeek</span>
+      </div>
+      <div class="action">Есть запас поднять цену до 0.3411 ₽/1M за 1M токенов (≈8 528 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.0600 ₽/1M против медианы 0.3411 ₽/1M у 28 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 87%: ⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …
+        <span class="muted small">· DeepSeek — API-ключ DeepSeek</span>
+      </div>
+      <div class="action">Есть запас поднять цену до 0.6044 ₽/1M за 1M токенов (≈6 044 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.0800 ₽/1M против медианы 0.6044 ₽/1M у 47 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 87%: ⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…
+        <span class="muted small">· DeepSeek — API-ключ DeepSeek</span>
+      </div>
+      <div class="action">Есть запас поднять цену до 0.9263 ₽/1M за 1M токенов (≈2 779 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.1167 ₽/1M против медианы 0.9263 ₽/1M у 107 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+
+  <h2>Разбор по категориям</h2>
+  <details open>
+    <summary>
+      <b>API-ключ DeepSeek</b> <span class="muted">· DeepSeek</span>      — 2000 лотов, 185 продавцов
+· задач: 16<span class="badge ok">вы есть</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">2000 / 185</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">210 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">31.93 ₽ – 1 067 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">1.73</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">1674 из 2000</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">45%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">90%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.1%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">3</div>
+            <div class="bar opp" style="height: 0.5%"></div>
+            <div class="bar-lbl">0.003–0.01</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">2</div>
+            <div class="bar " style="height: 0.3%"></div>
+            <div class="bar-lbl">0.03–0.1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">94</div>
+            <div class="bar " style="height: 15.8%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">455</div>
+            <div class="bar " style="height: 76.3%"></div>
+            <div class="bar-lbl">0.3–1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">596</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">426</div>
+            <div class="bar " style="height: 71.5%"></div>
+            <div class="bar-lbl">3–10</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">85</div>
+            <div class="bar " style="height: 14.3%"></div>
+            <div class="bar-lbl">10–30</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">3</div>
+            <div class="bar opp" style="height: 0.5%"></div>
+            <div class="bar-lbl">30–100</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">5</div>
+            <div class="bar " style="height: 0.8%"></div>
+            <div class="bar-lbl">100–300</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">5</div>
+            <div class="bar " style="height: 0.8%"></div>
+            <div class="bar-lbl">300–1 000</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+    <h3>Ваши лоты против рынка</h3>
+    <table>
+      <tr>
+        <th>Лот</th><th>Объём</th><th class="num-col">Цена</th><th class="num-col">₽/1M</th>
+        <th class="num-col">Медиана аналогов ₽/1M</th><th class="num-col">Отклонение</th>
+        <th class="num-col">Аналогов</th><th>Авто</th>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода • авто, De…</td>
+        <td class="nowrap">25B</td>
+        <td class="num-col nowrap">1 500 ₽</td>
+        <td class="num-col nowrap">0.0600</td>
+        <td class="num-col nowrap">0.3411</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-82%</span>
+        </td>
+        <td class="num-col">28</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода • авто, De…</td>
+        <td class="nowrap">10B</td>
+        <td class="num-col nowrap">800 ₽</td>
+        <td class="num-col nowrap">0.0800</td>
+        <td class="num-col nowrap">0.6044</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-87%</span>
+        </td>
+        <td class="num-col">47</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели • авто, D…</td>
+        <td class="nowrap">3B</td>
+        <td class="num-col nowrap">350 ₽</td>
+        <td class="num-col nowrap">0.1167</td>
+        <td class="num-col nowrap">0.9263</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-87%</span>
+        </td>
+        <td class="num-col">107</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • DeepSeek V4 Flash 1B токенов • Cursor/Cline/Codex • авт…</td>
+        <td class="nowrap">1B</td>
+        <td class="num-col nowrap">150 ₽</td>
+        <td class="num-col nowrap">0.1500</td>
+        <td class="num-col nowrap">1.32</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-89%</span>
+        </td>
+        <td class="num-col">175</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • DeepSeek V4 Flash 500M токенов • для агентов • авто, De…</td>
+        <td class="nowrap">500M</td>
+        <td class="num-col nowrap">75.00 ₽</td>
+        <td class="num-col nowrap">0.1500</td>
+        <td class="num-col nowrap">1.86</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-92%</span>
+        </td>
+        <td class="num-col">220</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • DeepSeek V4 Flash 300M токенов • хит • без VPN • авто, …</td>
+        <td class="nowrap">300M</td>
+        <td class="num-col nowrap">45.01 ₽</td>
+        <td class="num-col nowrap">0.1500</td>
+        <td class="num-col nowrap">1.96</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-92%</span>
+        </td>
+        <td class="num-col">224</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • DeepSeek V4 Flash 100M токенов • без VPN • Cursor/Cline…</td>
+        <td class="nowrap">100M</td>
+        <td class="num-col nowrap">15.00 ₽</td>
+        <td class="num-col nowrap">0.1500</td>
+        <td class="num-col nowrap">2.32</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-94%</span>
+        </td>
+        <td class="num-col">183</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • DeepSeek V4 Flash 10M токенов • пробник • Cursor/Cline …</td>
+        <td class="nowrap">10M</td>
+        <td class="num-col nowrap">5.09 ₽</td>
+        <td class="num-col nowrap">0.5090</td>
+        <td class="num-col nowrap">2.14</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-76%</span>
+        </td>
+        <td class="num-col">177</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+    </table>
+
+    <h3>Свободные зоны</h3>
+    <table>
+      <tr><th>Диапазон ₽/1M</th><th class="num-col">Лотов</th><th class="num-col">Отзывов на лот</th></tr>
+      <tr><td>0.003–0.01</td><td class="num-col">3</td><td class="num-col">1845.7</td></tr>
+      <tr><td>30–100</td><td class="num-col">3</td><td class="num-col">1433.0</td></tr>
+    </table>
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6083771/">StasikD</a></td>
+        <td class="num-col">88.4</td>
+        <td class="num-col">9231</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">2.28 ₽ – 11 398 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2622063/">HamuraXGod</a></td>
+        <td class="num-col">86.2</td>
+        <td class="num-col">5422</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">10</td>
+        <td class="nowrap small">4.56 ₽ – 45.62 ₽</td>
+        <td class="small">DeepSeek, Claude, Cursor</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15632176/">dreamFN</a></td>
+        <td class="num-col">84.6</td>
+        <td class="num-col">3757</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">3.15 ₽ – 6 296 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/13658661/">MelodiaShop</a></td>
+        <td class="num-col">84.0</td>
+        <td class="num-col">8375</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">2</td>
+        <td class="nowrap small">2.28 ₽ – 22.81 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5212996/">Semeeg</a></td>
+        <td class="num-col">83.6</td>
+        <td class="num-col">2912</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">19</td>
+        <td class="nowrap small">1.43 ₽ – 22 811 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6515745/">GameBosss</a></td>
+        <td class="num-col">83.1</td>
+        <td class="num-col">2578</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">11.43 ₽ – 6 877 ₽</td>
+        <td class="small">Claude, Codex</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/7696082/">JongoFTK</a></td>
+        <td class="num-col">82.6</td>
+        <td class="num-col">2304</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">5</td>
+        <td class="nowrap small">228 ₽ – 1 141 ₽</td>
+        <td class="small">DeepSeek, Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15857327/">theblesswield</a></td>
+        <td class="num-col">80.7</td>
+        <td class="num-col">4030</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">95%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">1.14 ₽ – 1 660 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3427434/">Deadyyyy</a></td>
+        <td class="num-col">80.1</td>
+        <td class="num-col">3314</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">30.55 ₽ – 79 927 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2317701/">AdamFox</a></td>
+        <td class="num-col">79.6</td>
+        <td class="num-col">1133</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">194 ₽ – 3 878 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">DeepSeek V4 Pro · 1266</span> <span class="badge rule">DeepSeek V4 Flash · 842</span> <span class="badge rule">DeepSeek V4.1 · 482</span> <span class="badge rule">Claude · 287</span> <span class="badge rule">Claude Opus · 286</span> <span class="badge rule">GPT-6 · 272</span> <span class="badge rule">Codex · 238</span> <span class="badge rule">GLM · 139</span> <span class="badge rule">Cursor · 113</span> <span class="badge rule">Gemini · 94</span> <span class="badge rule">DeepSeek · 78</span> <span class="badge rule">ChatGPT · 74</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R11</span>
+        «Авто» написано в описании, но автовыдача не включена: 8 лотов
+      </div>
+      <div class="action">Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.</div>
+      <div class="ev">в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …; ⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …; ⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…</div>
+    </div>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R5</span>
+        Нет автовыдачи у 8 из 8 лотов
+      </div>
+      <div class="action">Включить автовыдачу на всех лотах категории: покупатель уходит к тому, кто выдаёт сразу, без ожидания ответа продавца.</div>
+      <div class="ev">у конкурентов сверху автовыдача у 100% лотов, у вас — у 0%</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 82%: ⚡ VibeTokens • DeepSeek V4 Flash 25B токенов • макс. выгода …
+      </div>
+      <div class="action">Есть запас поднять цену до 0.3411 ₽/1M за 1M токенов (≈8 528 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.0600 ₽/1M против медианы 0.3411 ₽/1M у 28 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 87%: ⚡ VibeTokens • DeepSeek V4 Flash 10B токенов • макс. выгода …
+      </div>
+      <div class="action">Есть запас поднять цену до 0.6044 ₽/1M за 1M токенов (≈6 044 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.0800 ₽/1M против медианы 0.6044 ₽/1M у 47 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 87%: ⚡ VibeTokens • DeepSeek V4 Flash 3B токенов • опт • 3 модели…
+      </div>
+      <div class="action">Есть запас поднять цену до 0.9263 ₽/1M за 1M токенов (≈2 779 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.1167 ₽/1M против медианы 0.9263 ₽/1M у 107 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 89%: ⚡ VibeTokens • DeepSeek V4 Flash 1B токенов • Cursor/Cline/C…
+      </div>
+      <div class="action">Есть запас поднять цену до 1.32 ₽/1M за 1M токенов (≈1 322 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.1500 ₽/1M против медианы 1.32 ₽/1M у 175 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 92%: ⚡ VibeTokens • DeepSeek V4 Flash 500M токенов • для агентов …
+      </div>
+      <div class="action">Есть запас поднять цену до 1.86 ₽/1M за 1M токенов (≈931 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.1500 ₽/1M против медианы 1.86 ₽/1M у 220 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 92%: ⚡ VibeTokens • DeepSeek V4 Flash 300M токенов • хит • без VP…
+      </div>
+      <div class="action">Есть запас поднять цену до 1.96 ₽/1M за 1M токенов (≈588 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.1500 ₽/1M против медианы 1.96 ₽/1M у 224 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 94%: ⚡ VibeTokens • DeepSeek V4 Flash 100M токенов • без VPN • Cu…
+      </div>
+      <div class="action">Есть запас поднять цену до 2.32 ₽/1M за 1M токенов (≈232 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.1500 ₽/1M против медианы 2.32 ₽/1M у 183 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 76%: ⚡ VibeTokens • DeepSeek V4 Flash 10M токенов • пробник • Cur…
+      </div>
+      <div class="action">Есть запас поднять цену до 2.14 ₽/1M за 1M токенов (≈21.43 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.5090 ₽/1M против медианы 2.14 ₽/1M у 177 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R4</span>
+        В описаниях нет аргументов, которые используют лидеры
+      </div>
+      <div class="action">Добавить в описания лотов: 24/7, мгновенн, 24/7. Формулировать как факт, например «автовыдача 24/7», «гарантия и замена ключа».</div>
+      <div class="ev">эти слова встречаются у 71 лотов конкурентов сверху, но отсутствуют во всех ваших описаниях в категории</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R7</span>
+        Не покрыты модели, которые продают лидеры
+      </div>
+      <div class="action">Добавить лоты по этим моделям: DeepSeek V4 Pro (71 лотов), DeepSeek V4.1 (8 лотов), Claude (7 лотов)</div>
+      <div class="ev">модели встречаются у конкурентов сверху, у вас их нет ни в одном лоте</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R3</span>
+        Большие разрывы между паками
+      </div>
+      <div class="action">Добавить промежуточный пак, чтобы покупатель не прыгал сразу через порядок объёма.</div>
+      <div class="ev">10M → 100M (в 10 раз)</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 0.003–0.01 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 0.003–0.01 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 3 лотов при среднем 1845.7 отзывов на лот у их продавцов против 824.7 в среднем по категории</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 30–100 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 30–100 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 3 лотов при среднем 1433.0 отзывов на лот у их продавцов против 824.7 в среднем по категории</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R9</span>
+        Сверхдешёвые лоты-якоря: 2 шт.
+      </div>
+      <div class="action">Оставить один пробник для входа, а остальные дешёвые лоты объединить или поднять: обилие цен в 5–15 ₽ снижает средний чек.</div>
+      <div class="ev">цены: 15.00 ₽, 5.09 ₽</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Подписка</b> <span class="muted">· ChatGPT</span>      — 1453 лотов, 184 продавцов
+· задач: 1<span class="badge no">вас нет</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">1453 / 184</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">2 581 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">1 725 ₽ – 12 999 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">—</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">0 из 1453</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">0%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">94%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.0%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="muted">Объём токенов не распознан ни в одном лоте категории.</div>
+      </div>
+    </div>
+
+
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2091316/">Killerok1</a></td>
+        <td class="num-col">75.0</td>
+        <td class="num-col">210440</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">782 ₽ – 55 025 ₽</td>
+        <td class="small">ChatGPT</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5657573/">Mondaymorning7</a></td>
+        <td class="num-col">73.5</td>
+        <td class="num-col">134169</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">14</td>
+        <td class="nowrap small">410 ₽ – 53 531 ₽</td>
+        <td class="small">ChatGPT</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/241092/">Fludy</a></td>
+        <td class="num-col">73.1</td>
+        <td class="num-col">117212</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">5</td>
+        <td class="nowrap small">663 ₽ – 18 624 ₽</td>
+        <td class="small">ChatGPT, GPT-6</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1804150/">Roymi</a></td>
+        <td class="num-col">72.5</td>
+        <td class="num-col">98045</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">8</td>
+        <td class="nowrap small">981 ₽ – 59 872 ₽</td>
+        <td class="small">ChatGPT, GPT-5</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/924503/">pokupatel21</a></td>
+        <td class="num-col">72.0</td>
+        <td class="num-col">83946</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">8</td>
+        <td class="nowrap small">410 ₽ – 1 743 ₽</td>
+        <td class="small">ChatGPT, GPT-6</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6027038/">dadaenq</a></td>
+        <td class="num-col">71.4</td>
+        <td class="num-col">69758</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">454 ₽ – 1 852 ₽</td>
+        <td class="small">ChatGPT</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2591951/">OtetsVitaliySvyatoy</a></td>
+        <td class="num-col">70.3</td>
+        <td class="num-col">49445</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">12</td>
+        <td class="nowrap small">723 ₽ – 14 452 ₽</td>
+        <td class="small">ChatGPT, GPT-6, GPT-5</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/713412/">Kebabich</a></td>
+        <td class="num-col">70.2</td>
+        <td class="num-col">48424</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">2 477 ₽ – 24 775 ₽</td>
+        <td class="small">ChatGPT</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2123742/">HelloKitty00</a></td>
+        <td class="num-col">70.1</td>
+        <td class="num-col">46597</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">10</td>
+        <td class="nowrap small">567 ₽ – 13 749 ₽</td>
+        <td class="small">ChatGPT</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3194633/">RusyaSmile</a></td>
+        <td class="num-col">69.8</td>
+        <td class="num-col">42367</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">7</td>
+        <td class="nowrap small">750 ₽ – 54 073 ₽</td>
+        <td class="small">ChatGPT, GPT-5</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">ChatGPT · 1214</span> <span class="badge rule">GPT-6 · 361</span> <span class="badge rule">GPT-5 · 204</span> <span class="badge rule">Codex · 152</span> <span class="badge rule">GPT-4 · 16</span> <span class="badge rule">Sora · 13</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R12</span>
+        Вас нет в категории, где идёт торговля
+      </div>
+      <div class="action">Проверить запуск лотов здесь: медиана цены 2 581 ₽, цена за 1M токенов около —.</div>
+      <div class="ev">1453 лотов от 184 продавцов, суммарно 24360062 отзывов</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Подписка</b> <span class="muted">· Claude</span>      — 252 лотов, 64 продавцов
+· задач: 1<span class="badge no">вас нет</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">252 / 64</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">17 566 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">9 157 ₽ – 29 134 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">—</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">0 из 252</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">2%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">93%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.4%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="muted">Объём токенов не распознан ни в одном лоте категории.</div>
+      </div>
+    </div>
+
+
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/11962916/">Qbk666</a></td>
+        <td class="num-col">74.6</td>
+        <td class="num-col">6334</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">15 264 ₽ – 15 264 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1679347/">vadhf</a></td>
+        <td class="num-col">74.2</td>
+        <td class="num-col">5694</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">3 898 ₽ – 3 898 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1804150/">Roymi</a></td>
+        <td class="num-col">72.5</td>
+        <td class="num-col">98045</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">14 084 ₽ – 301 808 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2091316/">Killerok1</a></td>
+        <td class="num-col">71.0</td>
+        <td class="num-col">210440</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">3 230 ₽ – 24 371 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/487106/">DIma28102</a></td>
+        <td class="num-col">70.4</td>
+        <td class="num-col">51967</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">3</td>
+        <td class="nowrap small">2 970 ₽ – 286 473 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6215714/">Valerian96</a></td>
+        <td class="num-col">68.7</td>
+        <td class="num-col">30225</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">2</td>
+        <td class="nowrap small">15 090 ₽ – 29 175 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/908028/">Mordekaiser</a></td>
+        <td class="num-col">68.3</td>
+        <td class="num-col">26679</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">2</td>
+        <td class="nowrap small">15 090 ₽ – 29 175 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5351742/">bleKlok</a></td>
+        <td class="num-col">67.9</td>
+        <td class="num-col">23892</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">2</td>
+        <td class="nowrap small">13 581 ₽ – 26 660 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1175505/">Vadim223444</a></td>
+        <td class="num-col">67.2</td>
+        <td class="num-col">19408</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">3</td>
+        <td class="nowrap small">4 099 ₽ – 40 988 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/4890938/">DarkSideStore</a></td>
+        <td class="num-col">66.8</td>
+        <td class="num-col">16914</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">3</td>
+        <td class="nowrap small">12 676 ₽ – 24 346 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">Claude · 219</span> <span class="badge rule">Claude Opus · 2</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R12</span>
+        Вас нет в категории, где идёт торговля
+      </div>
+      <div class="action">Проверить запуск лотов здесь: медиана цены 17 566 ₽, цена за 1M токенов около —.</div>
+      <div class="ev">252 лотов от 64 продавцов, суммарно 4139560 отзывов</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Пополнение баланса API</b> <span class="muted">· DeepSeek</span>      — 793 лотов, 128 продавцов
+· задач: 2<span class="badge no">вас нет</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">793 / 128</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">1 556 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">284 ₽ – 4 000 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">4.13</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">224 из 793</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">0%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">94%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.0%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">9</div>
+            <div class="bar " style="height: 16.4%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">43</div>
+            <div class="bar " style="height: 78.2%"></div>
+            <div class="bar-lbl">0.3–1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">54</div>
+            <div class="bar " style="height: 98.2%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">30</div>
+            <div class="bar " style="height: 54.5%"></div>
+            <div class="bar-lbl">3–10</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">55</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">10–30</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">33</div>
+            <div class="bar opp" style="height: 60.0%"></div>
+            <div class="bar-lbl">30–100</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+
+    <h3>Свободные зоны</h3>
+    <table>
+      <tr><th>Диапазон ₽/1M</th><th class="num-col">Лотов</th><th class="num-col">Отзывов на лот</th></tr>
+      <tr><td>30–100</td><td class="num-col">33</td><td class="num-col">1603.0</td></tr>
+    </table>
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1804150/">Roymi</a></td>
+        <td class="num-col">75.0</td>
+        <td class="num-col">98045</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">136 ₽ – 136 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/924503/">pokupatel21</a></td>
+        <td class="num-col">74.5</td>
+        <td class="num-col">83946</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">116 ₽ – 116 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2591951/">OtetsVitaliySvyatoy</a></td>
+        <td class="num-col">72.6</td>
+        <td class="num-col">49445</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">6</td>
+        <td class="nowrap small">171 ₽ – 3 207 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/7270081/">Acclair</a></td>
+        <td class="num-col">72.5</td>
+        <td class="num-col">47890</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">19</td>
+        <td class="nowrap small">161 ₽ – 59 008 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/8503986/">dirtywest</a></td>
+        <td class="num-col">71.5</td>
+        <td class="num-col">35450</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">376 ₽ – 376 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2130085/">StarGrace</a></td>
+        <td class="num-col">71.0</td>
+        <td class="num-col">31048</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">135 ₽ – 135 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1662603/">GoldBroPro</a></td>
+        <td class="num-col">70.1</td>
+        <td class="num-col">23756</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">1 372 ₽ – 1 372 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/7291344/">annstasia</a></td>
+        <td class="num-col">69.9</td>
+        <td class="num-col">22761</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">136 ₽ – 136 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2378310/">Karakasartas</a></td>
+        <td class="num-col">68.7</td>
+        <td class="num-col">16237</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">125 ₽ – 125 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/8580313/">K0piIka</a></td>
+        <td class="num-col">68.7</td>
+        <td class="num-col">15902</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">6</td>
+        <td class="nowrap small">171 ₽ – 3 207 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">DeepSeek · 614</span> <span class="badge rule">DeepSeek V4 Pro · 99</span> <span class="badge rule">DeepSeek V4.1 · 96</span> <span class="badge rule">DeepSeek V4 Flash · 96</span> <span class="badge rule">Gemini · 37</span> <span class="badge rule">GPT-6 · 27</span> <span class="badge rule">Claude · 21</span> <span class="badge rule">Kimi · 17</span> <span class="badge rule">Qwen · 13</span> <span class="badge rule">Claude Opus · 10</span> <span class="badge rule">GLM · 10</span> <span class="badge rule">Grok · 9</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R12</span>
+        Вас нет в категории, где идёт торговля
+      </div>
+      <div class="action">Проверить запуск лотов здесь: медиана цены 1 556 ₽, цена за 1M токенов около 4.13 ₽/1M.</div>
+      <div class="ev">793 лотов от 128 продавцов, суммарно 2896950 отзывов</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 30–100 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 30–100 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 33 лотов при среднем 1603.0 отзывов на лот у их продавцов против 835.6 в среднем по категории</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Токены</b> <span class="muted">· ChatGPT</span>      — 2000 лотов, 176 продавцов
+· задач: 3<span class="badge no">вас нет</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">2000 / 176</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">293 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">40.97 ₽ – 1 522 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">2.69</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">1501 из 2000</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">50%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">97%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.1%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">48</div>
+            <div class="bar " style="height: 8.7%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">345</div>
+            <div class="bar " style="height: 62.6%"></div>
+            <div class="bar-lbl">0.3–1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">446</div>
+            <div class="bar " style="height: 80.9%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">551</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">3–10</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">96</div>
+            <div class="bar opp" style="height: 17.4%"></div>
+            <div class="bar-lbl">10–30</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">15</div>
+            <div class="bar opp" style="height: 2.7%"></div>
+            <div class="bar-lbl">30–100</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+
+    <h3>Свободные зоны</h3>
+    <table>
+      <tr><th>Диапазон ₽/1M</th><th class="num-col">Лотов</th><th class="num-col">Отзывов на лот</th></tr>
+      <tr><td>10–30</td><td class="num-col">96</td><td class="num-col">1714.2</td></tr>
+      <tr><td>30–100</td><td class="num-col">15</td><td class="num-col">1160.9</td></tr>
+    </table>
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2622063/">HamuraXGod</a></td>
+        <td class="num-col">81.7</td>
+        <td class="num-col">5422</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">10</td>
+        <td class="nowrap small">4.68 ₽ – 46.84 ₽</td>
+        <td class="small">GPT-6, ChatGPT, Cursor, Codex</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/9732482/">brawlbuy312</a></td>
+        <td class="num-col">81.0</td>
+        <td class="num-col">4461</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">5</td>
+        <td class="nowrap small">316 ₽ – 4 995 ₽</td>
+        <td class="small">GPT-6, Codex</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15632176/">dreamFN</a></td>
+        <td class="num-col">80.3</td>
+        <td class="num-col">3757</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">29</td>
+        <td class="nowrap small">3.23 ₽ – 6 464 ₽</td>
+        <td class="small">GPT-6, GPT-5, Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5212996/">Semeeg</a></td>
+        <td class="num-col">79.4</td>
+        <td class="num-col">2912</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">30</td>
+        <td class="nowrap small">1.51 ₽ – 25 178 ₽</td>
+        <td class="small">GPT-6, Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/730238/">Jopsik</a></td>
+        <td class="num-col">78.8</td>
+        <td class="num-col">2509</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">9</td>
+        <td class="nowrap small">105 ₽ – 1 757 ₽</td>
+        <td class="small">Codex</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/4430731/">Lakioil</a></td>
+        <td class="num-col">78.6</td>
+        <td class="num-col">2364</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">21</td>
+        <td class="nowrap small">100 ₽ – 292 800 ₽</td>
+        <td class="small">ChatGPT</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/7696082/">JongoFTK</a></td>
+        <td class="num-col">78.5</td>
+        <td class="num-col">2304</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">6</td>
+        <td class="nowrap small">117 ₽ – 1 171 ₽</td>
+        <td class="small">DeepSeek, Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3584934/">TRIKLZ27</a></td>
+        <td class="num-col">76.8</td>
+        <td class="num-col">4229</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">14</td>
+        <td class="nowrap small">4.11 ₽ – 19 598 ₽</td>
+        <td class="small">GPT-6</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15857327/">theblesswield</a></td>
+        <td class="num-col">76.6</td>
+        <td class="num-col">4030</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">30</td>
+        <td class="nowrap small">1.17 ₽ – 25 500 ₽</td>
+        <td class="small">GPT-6, Codex</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3735475/">RabotyagaPirata</a></td>
+        <td class="num-col">76.6</td>
+        <td class="num-col">1372</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">30</td>
+        <td class="nowrap small">200 ₽ – 83 000 ₽</td>
+        <td class="small">ChatGPT, Codex</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">GPT-6 · 1104</span> <span class="badge rule">Codex · 631</span> <span class="badge rule">ChatGPT · 392</span> <span class="badge rule">Claude Opus · 345</span> <span class="badge rule">Claude · 307</span> <span class="badge rule">Gemini · 134</span> <span class="badge rule">GPT-5 · 102</span> <span class="badge rule">DeepSeek · 83</span> <span class="badge rule">Grok · 49</span> <span class="badge rule">Cursor · 42</span> <span class="badge rule">DeepSeek V4 · 37</span> <span class="badge rule">GLM · 35</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R12</span>
+        Вас нет в категории, где идёт торговля
+      </div>
+      <div class="action">Проверить запуск лотов здесь: медиана цены 293 ₽, цена за 1M токенов около 2.69 ₽/1M.</div>
+      <div class="ev">2000 лотов от 176 продавцов, суммарно 2585321 отзывов</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 10–30 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 10–30 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 96 лотов при среднем 1714.2 отзывов на лот у их продавцов против 1111.6 в среднем по категории</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 30–100 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 30–100 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 15 лотов при среднем 1160.9 отзывов на лот у их продавцов против 1111.6 в среднем по категории</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Токены</b> <span class="muted">· Claude</span>      — 2000 лотов, 193 продавцов
+· задач: 3<span class="badge no">вас нет</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">2000 / 193</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">232 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">33.73 ₽ – 1 305 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">2.18</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">2000 из 2000</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">51%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">97%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.1%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">397</div>
+            <div class="bar " style="height: 58.8%"></div>
+            <div class="bar-lbl"><0.001</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">1</div>
+            <div class="bar " style="height: 0.1%"></div>
+            <div class="bar-lbl">0.003–0.01</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">1</div>
+            <div class="bar " style="height: 0.1%"></div>
+            <div class="bar-lbl">0.01–0.03</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">3</div>
+            <div class="bar opp" style="height: 0.4%"></div>
+            <div class="bar-lbl">0.03–0.1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">62</div>
+            <div class="bar " style="height: 9.2%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">262</div>
+            <div class="bar " style="height: 38.8%"></div>
+            <div class="bar-lbl">0.3–1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">374</div>
+            <div class="bar " style="height: 55.4%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">675</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">3–10</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">152</div>
+            <div class="bar opp" style="height: 22.5%"></div>
+            <div class="bar-lbl">10–30</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">28</div>
+            <div class="bar " style="height: 4.1%"></div>
+            <div class="bar-lbl">30–100</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">9</div>
+            <div class="bar " style="height: 1.3%"></div>
+            <div class="bar-lbl">100–300</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">14</div>
+            <div class="bar " style="height: 2.1%"></div>
+            <div class="bar-lbl">300–1 000</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">22</div>
+            <div class="bar " style="height: 3.3%"></div>
+            <div class="bar-lbl">>1 000</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+
+    <h3>Свободные зоны</h3>
+    <table>
+      <tr><th>Диапазон ₽/1M</th><th class="num-col">Лотов</th><th class="num-col">Отзывов на лот</th></tr>
+      <tr><td>0.03–0.1</td><td class="num-col">3</td><td class="num-col">1902.3</td></tr>
+      <tr><td>10–30</td><td class="num-col">152</td><td class="num-col">1104.2</td></tr>
+    </table>
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6083771/">StasikD</a></td>
+        <td class="num-col">90.0</td>
+        <td class="num-col">9231</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">22</td>
+        <td class="nowrap small">1.17 ₽ – 14 204 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2622063/">HamuraXGod</a></td>
+        <td class="num-col">87.7</td>
+        <td class="num-col">5422</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">10</td>
+        <td class="nowrap small">4.68 ₽ – 46.84 ₽</td>
+        <td class="small">Claude, Cursor</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/9732482/">brawlbuy312</a></td>
+        <td class="num-col">86.8</td>
+        <td class="num-col">4461</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">9</td>
+        <td class="nowrap small">316 ₽ – 4 995 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3937075/">Kubansss</a></td>
+        <td class="num-col">86.5</td>
+        <td class="num-col">4183</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">176 ₽ – 697 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15632176/">dreamFN</a></td>
+        <td class="num-col">86.1</td>
+        <td class="num-col">3757</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">30</td>
+        <td class="nowrap small">3.23 ₽ – 6 464 ₽</td>
+        <td class="small">GPT-6, GPT-5, Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/13658661/">MelodiaShop</a></td>
+        <td class="num-col">85.6</td>
+        <td class="num-col">8375</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">2.34 ₽ – 2.34 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5212996/">Semeeg</a></td>
+        <td class="num-col">84.9</td>
+        <td class="num-col">2912</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">30</td>
+        <td class="nowrap small">3.13 ₽ – 26 115 ₽</td>
+        <td class="small">GPT-6, Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/17797007/">WertyNew</a></td>
+        <td class="num-col">83.3</td>
+        <td class="num-col">1999</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">5</td>
+        <td class="nowrap small">12.88 ₽ – 299 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/351918/">Rekfin21a</a></td>
+        <td class="num-col">82.8</td>
+        <td class="num-col">1797</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">2</td>
+        <td class="nowrap small">164 ₽ – 316 ₽</td>
+        <td class="small">GPT-6, GPT-5, Claude</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3584934/">TRIKLZ27</a></td>
+        <td class="num-col">82.6</td>
+        <td class="num-col">4229</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">16</td>
+        <td class="nowrap small">4.11 ₽ – 19 657 ₽</td>
+        <td class="small">Claude</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">Claude Opus · 1278</span> <span class="badge rule">Claude Sonnet · 619</span> <span class="badge rule">Claude · 550</span> <span class="badge rule">GPT-6 · 452</span> <span class="badge rule">Gemini · 163</span> <span class="badge rule">Codex · 131</span> <span class="badge rule">Grok · 84</span> <span class="badge rule">ChatGPT · 75</span> <span class="badge rule">DeepSeek · 64</span> <span class="badge rule">GLM · 55</span> <span class="badge rule">Kimi · 52</span> <span class="badge rule">GPT-5 · 51</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R12</span>
+        Вас нет в категории, где идёт торговля
+      </div>
+      <div class="action">Проверить запуск лотов здесь: медиана цены 232 ₽, цена за 1M токенов около 2.18 ₽/1M.</div>
+      <div class="ev">2000 лотов от 193 продавцов, суммарно 1852099 отзывов</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 0.03–0.1 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 0.03–0.1 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 3 лотов при среднем 1902.3 отзывов на лот у их продавцов против 685.1 в среднем по категории</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 10–30 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 10–30 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 152 лотов при среднем 1104.2 отзывов на лот у их продавцов против 685.1 в среднем по категории</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Токены</b> <span class="muted">· Gemini</span>      — 1970 лотов, 175 продавцов
+· задач: 2<span class="badge no">вас нет</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">1970 / 175</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">284 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">51.32 ₽ – 1 526 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">2.78</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">1628 из 1970</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">42%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">91%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.1%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">2</div>
+            <div class="bar " style="height: 0.3%"></div>
+            <div class="bar-lbl">0.003–0.01</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">75</div>
+            <div class="bar " style="height: 12.2%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">312</div>
+            <div class="bar " style="height: 50.8%"></div>
+            <div class="bar-lbl">0.3–1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">467</div>
+            <div class="bar " style="height: 76.1%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">614</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">3–10</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">118</div>
+            <div class="bar opp" style="height: 19.2%"></div>
+            <div class="bar-lbl">10–30</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">34</div>
+            <div class="bar " style="height: 5.5%"></div>
+            <div class="bar-lbl">30–100</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">1</div>
+            <div class="bar " style="height: 0.2%"></div>
+            <div class="bar-lbl">100–300</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">1</div>
+            <div class="bar " style="height: 0.2%"></div>
+            <div class="bar-lbl">300–1 000</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">4</div>
+            <div class="bar " style="height: 0.7%"></div>
+            <div class="bar-lbl">>1 000</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+
+    <h3>Свободные зоны</h3>
+    <table>
+      <tr><th>Диапазон ₽/1M</th><th class="num-col">Лотов</th><th class="num-col">Отзывов на лот</th></tr>
+      <tr><td>10–30</td><td class="num-col">118</td><td class="num-col">596.6</td></tr>
+    </table>
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6083771/">StasikD</a></td>
+        <td class="num-col">88.4</td>
+        <td class="num-col">9231</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">2.83 ₽ – 3 420 ₽</td>
+        <td class="small">Gemini</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15632176/">dreamFN</a></td>
+        <td class="num-col">84.6</td>
+        <td class="num-col">3757</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">1.14 ₽ – 3 650 ₽</td>
+        <td class="small">Gemini</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/13658661/">MelodiaShop</a></td>
+        <td class="num-col">84.0</td>
+        <td class="num-col">8375</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">5</td>
+        <td class="nowrap small">2.28 ₽ – 91.24 ₽</td>
+        <td class="small">Gemini</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5212996/">Semeeg</a></td>
+        <td class="num-col">83.5</td>
+        <td class="num-col">2912</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">1.43 ₽ – 19 047 ₽</td>
+        <td class="small">Gemini</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/4430731/">Lakioil</a></td>
+        <td class="num-col">82.6</td>
+        <td class="num-col">2364</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">100 ₽ – 285 200 ₽</td>
+        <td class="small">Gemini</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15857327/">theblesswield</a></td>
+        <td class="num-col">80.9</td>
+        <td class="num-col">4030</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">3.00 ₽ – 1 760 ₽</td>
+        <td class="small">Gemini</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3427434/">Deadyyyy</a></td>
+        <td class="num-col">80.1</td>
+        <td class="num-col">3314</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">31.11 ₽ – 81 407 ₽</td>
+        <td class="small">Gemini</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/10076343/">Morj666</a></td>
+        <td class="num-col">79.6</td>
+        <td class="num-col">2629</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">11.43 ₽ – 6 877 ₽</td>
+        <td class="small">Claude, Codex</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2317701/">AdamFox</a></td>
+        <td class="num-col">79.6</td>
+        <td class="num-col">1133</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">194 ₽ – 3 878 ₽</td>
+        <td class="small">Gemini</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/18304367/">jimnord1922</a></td>
+        <td class="num-col">78.9</td>
+        <td class="num-col">964</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">9</td>
+        <td class="nowrap small">31.11 ₽ – 705 ₽</td>
+        <td class="small">Gemini</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">Gemini · 1548</span> <span class="badge rule">Claude Opus · 275</span> <span class="badge rule">GPT-6 · 235</span> <span class="badge rule">Claude · 217</span> <span class="badge rule">Grok · 151</span> <span class="badge rule">Codex · 93</span> <span class="badge rule">Cursor · 93</span> <span class="badge rule">GLM · 80</span> <span class="badge rule">Kimi · 79</span> <span class="badge rule">DeepSeek · 78</span> <span class="badge rule">Cline · 48</span> <span class="badge rule">ChatGPT · 21</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R12</span>
+        Вас нет в категории, где идёт торговля
+      </div>
+      <div class="action">Проверить запуск лотов здесь: медиана цены 284 ₽, цена за 1M токенов около 2.78 ₽/1M.</div>
+      <div class="ev">1970 лотов от 175 продавцов, суммарно 1951595 отзывов</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 10–30 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 10–30 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 118 лотов при среднем 596.6 отзывов на лот у их продавцов против 440.8 в среднем по категории</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Токены</b> <span class="muted">· Grok</span>      — 2000 лотов, 152 продавцов
+· задач: 1<span class="badge no">вас нет</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">2000 / 152</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">313 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">48.93 ₽ – 1 904 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">2.28</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">1668 из 2000</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">42%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">94%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.1%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">86</div>
+            <div class="bar " style="height: 14.8%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">379</div>
+            <div class="bar " style="height: 65.2%"></div>
+            <div class="bar-lbl">0.3–1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">447</div>
+            <div class="bar " style="height: 76.9%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">581</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">3–10</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">92</div>
+            <div class="bar " style="height: 15.8%"></div>
+            <div class="bar-lbl">10–30</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">62</div>
+            <div class="bar " style="height: 10.7%"></div>
+            <div class="bar-lbl">30–100</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">21</div>
+            <div class="bar " style="height: 3.6%"></div>
+            <div class="bar-lbl">100–300</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6083771/">StasikD</a></td>
+        <td class="num-col">88.5</td>
+        <td class="num-col">9231</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">4.00 ₽ – 3 300 ₽</td>
+        <td class="small">Grok</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2622063/">HamuraXGod</a></td>
+        <td class="num-col">86.2</td>
+        <td class="num-col">5422</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">10</td>
+        <td class="nowrap small">4.48 ₽ – 44.81 ₽</td>
+        <td class="small">Claude, Gemini, Grok, Cursor</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5212996/">Semeeg</a></td>
+        <td class="num-col">83.6</td>
+        <td class="num-col">2912</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">1.40 ₽ – 18 707 ₽</td>
+        <td class="small">Grok</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6515745/">GameBosss</a></td>
+        <td class="num-col">83.1</td>
+        <td class="num-col">2578</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">11.22 ₽ – 6 754 ₽</td>
+        <td class="small">Claude, Codex</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/4430731/">Lakioil</a></td>
+        <td class="num-col">82.7</td>
+        <td class="num-col">2364</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">100 ₽ – 280 100 ₽</td>
+        <td class="small">Grok</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/11186395/">quasebuyer</a></td>
+        <td class="num-col">81.3</td>
+        <td class="num-col">1676</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">3</td>
+        <td class="nowrap small">300 ₽ – 1 100 ₽</td>
+        <td class="small">Grok</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15857327/">theblesswield</a></td>
+        <td class="num-col">81.0</td>
+        <td class="num-col">4030</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">30</td>
+        <td class="nowrap small">1.12 ₽ – 17 000 ₽</td>
+        <td class="small">Grok</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3427434/">Deadyyyy</a></td>
+        <td class="num-col">80.2</td>
+        <td class="num-col">3314</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">30.00 ₽ – 78 500 ₽</td>
+        <td class="small">Grok</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2317701/">AdamFox</a></td>
+        <td class="num-col">79.6</td>
+        <td class="num-col">1133</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">190 ₽ – 3 809 ₽</td>
+        <td class="small">Grok</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/10076343/">Morj666</a></td>
+        <td class="num-col">79.2</td>
+        <td class="num-col">2629</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">11.22 ₽ – 6 754 ₽</td>
+        <td class="small">Claude, Codex</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">Grok · 1702</span> <span class="badge rule">Claude Opus · 259</span> <span class="badge rule">GPT-6 · 243</span> <span class="badge rule">Codex · 206</span> <span class="badge rule">Claude · 198</span> <span class="badge rule">Gemini · 131</span> <span class="badge rule">DeepSeek · 71</span> <span class="badge rule">Cursor · 70</span> <span class="badge rule">ChatGPT · 55</span> <span class="badge rule">Kimi · 40</span> <span class="badge rule">GLM · 21</span> <span class="badge rule">Cline · 17</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R12</span>
+        Вас нет в категории, где идёт торговля
+      </div>
+      <div class="action">Проверить запуск лотов здесь: медиана цены 313 ₽, цена за 1M токенов около 2.28 ₽/1M.</div>
+      <div class="ev">2000 лотов от 152 продавцов, суммарно 1959264 отзывов</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Токены</b> <span class="muted">· Kimi</span>      — 1395 лотов, 120 продавцов
+· задач: 2<span class="badge no">вас нет</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">1395 / 120</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">418 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">82.48 ₽ – 1 994 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">2.72</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">1080 из 1395</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">38%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">96%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.1%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">39</div>
+            <div class="bar " style="height: 9.3%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">170</div>
+            <div class="bar " style="height: 40.5%"></div>
+            <div class="bar-lbl">0.3–1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">356</div>
+            <div class="bar " style="height: 84.8%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">420</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">3–10</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">55</div>
+            <div class="bar " style="height: 13.1%"></div>
+            <div class="bar-lbl">10–30</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">40</div>
+            <div class="bar opp" style="height: 9.5%"></div>
+            <div class="bar-lbl">30–100</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+
+    <h3>Свободные зоны</h3>
+    <table>
+      <tr><th>Диапазон ₽/1M</th><th class="num-col">Лотов</th><th class="num-col">Отзывов на лот</th></tr>
+      <tr><td>30–100</td><td class="num-col">40</td><td class="num-col">1554.7</td></tr>
+    </table>
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6083771/">StasikD</a></td>
+        <td class="num-col">88.9</td>
+        <td class="num-col">9231</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">2.72 ₽ – 18 600 ₽</td>
+        <td class="small">Kimi</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5212996/">Semeeg</a></td>
+        <td class="num-col">83.5</td>
+        <td class="num-col">2912</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">1.37 ₽ – 16 387 ₽</td>
+        <td class="small">Kimi</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/8970005/">zxcklaverz</a></td>
+        <td class="num-col">82.1</td>
+        <td class="num-col">2061</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">9</td>
+        <td class="nowrap small">300 ₽ – 3 050 ₽</td>
+        <td class="small">Kimi, GLM</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/11186395/">quasebuyer</a></td>
+        <td class="num-col">81.2</td>
+        <td class="num-col">1676</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">3</td>
+        <td class="nowrap small">300 ₽ – 1 100 ₽</td>
+        <td class="small">Kimi</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15857327/">theblesswield</a></td>
+        <td class="num-col">80.9</td>
+        <td class="num-col">4030</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">3.00 ₽ – 2 200 ₽</td>
+        <td class="small">Kimi</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3427434/">Deadyyyy</a></td>
+        <td class="num-col">80.1</td>
+        <td class="num-col">3314</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">30.00 ₽ – 78 500 ₽</td>
+        <td class="small">Kimi</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2317701/">AdamFox</a></td>
+        <td class="num-col">79.6</td>
+        <td class="num-col">1133</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">187 ₽ – 3 739 ₽</td>
+        <td class="small">Kimi</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/18304367/">jimnord1922</a></td>
+        <td class="num-col">78.9</td>
+        <td class="num-col">964</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">9</td>
+        <td class="nowrap small">30.00 ₽ – 680 ₽</td>
+        <td class="small">Kimi</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15107057/">WSkup</a></td>
+        <td class="num-col">78.4</td>
+        <td class="num-col">862</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">18</td>
+        <td class="nowrap small">54.99 ₽ – 5 488 ₽</td>
+        <td class="small">Kimi</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/14965085/">Foruj</a></td>
+        <td class="num-col">77.5</td>
+        <td class="num-col">694</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">10</td>
+        <td class="nowrap small">79.99 ₽ – 2 800 ₽</td>
+        <td class="small">GPT-6, Claude, Gemini, Kimi</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">Kimi · 1255</span> <span class="badge rule">Claude · 167</span> <span class="badge rule">GPT-6 · 123</span> <span class="badge rule">GLM · 122</span> <span class="badge rule">Claude Opus · 114</span> <span class="badge rule">Codex · 111</span> <span class="badge rule">Gemini · 97</span> <span class="badge rule">Cursor · 76</span> <span class="badge rule">DeepSeek · 57</span> <span class="badge rule">Grok · 28</span> <span class="badge rule">Qwen · 24</span> <span class="badge rule">Cline · 19</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R12</span>
+        Вас нет в категории, где идёт торговля
+      </div>
+      <div class="action">Проверить запуск лотов здесь: медиана цены 418 ₽, цена за 1M токенов около 2.72 ₽/1M.</div>
+      <div class="ev">1395 лотов от 120 продавцов, суммарно 1373520 отзывов</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 30–100 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 30–100 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 40 лотов при среднем 1554.7 отзывов на лот у их продавцов против 1038.2 в среднем по категории</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Токены GLM</b> <span class="muted">· GLM</span>      — 1594 лотов, 120 продавцов
+· задач: 8<span class="badge ok">вы есть</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">1594 / 120</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">284 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">46.24 ₽ – 1 509 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">1.43</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">1594 из 1594</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">42%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">94%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.1%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">439</div>
+            <div class="bar " style="height: 99.1%"></div>
+            <div class="bar-lbl"><0.001</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">1</div>
+            <div class="bar " style="height: 0.2%"></div>
+            <div class="bar-lbl">0.001–0.003</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">1</div>
+            <div class="bar opp" style="height: 0.2%"></div>
+            <div class="bar-lbl">0.003–0.01</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">1</div>
+            <div class="bar " style="height: 0.2%"></div>
+            <div class="bar-lbl">0.01–0.03</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">4</div>
+            <div class="bar " style="height: 0.9%"></div>
+            <div class="bar-lbl">0.03–0.1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">61</div>
+            <div class="bar " style="height: 13.8%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">196</div>
+            <div class="bar " style="height: 44.2%"></div>
+            <div class="bar-lbl">0.3–1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">346</div>
+            <div class="bar " style="height: 78.1%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">443</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">3–10</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">85</div>
+            <div class="bar " style="height: 19.2%"></div>
+            <div class="bar-lbl">10–30</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">13</div>
+            <div class="bar " style="height: 2.9%"></div>
+            <div class="bar-lbl">30–100</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">2</div>
+            <div class="bar " style="height: 0.5%"></div>
+            <div class="bar-lbl">100–300</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">2</div>
+            <div class="bar opp" style="height: 0.5%"></div>
+            <div class="bar-lbl">300–1 000</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+    <h3>Ваши лоты против рынка</h3>
+    <table>
+      <tr>
+        <th>Лот</th><th>Объём</th><th class="num-col">Цена</th><th class="num-col">₽/1M</th>
+        <th class="num-col">Медиана аналогов ₽/1M</th><th class="num-col">Отклонение</th>
+        <th class="num-col">Аналогов</th><th>Авто</th>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без VPN • авт…</td>
+        <td class="nowrap">100M</td>
+        <td class="num-col nowrap">15.00 ₽</td>
+        <td class="num-col nowrap">0.1500</td>
+        <td class="num-col nowrap">3.10</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-95%</span>
+        </td>
+        <td class="num-col">110</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • GLM 5.3 API 1B токенов • для агентов • авто, Другое кол…</td>
+        <td class="nowrap">1e+06B</td>
+        <td class="num-col nowrap">150 ₽</td>
+        <td class="num-col nowrap">0.00000</td>
+        <td class="num-col nowrap">0.00000</td>
+        <td class="num-col nowrap">
+<span class="muted">—</span>        </td>
+        <td class="num-col">28</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • GLM 5.3 API 3B токенов • опт • авто, Другое количество,…</td>
+        <td class="nowrap">3e+06B</td>
+        <td class="num-col nowrap">350 ₽</td>
+        <td class="num-col nowrap">0.00000</td>
+        <td class="num-col nowrap">0.00000</td>
+        <td class="num-col nowrap">
+<span class="muted">—</span>        </td>
+        <td class="num-col">26</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • GLM 5.3 API 10B токенов • макс. выгода • авто, Другое к…</td>
+        <td class="nowrap">1e+07B</td>
+        <td class="num-col nowrap">800 ₽</td>
+        <td class="num-col nowrap">0.00000</td>
+        <td class="num-col nowrap">0.00000</td>
+        <td class="num-col nowrap">
+<span class="muted">—</span>        </td>
+        <td class="num-col">8</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+    </table>
+
+    <h3>Свободные зоны</h3>
+    <table>
+      <tr><th>Диапазон ₽/1M</th><th class="num-col">Лотов</th><th class="num-col">Отзывов на лот</th></tr>
+      <tr><td>0.003–0.01</td><td class="num-col">1</td><td class="num-col">5537.0</td></tr>
+      <tr><td>300–1 000</td><td class="num-col">2</td><td class="num-col">24174.5</td></tr>
+    </table>
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/6083771/">StasikD</a></td>
+        <td class="num-col">83.9</td>
+        <td class="num-col">9231</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">21</td>
+        <td class="nowrap small">3.67 ₽ – 3 283 ₽</td>
+        <td class="small">GLM</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2622063/">HamuraXGod</a></td>
+        <td class="num-col">81.9</td>
+        <td class="num-col">5422</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">10</td>
+        <td class="nowrap small">4.64 ₽ – 46.44 ₽</td>
+        <td class="small">Claude, GLM, Cursor</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5212996/">Semeeg</a></td>
+        <td class="num-col">79.6</td>
+        <td class="num-col">2912</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">1.45 ₽ – 19 387 ₽</td>
+        <td class="small">GLM</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15632176/">dreamFN</a></td>
+        <td class="num-col">79.4</td>
+        <td class="num-col">3757</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">92%</td>
+        <td class="num-col">26</td>
+        <td class="nowrap small">3.20 ₽ – 6 408 ₽</td>
+        <td class="small">GLM</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/8970005/">zxcklaverz</a></td>
+        <td class="num-col">78.3</td>
+        <td class="num-col">2061</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">11</td>
+        <td class="nowrap small">4.99 ₽ – 2 700 ₽</td>
+        <td class="small">GLM</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15857327/">theblesswield</a></td>
+        <td class="num-col">76.8</td>
+        <td class="num-col">4030</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">30</td>
+        <td class="nowrap small">1.16 ₽ – 17 000 ₽</td>
+        <td class="small">GLM</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3427434/">Deadyyyy</a></td>
+        <td class="num-col">76.1</td>
+        <td class="num-col">3314</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">30.00 ₽ – 78 500 ₽</td>
+        <td class="small">GLM</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2317701/">AdamFox</a></td>
+        <td class="num-col">76.1</td>
+        <td class="num-col">1133</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">197 ₽ – 3 947 ₽</td>
+        <td class="small">GLM</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15107057/">WSkup</a></td>
+        <td class="num-col">75.1</td>
+        <td class="num-col">862</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">100%</td>
+        <td class="num-col">18</td>
+        <td class="nowrap small">58.04 ₽ – 5 793 ₽</td>
+        <td class="small">GLM</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/7270081/">Acclair</a></td>
+        <td class="num-col">75.0</td>
+        <td class="num-col">47890</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">764 ₽ – 764 ₽</td>
+        <td class="small"></td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">GLM · 1430</span> <span class="badge rule">Claude · 173</span> <span class="badge rule">GPT-6 · 145</span> <span class="badge rule">Claude Opus · 109</span> <span class="badge rule">Kimi · 94</span> <span class="badge rule">Codex · 76</span> <span class="badge rule">Gemini · 73</span> <span class="badge rule">Cursor · 55</span> <span class="badge rule">Grok · 51</span> <span class="badge rule">Cline · 49</span> <span class="badge rule">DeepSeek · 37</span> <span class="badge rule">DeepSeek V4.1 · 28</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R11</span>
+        «Авто» написано в описании, но автовыдача не включена: 4 лотов
+      </div>
+      <div class="action">Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.</div>
+      <div class="ev">в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без…; ⚡ VibeTokens • GLM 5.3 API 1B токенов • для агентов • авто, …; ⚡ VibeTokens • GLM 5.3 API 3B токенов • опт • авто, Другое к…</div>
+    </div>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R5</span>
+        Нет автовыдачи у 4 из 4 лотов
+      </div>
+      <div class="action">Включить автовыдачу на всех лотах категории: покупатель уходит к тому, кто выдаёт сразу, без ожидания ответа продавца.</div>
+      <div class="ev">у конкурентов сверху автовыдача у 98% лотов, у вас — у 0%</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 95%: ⚡ VibeTokens • GLM 5.3 API 100M токенов • Cursor/Cline • без…
+      </div>
+      <div class="action">Есть запас поднять цену до 3.10 ₽/1M за 1M токенов (≈310 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.1500 ₽/1M против медианы 3.10 ₽/1M у 110 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R4</span>
+        В описаниях нет аргументов, которые используют лидеры
+      </div>
+      <div class="action">Добавить в описания лотов: 24/7, мгновенн, 24/7. Формулировать как факт, например «автовыдача 24/7», «гарантия и замена ключа».</div>
+      <div class="ev">эти слова встречаются у 88 лотов конкурентов сверху, но отсутствуют во всех ваших описаниях в категории</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R7</span>
+        Не покрыты модели, которые продают лидеры
+      </div>
+      <div class="action">Добавить лоты по этим моделям: Claude (7 лотов)</div>
+      <div class="ev">модели встречаются у конкурентов сверху, у вас их нет ни в одном лоте</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 0.003–0.01 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 0.003–0.01 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 1 лотов при среднем 5537.0 отзывов на лот у их продавцов против 3081.0 в среднем по категории</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R8</span>
+        Свободная зона 300–1 000 за 1M токенов
+      </div>
+      <div class="action">Проверить лот с ценой в диапазоне 300–1 000 за 1M токенов: предложения мало, а спрос выше среднего.</div>
+      <div class="ev">в зоне 2 лотов при среднем 24174.5 отзывов на лот у их продавцов против 3081.0 в среднем по категории</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R9</span>
+        Сверхдешёвые лоты-якоря: 1 шт.
+      </div>
+      <div class="action">Оставить один пробник для входа, а остальные дешёвые лоты объединить или поднять: обилие цен в 5–15 ₽ снижает средний чек.</div>
+      <div class="ev">цены: 15.00 ₽</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Услуги DeepSeek</b> <span class="muted">· DeepSeek</span>      — 599 лотов, 168 продавцов
+· задач: 4<span class="badge ok">вы есть</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">599 / 168</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">80.48 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">10.03 ₽ – 351 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">1.17</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">46 из 599</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">0%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">81%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.2%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">9</div>
+            <div class="bar " style="height: 45.0%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">17</div>
+            <div class="bar " style="height: 85.0%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">20</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">10–30</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+    <h3>Ваши лоты против рынка</h3>
+    <table>
+      <tr>
+        <th>Лот</th><th>Объём</th><th class="num-col">Цена</th><th class="num-col">₽/1M</th>
+        <th class="num-col">Медиана аналогов ₽/1M</th><th class="num-col">Отклонение</th>
+        <th class="num-col">Аналогов</th><th>Авто</th>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • Безлимит 30 дней • DeepSeek/GLM/MiniMax • 600 зап/день</td>
+        <td class="nowrap">—</td>
+        <td class="num-col nowrap">2 999 ₽</td>
+        <td class="num-col nowrap">—</td>
+        <td class="num-col nowrap">1.17</td>
+        <td class="num-col nowrap">
+<span class="muted">—</span>        </td>
+        <td class="num-col">46</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • Безлимит 7 дней • DeepSeek/GLM/MiniMax • 300 зап/день</td>
+        <td class="nowrap">—</td>
+        <td class="num-col nowrap">1 499 ₽</td>
+        <td class="num-col nowrap">—</td>
+        <td class="num-col nowrap">1.17</td>
+        <td class="num-col nowrap">
+<span class="muted">—</span>        </td>
+        <td class="num-col">46</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>🛠 VibeTokens • Настрою DeepSeek API под Cursor/Cline/Codex + 100M токе…</td>
+        <td class="nowrap">100M</td>
+        <td class="num-col nowrap">199 ₽</td>
+        <td class="num-col nowrap">1.99</td>
+        <td class="num-col nowrap">19.76</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-90%</span>
+        </td>
+        <td class="num-col">5</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+    </table>
+
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2448145/">nutellals</a></td>
+        <td class="num-col">75.0</td>
+        <td class="num-col">12631</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">151 ₽ – 151 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1106292/">sloniksky</a></td>
+        <td class="num-col">73.5</td>
+        <td class="num-col">8857</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">151 ₽ – 151 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/4974776/">shtormkiss</a></td>
+        <td class="num-col">72.3</td>
+        <td class="num-col">6751</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">151 ₽ – 151 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15771856/">Greevel</a></td>
+        <td class="num-col">71.6</td>
+        <td class="num-col">535</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">50.01 ₽ – 50.01 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/7620265/">BasilisksTeam</a></td>
+        <td class="num-col">71.1</td>
+        <td class="num-col">5036</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">151 ₽ – 151 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/16754675/">Unbessix</a></td>
+        <td class="num-col">69.0</td>
+        <td class="num-col">3095</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">20</td>
+        <td class="nowrap small">659 ₽ – 13 175 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2964255/">Pozitv</a></td>
+        <td class="num-col">68.1</td>
+        <td class="num-col">2474</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">14</td>
+        <td class="nowrap small">351 ₽ – 351 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1024574/">Hilal</a></td>
+        <td class="num-col">66.9</td>
+        <td class="num-col">1850</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">2</td>
+        <td class="nowrap small">5.86 ₽ – 130 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/4148868/">vangs</a></td>
+        <td class="num-col">65.5</td>
+        <td class="num-col">3449</td>
+        <td class="num-col">4.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">3</td>
+        <td class="nowrap small">58.55 ₽ – 58.55 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/7507360/">Exc789</a></td>
+        <td class="num-col">64.5</td>
+        <td class="num-col">1066</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">15</td>
+        <td class="nowrap small">1.17 ₽ – 17.57 ₽</td>
+        <td class="small">DeepSeek</td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">DeepSeek · 271</span> <span class="badge rule">Claude · 36</span> <span class="badge rule">DeepSeek V4.1 · 32</span> <span class="badge rule">GLM · 26</span> <span class="badge rule">ChatGPT · 19</span> <span class="badge rule">DeepSeek R1 · 12</span> <span class="badge rule">Gemini · 11</span> <span class="badge rule">Kimi · 9</span> <span class="badge rule">Codex · 7</span> <span class="badge rule">Claude Opus · 6</span> <span class="badge rule">Grok · 6</span> <span class="badge rule">Cursor · 4</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 90%: 🛠 VibeTokens • Настрою DeepSeek API под Cursor/Cline/Codex +…
+      </div>
+      <div class="action">Есть запас поднять цену до 19.76 ₽/1M за 1M токенов (≈1 976 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 1.99 ₽/1M против медианы 19.76 ₽/1M у 5 похожих лотов; аналоги по объёму: 0.6×–1.7× от вашего объёма</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R2</span>
+        Нет прямых аналогов по объёму: ⚡ VibeTokens • Безлимит 30 дней • DeepSeek/GLM/MiniMax • 600…
+      </div>
+      <div class="action">Сравнивать цену не с чем. Это либо ваше преимущество (никто не предлагает такой объём), либо спрос на такой объём не сформирован — проверить по заказам.</div>
+      <div class="ev">объём не определён; сравнение по модели DeepSeek даёт 46 лотов и 1.17 ₽/1M, но объёмы у них другие</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R2</span>
+        Нет прямых аналогов по объёму: ⚡ VibeTokens • Безлимит 7 дней • DeepSeek/GLM/MiniMax • 300 …
+      </div>
+      <div class="action">Сравнивать цену не с чем. Это либо ваше преимущество (никто не предлагает такой объём), либо спрос на такой объём не сформирован — проверить по заказам.</div>
+      <div class="ev">объём не определён; сравнение по модели DeepSeek даёт 46 лотов и 1.17 ₽/1M, но объёмы у них другие</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R6</span>
+        Конкуренты сверху используют промо, вы — нет
+      </div>
+      <div class="action">Протестировать промо на 1–2 самых маржинальных лотах и сравнить поток заказов.</div>
+      <div class="ev">промо у 0.2% лотов категории, в том числе 1 у конкурентов сверху</div>
+    </div>
+
+  </details>
+  <details open>
+    <summary>
+      <b>Услуги Hailuo AI</b> <span class="muted">· Hailuo AI</span>      — 419 лотов, 71 продавцов
+· задач: 7<span class="badge ok">вы есть</span>    </summary>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel">
+        <h3 style="margin-top:0">Рынок</h3>
+        <table>
+          <tr><th>Метрика</th><th class="num-col">Значение</th></tr>
+          <tr><td>Лотов / продавцов</td><td class="num-col">419 / 71</td></tr>
+          <tr><td>Цена лота, медиана</td><td class="num-col">749 ₽</td></tr>
+          <tr><td>Цена лота, p25–p75</td><td class="num-col">50.90 ₽ – 5 500 ₽</td></tr>
+          <tr><td>Цена за 1M токенов, медиана</td><td class="num-col">0.3717</td></tr>
+          <tr><td>Лотов с распознанным объёмом</td><td class="num-col">50 из 419</td></tr>
+          <tr><td>Автовыдача в категории</td><td class="num-col">0%</td></tr>
+          <tr><td>Продавцов онлайн</td><td class="num-col">95%</td></tr>
+          <tr><td>Лотов с промо</td><td class="num-col">0.0%</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin-top:0">Распределение цен за 1M токенов</h3>
+        <div class="bars">
+          <div class="bar-col">
+            <div class="bar-cnt">1</div>
+            <div class="bar " style="height: 5.6%"></div>
+            <div class="bar-lbl">0.03–0.1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">16</div>
+            <div class="bar " style="height: 88.9%"></div>
+            <div class="bar-lbl">0.1–0.3</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">15</div>
+            <div class="bar " style="height: 83.3%"></div>
+            <div class="bar-lbl">0.3–1</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-cnt">18</div>
+            <div class="bar " style="height: 100.0%"></div>
+            <div class="bar-lbl">1–3</div>
+          </div>
+        </div>
+        <div class="small muted">Зелёным — зоны, где спрос выше среднего, а предложения меньше.</div>
+      </div>
+    </div>
+
+    <h3>Ваши лоты против рынка</h3>
+    <table>
+      <tr>
+        <th>Лот</th><th>Объём</th><th class="num-col">Цена</th><th class="num-col">₽/1M</th>
+        <th class="num-col">Медиана аналогов ₽/1M</th><th class="num-col">Отклонение</th>
+        <th class="num-col">Аналогов</th><th>Авто</th>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • MiniMax M2.7 API 10B токенов • макс. выгода • авто</td>
+        <td class="nowrap">10B</td>
+        <td class="num-col nowrap">800 ₽</td>
+        <td class="num-col nowrap">0.0800</td>
+        <td class="num-col nowrap">2.55</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-97%</span>
+        </td>
+        <td class="num-col">8</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекст • авто</td>
+        <td class="nowrap">1B</td>
+        <td class="num-col nowrap">150 ₽</td>
+        <td class="num-col nowrap">0.1500</td>
+        <td class="num-col nowrap">2.50</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-94%</span>
+        </td>
+        <td class="num-col">3</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+      <tr>
+        <td>⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авто</td>
+        <td class="nowrap">100M</td>
+        <td class="num-col nowrap">15.00 ₽</td>
+        <td class="num-col nowrap">0.1500</td>
+        <td class="num-col nowrap">2.60</td>
+        <td class="num-col nowrap">
+<span class="badge ok">-94%</span>
+        </td>
+        <td class="num-col">3</td>
+        <td><span class="badge no">нет</span></td>
+      </tr>
+    </table>
+
+
+    <h3>Конкуренты сверху</h3>
+    <table>
+      <tr>
+        <th>Продавец</th><th class="num-col">Балл</th><th class="num-col">Отзывы</th>
+        <th class="num-col">Рейтинг</th><th>Онлайн</th><th class="num-col">Авто</th>
+        <th class="num-col">Лотов</th><th>Цены</th><th>Модели</th>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/7270081/">Acclair</a></td>
+        <td class="num-col">75.0</td>
+        <td class="num-col">47890</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">1</td>
+        <td class="nowrap small">517 ₽ – 517 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/445652/">Isengardwow</a></td>
+        <td class="num-col">71.7</td>
+        <td class="num-col">19474</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">6</td>
+        <td class="nowrap small">583 ₽ – 31 344 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1858601/">NeSWeaK</a></td>
+        <td class="num-col">71.1</td>
+        <td class="num-col">16639</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">6</td>
+        <td class="nowrap small">648 ₽ – 11 240 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/15237335/">ranger007</a></td>
+        <td class="num-col">70.2</td>
+        <td class="num-col">13227</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">4</td>
+        <td class="nowrap small">660 ₽ – 10 998 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/7373873/">Nigach</a></td>
+        <td class="num-col">68.0</td>
+        <td class="num-col">7173</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">2</td>
+        <td class="nowrap small">1.10 ₽ – 1.10 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/5779752/">NestinYT</a></td>
+        <td class="num-col">67.5</td>
+        <td class="num-col">6312</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">3</td>
+        <td class="nowrap small">3 354 ₽ – 10 448 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/2712226/">OLEHOI</a></td>
+        <td class="num-col">65.9</td>
+        <td class="num-col">4106</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">3</td>
+        <td class="nowrap small">1.10 ₽ – 1.10 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/9161299/">lattn2005</a></td>
+        <td class="num-col">65.7</td>
+        <td class="num-col">3883</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">6</td>
+        <td class="nowrap small">623 ₽ – 10 804 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/1453649/">r1nvv</a></td>
+        <td class="num-col">65.4</td>
+        <td class="num-col">3622</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">6</td>
+        <td class="nowrap small">789 ₽ – 13 684 ₽</td>
+        <td class="small"></td>
+      </tr>
+      <tr>
+        <td><a href="https://funpay.com/users/3682740/">xxannrqqly</a></td>
+        <td class="num-col">64.9</td>
+        <td class="num-col">3125</td>
+        <td class="num-col">5.0</td>
+        <td><span class="badge ok">да</span></td>
+        <td class="num-col">0%</td>
+        <td class="num-col">6</td>
+        <td class="nowrap small">649 ₽ – 11 898 ₽</td>
+        <td class="small"></td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>Какие модели продают в категории</summary>
+      <div class="small muted" style="margin-top:8px">
+<span class="badge rule">MiniMax · 43</span> <span class="badge rule">Claude · 33</span> <span class="badge rule">GPT-6 · 21</span> <span class="badge rule">Gemini · 20</span> <span class="badge rule">Claude Opus · 13</span> <span class="badge rule">ChatGPT · 3</span> <span class="badge rule">Grok · 3</span> <span class="badge rule">Kimi · 3</span> <span class="badge rule">Codex · 2</span> <span class="badge rule">Sora · 1</span>       </div>
+    </details>
+
+    <h3>Рекомендации по категории</h3>
+    <div class="rec p0">
+      <div class="title">
+        <span class="badge p0">P0</span>
+        <span class="badge rule">R11</span>
+        «Авто» написано в описании, но автовыдача не включена: 3 лотов
+      </div>
+      <div class="action">Включить флаг автовыдачи в настройках этих лотов. Пока он выключен, лоты не попадают в фильтр «с автовыдачей», хотя описание обещает моментальную выдачу.</div>
+      <div class="ev">в описаниях есть слово «авто», но у лотов не выставлен признак автовыдачи: ⚡ VibeTokens • MiniMax M2.7 API 10B токенов • макс. выгода •…; ⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекс…; ⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авт…</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 94%: ⚡ VibeTokens • MiniMax M2.7 API 1B токенов • длинный контекс…
+      </div>
+      <div class="action">Есть запас поднять цену до 2.50 ₽/1M за 1M токенов (≈2 500 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.1500 ₽/1M против медианы 2.50 ₽/1M у 3 похожих лотов; аналоги по объёму: 0.2×–5× от вашего объёма; выборка маленькая, стоит перепроверить</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R2</span>
+        Дешевле аналогов на 94%: ⚡ VibeTokens • MiniMax M2.7 API 100M токенов • без VPN • авт…
+      </div>
+      <div class="action">Есть запас поднять цену до 2.60 ₽/1M за 1M токенов (≈260 ₽ за объём) без потери позиции.</div>
+      <div class="ev">лот 0.1500 ₽/1M против медианы 2.60 ₽/1M у 3 похожих лотов; аналоги по объёму: 0.4×–2.5× от вашего объёма; выборка маленькая, стоит перепроверить</div>
+    </div>
+    <div class="rec p1">
+      <div class="title">
+        <span class="badge p1">P1</span>
+        <span class="badge rule">R4</span>
+        В описаниях нет аргументов, которые используют лидеры
+      </div>
+      <div class="action">Добавить в описания лотов: гарант, пополнен, гарантия. Формулировать как факт, например «автовыдача 24/7», «гарантия и замена ключа».</div>
+      <div class="ev">эти слова встречаются у 19 лотов конкурентов сверху, но отсутствуют во всех ваших описаниях в категории</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R2</span>
+        Нет прямых аналогов по объёму: ⚡ VibeTokens • MiniMax M2.7 API 10B токенов • макс. выгода •…
+      </div>
+      <div class="action">Сравнивать цену не с чем. Это либо ваше преимущество (никто не предлагает такой объём), либо спрос на такой объём не сформирован — проверить по заказам.</div>
+      <div class="ev">аналогов вашего объёма на рынке нет; сравнение по модели MiniMax даёт 8 лотов и 2.55 ₽/1M, но объёмы у них другие</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R3</span>
+        Большие разрывы между паками
+      </div>
+      <div class="action">Добавить промежуточный пак, чтобы покупатель не прыгал сразу через порядок объёма.</div>
+      <div class="ev">100M → 1B (в 10 раз); 1B → 10B (в 10 раз)</div>
+    </div>
+    <div class="rec p2">
+      <div class="title">
+        <span class="badge p2">P2</span>
+        <span class="badge rule">R9</span>
+        Сверхдешёвые лоты-якоря: 1 шт.
+      </div>
+      <div class="action">Оставить один пробник для входа, а остальные дешёвые лоты объединить или поднять: обилие цен в 5–15 ₽ снижает средний чек.</div>
+      <div class="ev">цены: 15.00 ₽</div>
+    </div>
+
+  </details>
+
+  <footer>
+    Отчёт построен по публичным страницам FunPay. Разметка сайта может измениться —
+    если числа выглядят странно, сначала проверьте парсер тестами (<code>python -m pytest</code>).
+    Спрос оценивается косвенно, по числу отзывов продавцов: точных данных о продажах FunPay не публикует.
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var REPO = "xyesos6567/funpay-market-analyzer";
+  var WORKFLOW = "analyze.yml";
+  var TOKEN_KEY = "fpa_github_token";
+  var API = "https://api.github.com";
+
+  var btn = document.getElementById("refresh-btn");
+  var status = document.getElementById("refresh-status");
+  var tokenBlock = document.getElementById("token-block");
+  var tokenInput = document.getElementById("token-input");
+  var tokenSave = document.getElementById("token-save");
+  var tokenClear = document.getElementById("token-clear");
+  var tokenCreate = document.getElementById("token-create-link");
+
+  if (!btn) return;
+
+  // Ссылка сразу с нужными правами: меньше шансов выбрать лишнее.
+  tokenCreate.href = "https://github.com/settings/personal-access-tokens/new"
+    + "?name=funpay-report-refresh"
+    + "&description=" + encodeURIComponent("Refresh market report")
+    + "&target_name=" + encodeURIComponent(REPO.split("/")[0])
+    + "&expires_in=90";
+
+  function setStatus(text, kind) {
+    status.textContent = text || "";
+    status.style.color = kind === "err" ? "var(--p0)" : (kind === "ok" ? "var(--ok)" : "");
+  }
+
+  function getToken() {
+    try { return localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; }
+  }
+  function setToken(value) {
+    try {
+      if (value) localStorage.setItem(TOKEN_KEY, value);
+      else localStorage.removeItem(TOKEN_KEY);
+    } catch (e) { /* приватный режим — токен просто не сохранится */ }
+  }
+
+  function api(path, options) {
+    var opts = options || {};
+    opts.headers = Object.assign({
+      "Accept": "application/vnd.github+json",
+      "Authorization": "Bearer " + getToken(),
+      "X-GitHub-Api-Version": "2022-11-28"
+    }, opts.headers || {});
+    return fetch(API + path, opts).then(function (r) {
+      if (r.status === 204) return null;
+      return r.json().then(function (body) {
+        if (!r.ok) {
+          var err = new Error((body && body.message) || ("HTTP " + r.status));
+          err.status = r.status;
+          throw err;
+        }
+        return body;
+      });
+    });
+  }
+
+  function showTokenForm() {
+    tokenBlock.hidden = false;
+    tokenInput.focus();
+  }
+
+  tokenSave.addEventListener("click", function () {
+    var value = tokenInput.value.trim();
+    if (!value) return;
+    setToken(value);
+    tokenInput.value = "";
+    tokenBlock.hidden = true;
+    setStatus("Токен сохранён. Нажмите «Обновить сейчас».", "ok");
+  });
+
+  tokenClear.addEventListener("click", function () {
+    setToken("");
+    tokenInput.value = "";
+    setStatus("Токен удалён из браузера.");
+  });
+
+  function pollRun(startedAt) {
+    var attempt = 0;
+    var maxAttempts = 60; // ~5 минут
+    var timer = setInterval(function () {
+      attempt++;
+      api("/repos/" + REPO + "/actions/runs?event=workflow_dispatch&per_page=5")
+        .then(function (data) {
+          var run = (data.workflow_runs || []).filter(function (r) {
+            return r.created_at && new Date(r.created_at).getTime() >= startedAt - 5000;
+          })[0];
+
+          if (!run) {
+            setStatus("Сбор запускается… " + attempt * 5 + " с");
+            return;
+          }
+          if (run.status === "completed") {
+            clearInterval(timer);
+            if (run.conclusion === "success") {
+              setStatus("Готово. Загружаю свежие данные…", "ok");
+              setTimeout(function () {
+                location.href = location.pathname + "?t=" + Date.now();
+              }, 1200);
+            } else {
+              setStatus("Сбор завершился с ошибкой (" + run.conclusion + "). " +
+                        "Подробности: " + run.html_url, "err");
+              btn.disabled = false;
+              btn.textContent = "↻ Обновить сейчас";
+            }
+            return;
+          }
+          setStatus("Сбор идёт… " + attempt * 5 + " с");
+        })
+        .catch(function (err) {
+          // Неверный токен или нет прав — дальше опрашивать бессмысленно.
+          if (err.status === 401 || err.status === 403 || err.status === 404) {
+            clearInterval(timer);
+            setStatus("GitHub отклонил токен: " + err.message, "err");
+            btn.disabled = false;
+            btn.textContent = "↻ Обновить сейчас";
+            showTokenForm();
+            return;
+          }
+          if (attempt > maxAttempts) {
+            clearInterval(timer);
+            setStatus("Сбор не завершился за 5 минут. Проверьте запуск на GitHub.", "err");
+            btn.disabled = false;
+            btn.textContent = "↻ Обновить сейчас";
+          }
+        });
+    }, 5000);
+  }
+
+  btn.addEventListener("click", function () {
+    if (!getToken()) {
+      setStatus("Сначала сохраните токен GitHub — это делается один раз.");
+      showTokenForm();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Запускаю…";
+    setStatus("Отправляю запрос на сбор…");
+
+    var startedAt = Date.now();
+    api("/repos/" + REPO + "/actions/workflows/" + WORKFLOW + "/dispatches", {
+      method: "POST",
+      body: JSON.stringify({ ref: "main" })
+    })
+      .then(function () {
+        btn.textContent = "Сбор идёт…";
+        setStatus("Запущено. Обычно занимает 1–2 минуты.");
+        pollRun(startedAt);
+      })
+      .catch(function (err) {
+        btn.disabled = false;
+        btn.textContent = "↻ Обновить сейчас";
+        if (err.status === 401) {
+          setStatus("Токен не подошёл. Вставьте действующий.", "err");
+          showTokenForm();
+        } else if (err.status === 403 || err.status === 404) {
+          setStatus("У токена нет права Actions: Read and write на репозиторий " + REPO, "err");
+          showTokenForm();
+        } else {
+          setStatus("Не удалось запустить: " + err.message, "err");
+        }
+      });
+  });
+})();
+</script>
+</body>
+</html>
